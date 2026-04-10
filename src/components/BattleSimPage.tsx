@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Pokemon } from "@/lib/types";
 import { POKEMON, spriteUrl } from "@/lib/pokemon";
 import { pokemonName, useLang } from "@/lib/i18n";
@@ -10,19 +10,26 @@ import {
 } from "@/lib/battleSim";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Swords, Sparkles, AlertTriangle, Trophy } from "lucide-react";
+import { Swords, Sparkles, AlertTriangle, Trophy, X, Pencil } from "lucide-react";
+import { PokemonSearch } from "./PokemonSearch";
 
 const STORAGE_KEY = "pokecounter.myteam.v1";
 
-function loadMyTeam(): Pokemon[] {
+function loadMyTeamIds(): number[] {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (!raw) return [];
-    const ids = JSON.parse(raw) as number[];
-    const monById = new Map(POKEMON.map((p) => [p.id, p]));
-    return ids.map((id) => monById.get(id)).filter((p): p is Pokemon => !!p);
+    return JSON.parse(raw) as number[];
   } catch {
     return [];
+  }
+}
+
+function saveMyTeamIds(ids: number[]) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(ids));
+  } catch {
+    /* noop */
   }
 }
 
@@ -43,12 +50,36 @@ const COUNT_OPTIONS = [10, 30, 50, 100];
 
 export function BattleSimPage() {
   const { lang } = useLang();
-  const myTeam = useMemo(() => loadMyTeam(), []);
+  const monById = useMemo(() => new Map(POKEMON.map((p) => [p.id, p])), []);
+  const [myTeamIds, setMyTeamIds] = useState<number[]>(() => loadMyTeamIds());
+  const [editing, setEditing] = useState(false);
   const [pool, setPool] = useState<Archetype | "mixed">("mixed");
   const [count, setCount] = useState(30);
   const [bringN, setBringN] = useState<3 | 4>(4);
   const [result, setResult] = useState<SimulationResult | null>(null);
   const [running, setRunning] = useState(false);
+
+  const myTeam = useMemo(
+    () => myTeamIds.map((id) => monById.get(id)).filter((p): p is Pokemon => !!p),
+    [myTeamIds, monById],
+  );
+
+  // Persist every change
+  useEffect(() => {
+    saveMyTeamIds(myTeamIds);
+  }, [myTeamIds]);
+
+  function addToTeam(p: Pokemon) {
+    setMyTeamIds((prev) =>
+      prev.length >= 6 || prev.includes(p.id) ? prev : [...prev, p.id],
+    );
+  }
+  function removeFromTeam(id: number) {
+    setMyTeamIds((prev) => prev.filter((x) => x !== id));
+  }
+  function resetTeam() {
+    setMyTeamIds([]);
+  }
 
   function handleRun() {
     if (myTeam.length < 4) return;
@@ -75,7 +106,7 @@ export function BattleSimPage() {
         </p>
       </header>
 
-      {/* Team preview */}
+      {/* Team preview / editor */}
       <section className="mb-8">
         <div className="flex items-baseline gap-3 mb-1">
           <span className="font-pixel text-2xl text-primary tabular-nums">
@@ -87,17 +118,51 @@ export function BattleSimPage() {
           <span className="ml-auto text-[10px] text-muted-foreground font-mono tabular-nums">
             {myTeam.length}/6
           </span>
+          <button
+            type="button"
+            onClick={() => setEditing((e) => !e)}
+            className="font-pixel text-[9px] uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1"
+          >
+            <Pencil className="h-3 w-3" />
+            {editing ? "Done" : "Edit"}
+          </button>
+          {myTeamIds.length > 0 && (
+            <button
+              type="button"
+              onClick={resetTeam}
+              className="font-pixel text-[9px] uppercase tracking-wider text-muted-foreground hover:text-destructive transition-colors"
+              title="Reset team"
+            >
+              ↺
+            </button>
+          )}
         </div>
         <div className="h-[3px] bg-foreground mb-4" />
 
+        {editing && (
+          <div className="mb-3">
+            <PokemonSearch
+              onSelect={addToTeam}
+              excludeIds={myTeamIds}
+              disabled={myTeamIds.length >= 6}
+              placeholder="Add a Pokémon to your team..."
+            />
+          </div>
+        )}
+
         {myTeam.length === 0 ? (
-          <p className="text-xs text-muted-foreground font-mono">
-            No team configured. Go to Home and pick your 6 Pokémon first.
-          </p>
+          <div className="rounded-xl border-2 border-dashed border-border bg-muted/40 p-8 text-center">
+            <p className="text-xs text-muted-foreground font-mono">
+              No team yet. Click <strong>Edit</strong> above to add 6 Pokémon.
+            </p>
+          </div>
         ) : (
           <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
             {myTeam.map((p) => (
-              <div key={p.id} className="flex flex-col items-center">
+              <div
+                key={p.id}
+                className="relative flex flex-col items-center group"
+              >
                 <img
                   src={spriteUrl(p)}
                   alt={p.names.en ?? ""}
@@ -106,8 +171,27 @@ export function BattleSimPage() {
                 <span className="font-pixel text-[8px] uppercase truncate max-w-full">
                   {pokemonName(p, lang)}
                 </span>
+                {editing && (
+                  <button
+                    type="button"
+                    onClick={() => removeFromTeam(p.id)}
+                    className="absolute -top-1 -right-1 h-5 w-5 rounded-full border border-destructive/30 bg-destructive text-destructive-foreground flex items-center justify-center shadow-soft"
+                    aria-label="Remove"
+                  >
+                    <X className="h-3 w-3" />
+                  </button>
+                )}
               </div>
             ))}
+            {editing &&
+              Array.from({ length: 6 - myTeam.length }).map((_, i) => (
+                <div
+                  key={`empty-${i}`}
+                  className="aspect-square rounded-lg border-2 border-dashed border-border bg-muted/40 flex items-center justify-center text-muted-foreground text-xl"
+                >
+                  +
+                </div>
+              ))}
           </div>
         )}
       </section>

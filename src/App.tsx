@@ -9,6 +9,7 @@ import { TypeCoverageGrid } from "@/components/TypeCoverageGrid";
 import { LanguageDropdown } from "@/components/LanguageDropdown";
 import { SavedTeamsPanel } from "@/components/SavedTeamsPanel";
 import { SeasonBanner } from "@/components/SeasonBanner";
+import { SeoFooter } from "@/components/SeoFooter";
 import { BuildSlot } from "@/lib/types";
 
 // Lazy-loaded views — keep moves.json + heavy components out of the initial bundle
@@ -46,8 +47,9 @@ import {
   SavedTeam,
 } from "@/lib/savedTeams";
 import { Button } from "@/components/ui/button";
-import { Share2, Check, Github, Bug, RotateCcw, Swords } from "lucide-react";
+import { Share2, Check, RotateCcw, Swords } from "lucide-react";
 import { useLang } from "@/lib/i18n";
+import { useDocumentTitle } from "@/lib/useDocumentTitle";
 
 const MAX_TEAM = 6;
 const STORAGE_KEY = "pokecounter.myteam.v1";
@@ -143,6 +145,8 @@ export default function App() {
     window.addEventListener("hashchange", onHash);
     return () => window.removeEventListener("hashchange", onHash);
   }, []);
+
+  useDocumentTitle(view);
 
   const goAbout = useCallback(() => {
     window.location.hash = "#/about";
@@ -553,31 +557,7 @@ export default function App() {
       </>
       )}
 
-      <footer className="container pb-10 pt-4 flex flex-col items-center gap-3">
-        <div className="flex items-center gap-2">
-          <a
-            href="https://github.com/EricTron-FR/PokeCounter.app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-card px-3 py-1.5 text-[9px] font-pixel uppercase tracking-wider text-muted-foreground hover:text-foreground hover:border-primary/50 shadow-soft transition-all"
-          >
-            <Github className="h-3 w-3" />
-            {t("viewSource")}
-          </a>
-          <a
-            href="https://github.com/EricTron-FR/PokeCounter.app/issues/new"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-lg border border-destructive/40 bg-destructive/10 px-3 py-1.5 text-[9px] font-pixel uppercase tracking-wider text-destructive hover:bg-destructive/20 transition-colors"
-          >
-            <Bug className="h-3 w-3" />
-            {t("reportBug")}
-          </a>
-        </div>
-        <p className="text-[9px] font-pixel uppercase tracking-wider text-muted-foreground/60">
-          {t("footer")}
-        </p>
-      </footer>
+      <SeoFooter />
     </div>
   );
 }
