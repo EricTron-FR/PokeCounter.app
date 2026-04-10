@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2026 Eric
+Copyright (c) 2026 Eric Tron / PokeCounter Contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -19,3 +19,14 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+------------------------------------------------------------------------------
+
+Pokémon, Pokémon character names, and related properties are trademarks of
+Nintendo / Game Freak / The Pokémon Company. PokeCounter is a fan-made tool
+and is not affiliated with, endorsed, sponsored, or specifically approved by
+any of those entities.
+
+Sprites, localized Pokémon / move / ability names, base stats, movepools and
+ability effect descriptions are all sourced from PokéAPI (https://pokeapi.co/),
+which makes its data freely available under the same permissive license terms.
