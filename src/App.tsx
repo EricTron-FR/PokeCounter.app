@@ -297,13 +297,20 @@ export default function App() {
               </p>
             </div>
           </div>
-          <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap justify-end">
+          <div className="flex items-center gap-1 sm:gap-1.5 flex-wrap justify-end">
+            <NavButton active={view === "home"} onClick={goHome} icon={<HomeIcon className="h-3 w-3" />} label={t("navHome")} />
+            <NavButton active={view === "pokedex"} onClick={goPokedex} icon={<BookOpen className="h-3 w-3" />} label={t("navPokedex")} />
+            <NavButton active={view === "types"} onClick={goTypes} icon={<Grid3x3 className="h-3 w-3" />} label={t("navTypes")} />
+            <NavButton active={view === "compare"} onClick={goCompare} icon={<Scale className="h-3 w-3" />} label={t("navCompare")} />
+            <NavButton active={view === "learn"} onClick={goLearn} icon={<GraduationCap className="h-3 w-3" />} label={t("navLearn")} />
+            <NavButton active={view === "about"} onClick={goAbout} icon={<Info className="h-3 w-3" />} label={t("navAbout")} />
             {view === "home" && (
               <Button
                 variant="outline"
                 size="sm"
                 onClick={shareUrl}
                 disabled={opponentIds.length === 0}
+                className="hidden sm:inline-flex"
               >
                 {copied ? (
                   <>
@@ -314,42 +321,6 @@ export default function App() {
                     <Share2 className="h-3 w-3" /> {t("share")}
                   </>
                 )}
-              </Button>
-            )}
-            {view !== "home" && (
-              <Button variant="outline" size="sm" onClick={goHome}>
-                <HomeIcon className="h-3 w-3" />
-                <span className="hidden sm:inline">{t("navHome")}</span>
-              </Button>
-            )}
-            {view !== "pokedex" && (
-              <Button variant="outline" size="sm" onClick={goPokedex}>
-                <BookOpen className="h-3 w-3" />
-                <span className="hidden sm:inline">{t("navPokedex")}</span>
-              </Button>
-            )}
-            {view !== "types" && (
-              <Button variant="outline" size="sm" onClick={goTypes}>
-                <Grid3x3 className="h-3 w-3" />
-                <span className="hidden md:inline">Types</span>
-              </Button>
-            )}
-            {view !== "compare" && (
-              <Button variant="outline" size="sm" onClick={goCompare}>
-                <Scale className="h-3 w-3" />
-                <span className="hidden md:inline">{t("navCompare")}</span>
-              </Button>
-            )}
-            {view !== "learn" && (
-              <Button variant="outline" size="sm" onClick={goLearn}>
-                <GraduationCap className="h-3 w-3" />
-                <span className="hidden md:inline">Learn</span>
-              </Button>
-            )}
-            {view !== "about" && (
-              <Button variant="outline" size="sm" onClick={goAbout}>
-                <Info className="h-3 w-3" />
-                <span className="hidden lg:inline">{t("navAbout")}</span>
               </Button>
             )}
             <LanguageDropdown />
@@ -592,5 +563,33 @@ function LazyFallback() {
     <div className="container py-12 text-center">
       <div className="inline-block h-6 w-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
     </div>
+  );
+}
+
+function NavButton({
+  active,
+  onClick,
+  icon,
+  label,
+}: {
+  active: boolean;
+  onClick: () => void;
+  icon: React.ReactNode;
+  label: string;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      aria-current={active ? "page" : undefined}
+      className={
+        active
+          ? "inline-flex items-center gap-1.5 h-9 px-2 sm:px-3 rounded-sm border-2 border-primary bg-primary/20 text-primary font-pixel text-[10px] uppercase tracking-wider text-shadow-pixel"
+          : "inline-flex items-center gap-1.5 h-9 px-2 sm:px-3 rounded-sm border-2 border-border bg-card/60 hover:bg-accent/20 text-muted-foreground hover:text-foreground font-pixel text-[10px] uppercase tracking-wider transition-colors"
+      }
+    >
+      {icon}
+      <span className="hidden md:inline">{label}</span>
+    </button>
   );
 }

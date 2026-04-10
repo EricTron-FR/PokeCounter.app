@@ -125,6 +125,8 @@ type Dict = {
   navHome: string;
   navAbout: string;
   navPokedex: string;
+  navTypes: string;
+  navLearn: string;
   pokedexTitle: string;
   pokedexCount: string;
   filterAll: string;
@@ -243,6 +245,8 @@ const DICT: { en: Dict } & { [K in Exclude<Lang, "en">]: Partial<Dict> } = {
     navHome: "Home",
     navAbout: "About",
     navPokedex: "Pokédex",
+    navTypes: "Types",
+    navLearn: "Learn",
     pokedexTitle: "Pokédex",
     pokedexCount: "{n} Pokémon",
     filterAll: "All",
@@ -363,6 +367,8 @@ const DICT: { en: Dict } & { [K in Exclude<Lang, "en">]: Partial<Dict> } = {
     navHome: "Accueil",
     navAbout: "À propos",
     navPokedex: "Pokédex",
+    navTypes: "Types",
+    navLearn: "Apprendre",
     pokedexTitle: "Pokédex",
     pokedexCount: "{n} Pokémon",
     filterAll: "Tous",
@@ -483,6 +489,8 @@ const DICT: { en: Dict } & { [K in Exclude<Lang, "en">]: Partial<Dict> } = {
     navHome: "Inicio",
     navAbout: "Acerca de",
     navPokedex: "Pokédex",
+    navTypes: "Tipos",
+    navLearn: "Aprender",
     pokedexTitle: "Pokédex",
     pokedexCount: "{n} Pokémon",
     filterAll: "Todos",
@@ -604,6 +612,8 @@ const DICT: { en: Dict } & { [K in Exclude<Lang, "en">]: Partial<Dict> } = {
     navHome: "Startseite",
     navAbout: "Über uns",
     navPokedex: "Pokédex",
+    navTypes: "Typen",
+    navLearn: "Lernen",
     pokedexTitle: "Pokédex",
     pokedexCount: "{n} Pokémon",
     filterAll: "Alle",
@@ -725,6 +735,8 @@ const DICT: { en: Dict } & { [K in Exclude<Lang, "en">]: Partial<Dict> } = {
     navHome: "Home",
     navAbout: "Chi siamo",
     navPokedex: "Pokédex",
+    navTypes: "Tipi",
+    navLearn: "Impara",
     pokedexTitle: "Pokédex",
     pokedexCount: "{n} Pokémon",
     filterAll: "Tutti",
@@ -846,6 +858,8 @@ const DICT: { en: Dict } & { [K in Exclude<Lang, "en">]: Partial<Dict> } = {
     navHome: "ホーム",
     navAbout: "概要",
     navPokedex: "図鑑",
+    navTypes: "タイプ",
+    navLearn: "学ぶ",
     pokedexTitle: "ポケモン図鑑",
     pokedexCount: "{n}匹",
     filterAll: "すべて",
@@ -967,6 +981,8 @@ const DICT: { en: Dict } & { [K in Exclude<Lang, "en">]: Partial<Dict> } = {
     navHome: "홈",
     navAbout: "소개",
     navPokedex: "도감",
+    navTypes: "타입",
+    navLearn: "배우기",
     pokedexTitle: "포켓몬 도감",
     pokedexCount: "{n}마리",
     filterAll: "전체",
@@ -1087,6 +1103,8 @@ const DICT: { en: Dict } & { [K in Exclude<Lang, "en">]: Partial<Dict> } = {
     navHome: "首页",
     navAbout: "关于",
     navPokedex: "图鉴",
+    navTypes: "属性",
+    navLearn: "学习",
     pokedexTitle: "宝可梦图鉴",
     pokedexCount: "{n}只宝可梦",
     filterAll: "全部",
@@ -1207,6 +1225,8 @@ const DICT: { en: Dict } & { [K in Exclude<Lang, "en">]: Partial<Dict> } = {
     navHome: "首頁",
     navAbout: "關於",
     navPokedex: "圖鑑",
+    navTypes: "屬性",
+    navLearn: "學習",
     pokedexTitle: "寶可夢圖鑑",
     pokedexCount: "{n}隻寶可夢",
     filterAll: "全部",

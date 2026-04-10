@@ -11,6 +11,7 @@ import {
   Swords,
   Clock,
   Layers,
+  Star,
 } from "lucide-react";
 
 interface Section {
@@ -350,6 +351,161 @@ const SECTIONS: Section[] = [
     },
   },
   {
+    id: "key-moves",
+    icon: <Star className="h-4 w-4" />,
+    title: { en: "30 key moves explained", fr: "30 attaques clés expliquées" },
+    body: {
+      en: (
+        <div className="space-y-3">
+          <MoveGroup
+            title="🛡️ Protection & anticipation"
+            moves={[
+              { name: "Protect", body: "Doubles staple. Shield one mon while the partner kills a threat, or scout the opponent's set without taking damage." },
+              { name: "Fake Out", body: "Priority flinch. Crucial to prevent an opponent from setting Trick Room or Tailwind on turn 1." },
+              { name: "Wide Guard", body: "Unlike Protect, it can be used multiple times in a row. Vital against Rock Slide / Heat Wave spam." },
+              { name: "Quick Guard", body: "Protects your side from all priority moves (Fake Out, ExtremeSpeed…). Less common but can save fragile setups." },
+              { name: "Detect", body: "Same effect as Protect, but less common, which lets it bypass Cursed Body and similar gimmicks." },
+            ]}
+          />
+          <MoveGroup
+            title="🌤️ Terrain control"
+            moves={[
+              { name: "Sunny Day", body: "Mandatory on sun teams. Enables Chlorophyll (2× Speed) and lets Solar Beam fire in one turn." },
+              { name: "Rain Dance", body: "Boosts Water moves and makes Hurricane and Thunder 100 % accurate." },
+              { name: "Trick Room", body: "Inverts turn order for 5 turns — slow heavy hitters (Torkoal, Ursaring…) move first." },
+              { name: "Aurora Veil", body: "Best protection in the game, combines Reflect + Light Screen, but requires active snow." },
+            ]}
+          />
+          <MoveGroup
+            title="🔄 Pivoting & momentum"
+            moves={[
+              { name: "Parting Shot", body: "Weakens the opponent and safely pivots out — you see their move before choosing yours." },
+              { name: "U-turn", body: "Keeps momentum. If opponent switches, you attack then pivot to keep the type advantage." },
+              { name: "Volt Switch", body: "Like U-turn, but fails vs Ground types (no switch out, stuck on field)." },
+            ]}
+          />
+          <MoveGroup
+            title="💥 High-risk offense"
+            moves={[
+              { name: "Flare Blitz", body: "Devastating physical Fire move. Recoil hurts but often the only way to secure a clean KO." },
+              { name: "Wave Crash", body: "Water equivalent of Flare Blitz. Under rain, KOs almost anything that doesn't resist." },
+              { name: "Double-Edge", body: "Strong Normal physical. Often paired with boosting abilities on Mega Feraligatr-style sweepers." },
+            ]}
+          />
+          <MoveGroup
+            title="🎯 Targeting & item removal"
+            moves={[
+              { name: "Rage Powder", body: "Forces opponents to attack the user (bulky redirector like Amoonguss), freeing the partner to set up." },
+              { name: "Follow Me", body: "Same role as Rage Powder, but not blocked by Grass types or Safety Goggles." },
+              { name: "Knock Off", body: "Big damage AND removes the item (Berry, Life Orb, Eviolite). Can wreck an entire set." },
+              { name: "Taunt", body: "Ultimate anti-support tool. Forces attacks, blocks heals / walls / Trick Room." },
+            ]}
+          />
+          <MoveGroup
+            title="🧪 Niche specials"
+            moves={[
+              { name: "Last Respects", body: "Scales with fainted teammates: from 50 BP at full team up to 200+ late-game. Terrifying." },
+              { name: "Electro Shot", body: "Raikou / Raging Bolt signature. Boosts SpA and hits. One reason rain is so strong right now." },
+              { name: "Sucker Punch", body: "Lets slow mons strike first, but fails if the opponent uses a status move. Very tactical." },
+              { name: "Helping Hand", body: "+5 priority, +50 % to partner's next attack — great to guarantee a crucial KO." },
+            ]}
+          />
+          <MoveGroup
+            title="📉 Stat control / debuffs"
+            moves={[
+              { name: "Thunder Wave", body: "Paralysis cuts Speed by 50 %. Alternative to Tailwind for controlling speed." },
+              { name: "Will-O-Wisp", body: "Burn halves physical Attack — the worst nightmare for phys attackers." },
+              { name: "Snarl", body: "Hits both opponents and drops their Special Attack. Great for mitigating special pressure." },
+              { name: "Icy Wind", body: "Speed drop on both opponents. Unlike T-Wave, works on Electric and Ground types." },
+              { name: "Electroweb", body: "Electric equivalent of Icy Wind. Decent damage on Flying / Water while dropping Speed." },
+            ]}
+          />
+          <MoveGroup
+            title="🏆 Setup & win conditions"
+            moves={[
+              { name: "Dragon Dance / Quiver Dance", body: "Turn a decent mon into a solo sweeper. Risky — they cost a turn of setup." },
+              { name: "Perish Song", body: "Endgame tool. In the last 2v2, forces a win in 3 turns if you have the numerical advantage." },
+            ]}
+          />
+        </div>
+      ),
+      fr: (
+        <div className="space-y-3">
+          <MoveGroup
+            title="🛡️ Protection et anticipation"
+            moves={[
+              { name: "Abri (Protect)", body: "La base du combat double. Permet de protéger un Pokémon pendant que son partenaire élimine une menace, ou de scouter le set adverse sans prendre de dégâts." },
+              { name: "Bluff (Fake Out)", body: "Attaque de priorité qui apeure la cible. Cruciale pour empêcher l'adversaire de poser une Distorsion ou un Vent Arrière au premier tour." },
+              { name: "Garde Large (Wide Guard)", body: "Contrairement à Abri, peut être utilisée plusieurs fois d'affilée avec succès. Vitale contre les abus d'Éboulement ou Canicule." },
+              { name: "Prio-Parade (Quick Guard)", body: "Protège votre camp contre toutes les attaques prioritaires (Bluff, Vitesse Extrême…). Moins jouée mais peut sauver une stratégie fragile." },
+              { name: "Détection (Detect)", body: "Même effet qu'Abri, mais moins courante, ce qui permet de contourner la capacité Possessif." },
+            ]}
+          />
+          <MoveGroup
+            title="🌤️ Contrôle du terrain"
+            moves={[
+              { name: "Zénith (Sunny Day)", body: "Indispensable aux équipes Sun. Active Chlorophylle (×2 vitesse) et permet à Lance-Soleil de partir en un seul tour." },
+              { name: "Danse Pluie (Rain Dance)", body: "Booste les attaques Eau et permet d'utiliser Vent Violent ou Fatal-Foudre sans risque de rater (100 % de précision)." },
+              { name: "Distorsion (Trick Room)", body: "Retourne le jeu. Permet à des Pokémon très lents mais puissants (Chartor, Ursaking) d'attaquer avant les rapides." },
+              { name: "Voile Aurore (Aurora Veil)", body: "La meilleure protection du jeu : cumule Protection et Mur Lumière. Nécessite cependant que la neige soit active." },
+            ]}
+          />
+          <MoveGroup
+            title="🔄 Pivot et mobilité"
+            moves={[
+              { name: "Dernier Mot (Parting Shot)", body: "Capacité de Pivot. Affaiblit l'adversaire et permet de placer un Pokémon en sécurité en voyant ce qu'a fait l'adversaire." },
+              { name: "Demi-Tour (U-turn)", body: "Garde le momentum. Si l'adversaire change, tu attaques puis pivot pour reprendre l'avantage du type." },
+              { name: "Change Éclair (Volt Switch)", body: "Similaire à Demi-Tour, mais attention : face à un type Sol, l'attaque échoue et ton Pokémon reste bloqué sur le terrain." },
+            ]}
+          />
+          <MoveGroup
+            title="💥 Offensives à risque"
+            moves={[
+              { name: "Boutefeu (Flare Blitz)", body: "Attaque physique Feu dévastatrice. Le recul fait mal, mais souvent le seul moyen d'infliger un KO immédiat sur les cibles résistantes." },
+              { name: "Aquatacle (Wave Crash)", body: "Équivalent Eau de Boutefeu. Particulièrement puissant sous la pluie, met presque n'importe quoi KO si pas de résistance." },
+              { name: "Damoclès (Double-Edge)", body: "Attaque Normale très puissante. Souvent couplée à des talents boostant les attaques Normales, comme Méga-Aligatueur." },
+            ]}
+          />
+          <MoveGroup
+            title="🎯 Ciblage et objets"
+            moves={[
+              { name: "Poudre Fureur (Rage Powder)", body: "Force l'adversaire à attaquer le lanceur (souvent un tank comme Gaulet), laissant le partenaire libre d'attaquer ou se booster." },
+              { name: "Par Ici (Follow Me)", body: "Même rôle que Poudre Fureur mais supérieur : pas bloquée par les Pokémon Plante ou les Lunettes Filtre." },
+              { name: "Sabotage (Knock Off)", body: "En plus de retirer l'objet (Baie, Orbe Vie, Évoluroc), inflige des dégâts massifs. Peut complètement détruire une stratégie adverse." },
+              { name: "Provoc (Taunt)", body: "L'arme ultime contre les Pokémon de support. Oblige à attaquer, empêche soins, murs et Distorsion." },
+            ]}
+          />
+          <MoveGroup
+            title="🧪 Capacités de niche"
+            moves={[
+              { name: "Hommage Postume (Last Respects)", body: "Devient terrifiante en fin de combat. Si 3 de tes Pokémon sont KO, la puissance passe de 50 à 200 — c'est colossal." },
+              { name: "Fulgurayon (Electro Shot)", body: "Spécifique à Pondralugon. Augmente l'attaque spéciale en frappant. Une des raisons pour lesquelles la pluie est si forte actuellement." },
+              { name: "Coup Bas (Sucker Punch)", body: "Très tactique. Permet à un Pokémon lent de frapper avant un rapide, mais échoue si l'adversaire utilise un statut." },
+              { name: "Coup de Main (Helping Hand)", body: "Priorité +5 (plus rapide qu'Abri). Booste la puissance du partenaire de 50 %, idéal pour assurer un KO décisif." },
+            ]}
+          />
+          <MoveGroup
+            title="📉 Contrôle des stats"
+            moves={[
+              { name: "Cage Éclair (Thunder Wave)", body: "La paralysie réduit la vitesse de 50 %. Excellent moyen de contrôler la vitesse sans Vent Arrière." },
+              { name: "Feu Follet (Will-O-Wisp)", body: "La brûlure est le pire cauchemar des attaquants physiques. Réduit définitivement leur dangerosité." },
+              { name: "Aboiement (Snarl)", body: "Attaque les deux adversaires et baisse leur Attaque Spéciale. Très utile pour mitiger les dégâts spéciaux." },
+              { name: "Vent Glacé (Icy Wind)", body: "Baisse la vitesse des deux adversaires. Contrairement à Cage Éclair, fonctionne sur les Élec et Sol." },
+              { name: "Toile Électrik (Electroweb)", body: "Équivalent électrique de Vent Glacé. Baisse la vitesse tout en infligeant des dégâts corrects aux Vol / Eau." },
+            ]}
+          />
+          <MoveGroup
+            title="🏆 Setup et conditions de victoire"
+            moves={[
+              { name: "Setup (Danse Draco / Papillodanse)", body: "Transforment un Pokémon moyen en monstre capable de finir le match seul. Risqués : ils demandent un tour de préparation." },
+              { name: "Requiem (Perish Song)", body: "Utilisée en fin de match (quand il ne reste que 2 Pokémon de chaque côté) pour forcer la victoire en 3 tours si tu as l'avantage numérique." },
+            ]}
+          />
+        </div>
+      ),
+    },
+  },
+  {
     id: "tera",
     icon: <Swords className="h-4 w-4" />,
     title: { en: "Tera Type", fr: "Type Téracristal" },
@@ -377,6 +533,37 @@ const SECTIONS: Section[] = [
     },
   },
 ];
+
+function MoveGroup({
+  title,
+  moves,
+}: {
+  title: string;
+  moves: { name: string; body: string }[];
+}) {
+  return (
+    <div>
+      <div className="font-pixel text-[10px] uppercase tracking-wider text-primary mb-2">
+        {title}
+      </div>
+      <ul className="space-y-1.5">
+        {moves.map((m) => (
+          <li
+            key={m.name}
+            className="rounded-sm border-2 border-border/60 bg-muted/20 p-2"
+          >
+            <div className="font-pixel text-[9px] uppercase tracking-wider text-foreground text-shadow-pixel">
+              {m.name}
+            </div>
+            <div className="text-[11px] text-muted-foreground font-mono mt-1 leading-relaxed">
+              {m.body}
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 export function LearnPage() {
   const { lang } = useLang();
