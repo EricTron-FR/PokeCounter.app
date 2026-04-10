@@ -199,6 +199,17 @@ type Dict = {
   noDamageData: string;
   ko: string;
   installApp: string;
+  analyzeTeam: string;
+  overallScore: string;
+  avgSpeed: string;
+  avgBulk: string;
+  physicalAttackers: string;
+  specialAttackers: string;
+  offensiveCov: string;
+  covered: string;
+  notCovered: string;
+  sharedWeak: string;
+  suggestions: string;
 };
 
 const DICT: { en: Dict } & { [K in Exclude<Lang, "en">]: Partial<Dict> } = {
@@ -323,6 +334,17 @@ const DICT: { en: Dict } & { [K in Exclude<Lang, "en">]: Partial<Dict> } = {
     noDamageData: "Configure attacker moves to see damage",
     ko: "KO",
     installApp: "Install app",
+    analyzeTeam: "Analyze team",
+    overallScore: "Overall score",
+    avgSpeed: "Avg Speed",
+    avgBulk: "Avg Bulk",
+    physicalAttackers: "Physical",
+    specialAttackers: "Special",
+    offensiveCov: "Offensive coverage",
+    covered: "Covered",
+    notCovered: "Not covered",
+    sharedWeak: "Shared weaknesses",
+    suggestions: "Suggestions",
   },
   fr: {
     tagline: "Pokémon Champions · Couverture de types",
@@ -445,6 +467,17 @@ const DICT: { en: Dict } & { [K in Exclude<Lang, "en">]: Partial<Dict> } = {
     noDamageData: "Configure les attaques pour voir les dégâts",
     ko: "KO",
     installApp: "Installer l'app",
+    analyzeTeam: "Analyser la team",
+    overallScore: "Score global",
+    avgSpeed: "Vitesse moy.",
+    avgBulk: "Bulk moy.",
+    physicalAttackers: "Physiques",
+    specialAttackers: "Spéciaux",
+    offensiveCov: "Couverture offensive",
+    covered: "Couverts",
+    notCovered: "Non couverts",
+    sharedWeak: "Faiblesses partagées",
+    suggestions: "Suggestions",
   },
   es: {
     tagline: "Pokémon Campeones · Cobertura de tipos",
