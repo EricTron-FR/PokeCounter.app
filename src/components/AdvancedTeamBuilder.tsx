@@ -100,27 +100,37 @@ export function AdvancedTeamBuilder({
   return (
     <div className="space-y-3">
       {/* Export / Import row */}
-      <div className="flex flex-wrap gap-1.5">
+      <div className="grid grid-cols-2 gap-1.5">
         <Button
           type="button"
           size="sm"
           variant="outline"
           onClick={handleExport}
           disabled={slots.length === 0}
-          className="flex-1 min-w-[120px]"
+          className="min-w-0 px-2"
+          title={t("exportShowdown")}
         >
-          <Download className="h-3 w-3" />
-          {exported ? t("copied") : t("exportShowdown")}
+          <Download className="h-3 w-3 shrink-0" />
+          <span className="truncate hidden sm:inline">
+            {exported ? t("copied") : t("exportShowdown")}
+          </span>
+          <span className="sm:hidden font-pixel text-[9px]">
+            {exported ? t("copied") : "Export"}
+          </span>
         </Button>
         <Button
           type="button"
           size="sm"
           variant="outline"
           onClick={() => setImportOpen(true)}
-          className="flex-1 min-w-[120px]"
+          className="min-w-0 px-2"
+          title={t("importShowdown")}
         >
-          <Upload className="h-3 w-3" />
-          {t("importShowdown")}
+          <Upload className="h-3 w-3 shrink-0" />
+          <span className="truncate hidden sm:inline">
+            {t("importShowdown")}
+          </span>
+          <span className="sm:hidden font-pixel text-[9px]">Import</span>
         </Button>
       </div>
 

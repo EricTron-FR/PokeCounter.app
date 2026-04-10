@@ -1190,7 +1190,7 @@
     "mega": true,
     "base_id": 310,
     "names": {
-      "en": "Heat Rotom",
+      "en": "Mega Manectric",
       "fr": "Méga-Élecsprint",
       "es": "Mega-Manectric",
       "de": "Mega-Voltenso",
@@ -1297,7 +1297,7 @@
     "mega": true,
     "base_id": 319,
     "names": {
-      "en": "Wash Rotom",
+      "en": "Mega Sharpedo",
       "fr": "Méga-Sharpedo",
       "es": "Mega-Sharpedo",
       "de": "Mega-Tohaido",
@@ -1419,7 +1419,7 @@
     "mega": true,
     "base_id": 323,
     "names": {
-      "en": "Frost Rotom",
+      "en": "Mega Camerupt",
       "fr": "Méga-Camérupt",
       "es": "Mega-Camerupt",
       "de": "Mega-Camerupt",
@@ -1539,7 +1539,7 @@
     "mega": true,
     "base_id": 354,
     "names": {
-      "en": "Fan Rotom",
+      "en": "Mega Banette",
       "fr": "Méga-Branette",
       "es": "Mega-Banette",
       "de": "Mega-Banette",
@@ -1630,7 +1630,7 @@
     "mega": true,
     "base_id": 358,
     "names": {
-      "en": "Mow Rotom",
+      "en": "Mega Chimecho",
       "fr": "Méga-Éoko",
       "es": "Mega-Chimecho",
       "de": "Mega-Palimpalim",
@@ -3787,7 +3787,15 @@
     ],
     "mega": false,
     "names": {
-      "en": "Alolan Ninetales"
+      "en": "Alolan Ninetales",
+      "fr": "Feunard d'Alola",
+      "es": "Ninetales de Alola",
+      "de": "Alola-Vulnona",
+      "it": "Ninetales di Alola",
+      "ja": "アローラキュウコン",
+      "ko": "알로라나인테일",
+      "zh-Hans": "阿罗拉九尾",
+      "zh-Hant": "阿羅拉九尾"
     },
     "stats": {
       "hp": 73,
@@ -4567,15 +4575,15 @@
     "mega": true,
     "base_id": 115,
     "names": {
-      "en": "Mega Absol",
-      "fr": "Méga-Absol",
-      "es": "Mega-Absol",
-      "de": "Mega-Absol",
-      "it": "Mega Absol",
-      "ja": "メガアブソル",
-      "ko": "메가앱솔",
-      "zh-Hans": "超级阿勃梭鲁",
-      "zh-Hant": "超級阿勃梭魯"
+      "en": "Mega Kangaskhan",
+      "fr": "Méga-Kangourex",
+      "es": "Mega-Kangaskhan",
+      "de": "Mega-Kangama",
+      "it": "Mega Kangaskhan",
+      "ja": "メガガルーラ",
+      "ko": "메가캥카",
+      "zh-Hans": "超级袋兽",
+      "zh-Hant": "超級袋獸"
     },
     "stats": {
       "hp": 105,
@@ -5548,15 +5556,15 @@
     "mega": true,
     "base_id": 142,
     "names": {
-      "en": "Mega Garchomp",
-      "fr": "Méga-Carchacrok",
-      "es": "Mega-Garchomp",
-      "de": "Mega-Knakrack",
-      "it": "Mega Garchomp",
-      "ja": "メガガブリアス",
-      "ko": "메가한카리아스",
-      "zh-Hans": "超级烈咬陆鲨",
-      "zh-Hant": "超級烈咬陸鯊"
+      "en": "Mega Aerodactyl",
+      "fr": "Méga-Ptéra",
+      "es": "Mega-Aerodactyl",
+      "de": "Mega-Aerodactyl",
+      "it": "Mega Aerodactyl",
+      "ja": "メガプテラ",
+      "ko": "메가프테라",
+      "zh-Hans": "超级化石翼龙",
+      "zh-Hant": "超級化石翼龍"
     },
     "stats": {
       "hp": 80,
@@ -6926,15 +6934,15 @@
     "mega": true,
     "base_id": 214,
     "names": {
-      "en": "Mega Froslass",
-      "fr": "Méga-Momartik",
-      "es": "Mega-Froslass",
-      "de": "Mega-Frosdedje",
-      "it": "Mega Froslass",
-      "ja": "メガユキメノコ",
-      "ko": "메가눈여아",
-      "zh-Hans": "超级雪妖女",
-      "zh-Hant": "超級雪妖女"
+      "en": "Mega Heracross",
+      "fr": "Méga-Scarhino",
+      "es": "Mega-Heracross",
+      "de": "Mega-Skaraborn",
+      "it": "Mega Heracross",
+      "ja": "メガヘラクロス",
+      "ko": "메가헤라크로스",
+      "zh-Hans": "超级赫拉克罗斯",
+      "zh-Hant": "超級赫拉克羅斯"
     },
     "stats": {
       "hp": 80,
@@ -7170,15 +7178,15 @@
     "mega": true,
     "base_id": 229,
     "names": {
-      "en": "Mega Emboar",
-      "fr": "Méga-Roitiflam",
-      "es": "Mega-Emboar",
-      "de": "Mega-Flambirex",
-      "it": "Mega Emboar",
-      "ja": "メガエンブオー",
-      "ko": "메가염무왕",
-      "zh-Hans": "超级炎武王",
-      "zh-Hant": "超級炎武王"
+      "en": "Mega Houndoom",
+      "fr": "Méga-Démolosse",
+      "es": "Mega-Houndoom",
+      "de": "Mega-Hundemon",
+      "it": "Mega Houndoom",
+      "ja": "メガヘルガー",
+      "ko": "메가헬가",
+      "zh-Hans": "超级黑鲁加",
+      "zh-Hant": "超級黑魯加"
     },
     "stats": {
       "hp": 75,
@@ -7277,15 +7285,15 @@
     "mega": true,
     "base_id": 248,
     "names": {
-      "en": "Mega Excadrill",
-      "fr": "Méga-Minotaupe",
-      "es": "Mega-Excadrill",
-      "de": "Mega-Stalobor",
-      "it": "Mega Excadrill",
-      "ja": "メガドリュウズ",
-      "ko": "메가몰드류",
-      "zh-Hans": "超级龙头地鼠",
-      "zh-Hant": "超級龍頭地鼠"
+      "en": "Mega Tyranitar",
+      "fr": "Méga-Tyranocif",
+      "es": "Mega-Tyranitar",
+      "de": "Mega-Despotar",
+      "it": "Mega Tyranitar",
+      "ja": "メガバンギラス",
+      "ko": "메가마기라스",
+      "zh-Hans": "超级班基拉斯",
+      "zh-Hant": "超級班基拉斯"
     },
     "stats": {
       "hp": 100,
@@ -7475,15 +7483,15 @@
     "mega": true,
     "base_id": 282,
     "names": {
-      "en": "Mega Golurk",
-      "fr": "Méga-Golemastoc",
-      "es": "Mega-Golurk",
-      "de": "Mega-Golgantes",
-      "it": "Mega Golurk",
-      "ja": "メガゴルーグ",
-      "ko": "메가골루그",
-      "zh-Hans": "超级泥偶巨人",
-      "zh-Hant": "超級泥偶巨人"
+      "en": "Mega Gardevoir",
+      "fr": "Méga-Gardevoir",
+      "es": "Mega-Gardevoir",
+      "de": "Mega-Guardevoir",
+      "it": "Mega Gardevoir",
+      "ja": "メガサーナイト",
+      "ko": "메가가디안",
+      "zh-Hans": "超级沙奈朵",
+      "zh-Hant": "超級沙奈朵"
     },
     "stats": {
       "hp": 68,
@@ -7718,15 +7726,15 @@
     "mega": true,
     "base_id": 306,
     "names": {
-      "en": "Mega Delphox",
-      "fr": "Méga-Goupelin",
-      "es": "Mega-Delphox",
-      "de": "Mega-Fennexis",
-      "it": "Mega Delphox",
-      "ja": "メガマフォクシー",
-      "ko": "메가마폭시",
-      "zh-Hans": "超级妖火红狐",
-      "zh-Hant": "超級妖火紅狐"
+      "en": "Mega Aggron",
+      "fr": "Méga-Galeking",
+      "es": "Mega-Aggron",
+      "de": "Mega-Stolloss",
+      "it": "Mega Aggron",
+      "ja": "メガボスゴドラ",
+      "ko": "메가보스로라",
+      "zh-Hans": "超级波士可多拉",
+      "zh-Hant": "超級波士可多拉"
     },
     "stats": {
       "hp": 70,
@@ -8140,15 +8148,15 @@
     "mega": true,
     "base_id": 359,
     "names": {
-      "en": "Mega Crabominable",
-      "fr": "Méga-Crabominable",
-      "es": "Mega-Crabominable",
-      "de": "Mega-Krawell",
-      "it": "Mega Crabominable",
-      "ja": "メガケケンカニ",
-      "ko": "메가모단단게",
-      "zh-Hans": "超级好胜毛蟹",
-      "zh-Hant": "超級好勝毛蟹"
+      "en": "Mega Absol",
+      "fr": "Méga-Absol",
+      "es": "Mega-Absol",
+      "de": "Mega-Absol",
+      "it": "Mega Absol",
+      "ja": "メガアブソル",
+      "ko": "메가앱솔",
+      "zh-Hans": "超级阿勃梭鲁",
+      "zh-Hant": "超級阿勃梭魯"
     },
     "stats": {
       "hp": 65,
@@ -8650,15 +8658,15 @@
     "mega": true,
     "base_id": 445,
     "names": {
-      "en": "Mega Drampa",
-      "fr": "Méga-Draïeul",
-      "es": "Mega-Drampa",
-      "de": "Mega-Sen-Long",
-      "it": "Mega Drampa",
-      "ja": "メガジジーロン",
-      "ko": "메가할비롱",
-      "zh-Hans": "超级老翁龙",
-      "zh-Hant": "超級老翁龍"
+      "en": "Mega Garchomp",
+      "fr": "Méga-Carchacrok",
+      "es": "Mega-Garchomp",
+      "de": "Mega-Knakrack",
+      "it": "Mega Garchomp",
+      "ja": "メガガブリアス",
+      "ko": "메가한카리아스",
+      "zh-Hans": "超级烈咬陆鲨",
+      "zh-Hant": "超級烈咬陸鯊"
     },
     "stats": {
       "hp": 108,
@@ -8809,15 +8817,15 @@
     "mega": true,
     "base_id": 448,
     "names": {
-      "en": "Mega Scovillain",
-      "fr": "Méga-Scovilain",
-      "es": "Mega-Scovillain",
-      "de": "Mega-Halupenjo",
-      "it": "Mega Scovillain",
-      "ja": "メガスコヴィラン",
-      "ko": "메가스코빌런",
-      "zh-Hans": "超级狠辣椒",
-      "zh-Hant": "超級狠辣椒"
+      "en": "Mega Lucario",
+      "fr": "Méga-Lucario",
+      "es": "Mega-Lucario",
+      "de": "Mega-Lucario",
+      "it": "Mega Lucario",
+      "ja": "メガルカリオ",
+      "ko": "메가루카리오",
+      "zh-Hans": "超级路卡利欧",
+      "zh-Hant": "超級路卡利歐"
     },
     "stats": {
       "hp": 70,
@@ -9014,15 +9022,15 @@
     "mega": true,
     "base_id": 460,
     "names": {
-      "en": "Mega Glimmora",
-      "fr": "Méga-Floréclat",
-      "es": "Mega-Glimmora",
-      "de": "Mega-Lumiflora",
-      "it": "Mega Glimmora",
-      "ja": "メガキラフロル",
-      "ko": "메가킬라플로르",
-      "zh-Hans": "超级晶光花",
-      "zh-Hant": "超級晶光花"
+      "en": "Mega Abomasnow",
+      "fr": "Méga-Blizzaroi",
+      "es": "Mega-Abomasnow",
+      "de": "Mega-Rexblisar",
+      "it": "Mega Abomasnow",
+      "ja": "メガユキノオー",
+      "ko": "메가눈설왕",
+      "zh-Hans": "超级暴雪王",
+      "zh-Hant": "超級暴雪王"
     },
     "stats": {
       "hp": 90,
