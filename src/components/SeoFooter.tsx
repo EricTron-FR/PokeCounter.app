@@ -1,4 +1,4 @@
-import { POKEMON } from "@/lib/pokemon";
+import { POKEMON, monSlug } from "@/lib/pokemon";
 import { ALL_TYPES, PokemonType } from "@/lib/types";
 import { getTier } from "@/lib/tiers";
 import { pokemonName, useLang, SUPPORTED_LANGS, LANG_META, typeLabel } from "@/lib/i18n";
@@ -64,12 +64,12 @@ export function SeoFooter({ onGoLegal }: Props) {
               {t("footerTools")}
             </div>
             <ul className="space-y-1.5 text-xs font-mono">
-              <li><a className="hover:text-primary text-muted-foreground" href="#/pokedex">{t("navPokedex")}</a></li>
-              <li><a className="hover:text-primary text-muted-foreground" href="#/compare">{t("navCompare")}</a></li>
-              <li><a className="hover:text-primary text-muted-foreground" href="#/types">{t("navTypes")}</a></li>
-              <li><a className="hover:text-primary text-muted-foreground" href="#/battle">Battle</a></li>
-              <li><a className="hover:text-primary text-muted-foreground" href="#/learn">{t("navLearn")}</a></li>
-              <li><a className="hover:text-primary text-muted-foreground" href="#/about">{t("navAbout")}</a></li>
+              <li><a className="hover:text-primary text-muted-foreground" href="/pokedex">{t("navPokedex")}</a></li>
+              <li><a className="hover:text-primary text-muted-foreground" href="/compare">{t("navCompare")}</a></li>
+              <li><a className="hover:text-primary text-muted-foreground" href="/types-chart">{t("navTypes")}</a></li>
+              <li><a className="hover:text-primary text-muted-foreground" href="/battle">Battle</a></li>
+              <li><a className="hover:text-primary text-muted-foreground" href="/learn">{t("navLearn")}</a></li>
+              <li><a className="hover:text-primary text-muted-foreground" href="/about">{t("navAbout")}</a></li>
               <li>
                 <button
                   type="button"
@@ -115,7 +115,7 @@ export function SeoFooter({ onGoLegal }: Props) {
             {ALL_TYPES.map((tp: PokemonType) => (
               <a
                 key={tp}
-                href={`#/pokedex?type=${tp}`}
+                href={`/type/${tp.toLowerCase()}`}
                 className="transition-opacity hover:opacity-100 opacity-80"
                 aria-label={`Counters for ${tp} type`}
               >
@@ -137,7 +137,7 @@ export function SeoFooter({ onGoLegal }: Props) {
             {popular.map((p) => (
               <a
                 key={p.id}
-                href={`/?opp=${p.id}`}
+                href={`/pokemon/${monSlug(p)}`}
                 className="hover:text-primary whitespace-nowrap"
                 title={`Best counters for ${pokemonName(p, lang)}`}
               >

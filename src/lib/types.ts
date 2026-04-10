@@ -33,6 +33,7 @@ export interface Ability {
     string
   >>;
   hidden: boolean;
+  description?: string;
 }
 
 export interface Pokemon {

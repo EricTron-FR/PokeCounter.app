@@ -326,29 +326,59 @@ export function PokemonDetailModal({ pokemon, onClose }: Props) {
               </div>
             )}
             {moves && moves.length > 0 && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-1">
-                {moves.map((m) => {
-                  const ty = normalizeType(m.type);
-                  return (
-                  <div
-                    key={m.name}
-                    className="rounded-sm border border-border/70 bg-card/40 px-2 py-1.5"
-                  >
-                    <div className="flex items-center justify-between gap-2">
-                      <span className="font-mono text-[10px] truncate capitalize">
-                        {m.name.replace(/-/g, " ")}
-                      </span>
-                      {ty && <TypeBadge type={ty} size="xs" />}
-                    </div>
-                    <div className="flex items-center gap-2 mt-0.5 text-[8px] font-mono text-muted-foreground">
-                      {m.power != null && <span>P {m.power}</span>}
-                      {m.accuracy != null && <span>A {m.accuracy}</span>}
-                      {m.pp != null && <span>PP {m.pp}</span>}
-                      <span className="capitalize ml-auto">{m.damageClass}</span>
-                    </div>
-                  </div>
+              <div className="space-y-4">
+                {(() => {
+                  // Group moves by type, keeping only types that have at least one move
+                  const byType = new Map<string, MoveEntry[]>();
+                  for (const m of moves) {
+                    const ty = normalizeType(m.type) ?? "Normal";
+                    const list = byType.get(ty) ?? [];
+                    list.push(m);
+                    byType.set(ty, list);
+                  }
+                  // Sort types alphabetically so the layout is stable
+                  const groups = [...byType.entries()].sort(([a], [b]) =>
+                    a.localeCompare(b),
                   );
-                })}
+                  return groups.map(([ty, list]) => {
+                    const typedKey = ty as Parameters<typeof TypeBadge>[0]["type"];
+                    // Sort moves inside a group by power desc, then by name
+                    const sorted = list.slice().sort((a, b) => {
+                      const pa = a.power ?? -1;
+                      const pb = b.power ?? -1;
+                      if (pb !== pa) return pb - pa;
+                      return a.name.localeCompare(b.name);
+                    });
+                    return (
+                      <div key={ty}>
+                        <div className="flex items-center gap-2 mb-2">
+                          <TypeBadge type={typedKey} size="xs" />
+                          <span className="font-pixel text-[9px] uppercase tracking-wider text-muted-foreground">
+                            {list.length}
+                          </span>
+                        </div>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-1">
+                          {sorted.map((m) => (
+                            <div
+                              key={m.name}
+                              className="rounded-lg border border-border/60 bg-muted/40 px-2 py-1.5"
+                            >
+                              <div className="font-mono text-[10px] truncate capitalize">
+                                {m.name.replace(/-/g, " ")}
+                              </div>
+                              <div className="flex items-center gap-2 mt-0.5 text-[8px] font-mono text-muted-foreground">
+                                {m.power != null && <span>P {m.power}</span>}
+                                {m.accuracy != null && <span>A {m.accuracy}</span>}
+                                {m.pp != null && <span>PP {m.pp}</span>}
+                                <span className="capitalize ml-auto">{m.damageClass}</span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  });
+                })()}
               </div>
             )}
           </section>

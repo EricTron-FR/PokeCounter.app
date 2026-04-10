@@ -3,6 +3,31 @@ import { Pokemon } from "./types";
 
 export const POKEMON: Pokemon[] = raw as unknown as Pokemon[];
 
+/** URL-friendly identifier for a Pokémon — uses the English name. */
+export function monSlug(p: Pokemon): string {
+  const name = p.names.en ?? `pokemon-${p.id}`;
+  return name
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+/** Build a canonical URL for a Pokémon detail page. */
+export function monUrl(p: Pokemon): string {
+  return `/pokemon/${monSlug(p)}`;
+}
+
+const POKEMON_BY_SLUG = new Map<string, Pokemon>();
+
+export function findBySlug(slug: string): Pokemon | undefined {
+  if (POKEMON_BY_SLUG.size === 0) {
+    for (const p of POKEMON) POKEMON_BY_SLUG.set(monSlug(p), p);
+  }
+  return POKEMON_BY_SLUG.get(slug);
+}
+
 export function spriteUrl(p: Pokemon): string {
   if (p.mega && p.base_id) {
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${p.id}.png`;

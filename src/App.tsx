@@ -1,4 +1,5 @@
 import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Pokemon } from "@/lib/types";
 import { POKEMON } from "@/lib/pokemon";
 import { PokemonSearch } from "@/components/PokemonSearch";
@@ -33,6 +34,12 @@ const BattleSimPage = lazy(() =>
 );
 const LegalPage = lazy(() =>
   import("@/components/LegalPage").then((m) => ({ default: m.LegalPage })),
+);
+const PokemonLandingPage = lazy(() =>
+  import("@/components/PokemonLandingPage").then((m) => ({ default: m.PokemonLandingPage })),
+);
+const TypeLandingPage = lazy(() =>
+  import("@/components/TypeLandingPage").then((m) => ({ default: m.TypeLandingPage })),
 );
 const AdvancedTeamBuilder = lazy(() =>
   import("@/components/AdvancedTeamBuilder").then((m) => ({
@@ -155,58 +162,46 @@ export default function App() {
       setAdvancedSlots(nextSlots);
     }
   }, [advancedMode, advancedSlots, myTeamIds]);
-  function viewFromHash(): "home" | "about" | "pokedex" | "compare" | "types" | "learn" | "battle" | "legal" {
-    const h = window.location.hash;
-    if (h === "#/about") return "about";
-    if (h === "#/pokedex") return "pokedex";
-    if (h === "#/compare") return "compare";
-    if (h === "#/types") return "types";
-    if (h === "#/learn") return "learn";
-    if (h === "#/battle") return "battle";
-    if (h === "#/legal") return "legal";
-    return "home";
-  }
-  const [view, setView] = useState<"home" | "about" | "pokedex" | "compare" | "types" | "learn" | "battle" | "legal">(
-    () => viewFromHash(),
-  );
+  type View =
+    | "home"
+    | "about"
+    | "pokedex"
+    | "compare"
+    | "types"
+    | "learn"
+    | "battle"
+    | "legal"
+    | "pokemon"
+    | "type";
 
-  useEffect(() => {
-    function onHash() {
-      setView(viewFromHash());
-    }
-    window.addEventListener("hashchange", onHash);
-    return () => window.removeEventListener("hashchange", onHash);
-  }, []);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const view: View = useMemo(() => {
+    const p = location.pathname;
+    if (p === "/" || p === "") return "home";
+    if (p.startsWith("/pokedex")) return "pokedex";
+    if (p.startsWith("/compare")) return "compare";
+    if (p.startsWith("/types-chart")) return "types";
+    if (p.startsWith("/learn")) return "learn";
+    if (p.startsWith("/battle")) return "battle";
+    if (p.startsWith("/legal")) return "legal";
+    if (p.startsWith("/about")) return "about";
+    if (p.startsWith("/pokemon/")) return "pokemon";
+    if (p.startsWith("/type/")) return "type";
+    return "home";
+  }, [location.pathname]);
 
   useDocumentTitle(view);
 
-  const goAbout = useCallback(() => {
-    window.location.hash = "#/about";
-  }, []);
-  const goPokedex = useCallback(() => {
-    window.location.hash = "#/pokedex";
-  }, []);
-  const goCompare = useCallback(() => {
-    window.location.hash = "#/compare";
-  }, []);
-  const goTypes = useCallback(() => {
-    window.location.hash = "#/types";
-  }, []);
-  const goLearn = useCallback(() => {
-    window.location.hash = "#/learn";
-  }, []);
-  const goBattle = useCallback(() => {
-    window.location.hash = "#/battle";
-  }, []);
-  const goLegal = useCallback(() => {
-    window.location.hash = "#/legal";
-  }, []);
-  const goHome = useCallback(() => {
-    if (window.location.hash) {
-      history.replaceState(null, "", window.location.pathname + window.location.search);
-    }
-    setView("home");
-  }, []);
+  const goAbout = useCallback(() => navigate("/about"), [navigate]);
+  const goPokedex = useCallback(() => navigate("/pokedex"), [navigate]);
+  const goCompare = useCallback(() => navigate("/compare"), [navigate]);
+  const goTypes = useCallback(() => navigate("/types-chart"), [navigate]);
+  const goLearn = useCallback(() => navigate("/learn"), [navigate]);
+  const goBattle = useCallback(() => navigate("/battle"), [navigate]);
+  const goLegal = useCallback(() => navigate("/legal"), [navigate]);
+  const goHome = useCallback(() => navigate("/"), [navigate]);
 
   useEffect(() => {
     localStorage.setItem(FORMAT_KEY, format);
@@ -412,6 +407,16 @@ export default function App() {
       {view === "legal" && (
         <Suspense fallback={<LazyFallback />}>
           <LegalPage />
+        </Suspense>
+      )}
+      {view === "pokemon" && (
+        <Suspense fallback={<LazyFallback />}>
+          <PokemonLandingPage />
+        </Suspense>
+      )}
+      {view === "type" && (
+        <Suspense fallback={<LazyFallback />}>
+          <TypeLandingPage />
         </Suspense>
       )}
       {view === "home" && (
