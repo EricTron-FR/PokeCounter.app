@@ -46,13 +46,16 @@ export function PokedexPage() {
   }, [query, typeFilter, megaFilter, tierFilter]);
 
   return (
-    <main className="container py-4 sm:py-8">
-      <header className="mb-6 text-center">
-        <h1 className="font-pixel text-xl sm:text-2xl text-primary text-shadow-pixel">
-          {t("pokedexTitle")}
-        </h1>
-        <p className="text-[10px] font-pixel uppercase tracking-wider text-muted-foreground mt-2">
-          {t("pokedexCount", { n: filtered.length })}
+    <main className="container py-6 sm:py-10">
+      <header className="mb-8">
+        <div className="inline-flex items-center gap-3">
+          <span className="inline-block h-3 w-3 bg-primary rotate-45" aria-hidden />
+          <h1 className="font-pixel text-2xl sm:text-3xl text-foreground">
+            {t("pokedexTitle")}
+          </h1>
+        </div>
+        <p className="text-[10px] font-pixel uppercase tracking-wider text-muted-foreground mt-3">
+          <span className="text-primary">{filtered.length}</span> / {t("pokedexCount", { n: filtered.length }).replace(/^\d+\s*/, "")}
         </p>
       </header>
 

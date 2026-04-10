@@ -56,10 +56,13 @@ export function ComparePage() {
 
   return (
     <main className="container py-4 sm:py-8 max-w-5xl">
-      <header className="mb-6 text-center">
-        <h1 className="font-pixel text-xl sm:text-2xl text-primary text-shadow-pixel">
-          {t("compareTitle")}
-        </h1>
+      <header className="mb-8">
+        <div className="inline-flex items-center gap-3">
+          <span className="inline-block h-3 w-3 bg-primary rotate-45" aria-hidden />
+          <h1 className="font-pixel text-2xl sm:text-3xl text-foreground">
+            {t("compareTitle")}
+          </h1>
+        </div>
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

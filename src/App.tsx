@@ -284,50 +284,57 @@ export default function App() {
     <div className="min-h-screen">
       {/* Header */}
       <header className="sticky top-0 z-[100] border-b border-border bg-background/90 backdrop-blur">
-        <div className="container py-3 sm:py-5 flex items-center justify-between gap-2 sm:gap-4 flex-wrap">
-          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
-            <img
-              src="/pokeball.svg"
-              alt=""
-              className="pixelated h-8 w-8 sm:h-10 sm:w-10 shrink-0 rounded-md shadow-soft"
-            />
-            <div className="min-w-0">
-              <h1 className="font-pixel text-sm sm:text-xl text-primary text-shadow-pixel truncate">
-                POKECOUNTER
-              </h1>
-              <p className="text-[8px] sm:text-[10px] text-muted-foreground font-pixel uppercase tracking-wider mt-0.5 sm:mt-1 truncate hidden sm:block">
-                {t("tagline")}
-              </p>
+        <div className="container py-3 sm:py-4 flex flex-col gap-3">
+          {/* Top row: logo + title (left) + share/language (right) */}
+          <div className="flex items-center justify-between gap-2 sm:gap-4">
+            <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+              <img
+                src="/pokeball.svg"
+                alt=""
+                className="pixelated h-8 w-8 sm:h-10 sm:w-10 shrink-0 rounded-md shadow-soft"
+              />
+              <div className="min-w-0">
+                <h1 className="font-pixel text-sm sm:text-xl text-primary text-shadow-pixel truncate">
+                  POKECOUNTER
+                </h1>
+                <p className="text-[8px] sm:text-[10px] text-muted-foreground font-pixel uppercase tracking-wider mt-0.5 sm:mt-1 truncate hidden sm:block">
+                  {t("tagline")}
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-1.5 shrink-0">
+              {view === "home" && (
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={shareUrl}
+                  disabled={opponentIds.length === 0}
+                  className="hidden sm:inline-flex"
+                >
+                  {copied ? (
+                    <>
+                      <Check className="h-3 w-3" /> {t("copied")}
+                    </>
+                  ) : (
+                    <>
+                      <Share2 className="h-3 w-3" /> {t("share")}
+                    </>
+                  )}
+                </Button>
+              )}
+              <LanguageDropdown />
             </div>
           </div>
-          <div className="flex items-center gap-1 sm:gap-1.5 flex-wrap justify-end">
+
+          {/* Bottom row: nav, always below the logo */}
+          <nav className="flex items-center gap-1 sm:gap-1.5 flex-wrap justify-start sm:justify-center">
             <NavButton active={view === "home"} onClick={goHome} icon={<HomeIcon className="h-3 w-3" />} label={t("navHome")} />
             <NavButton active={view === "pokedex"} onClick={goPokedex} icon={<BookOpen className="h-3 w-3" />} label={t("navPokedex")} />
             <NavButton active={view === "types"} onClick={goTypes} icon={<Grid3x3 className="h-3 w-3" />} label={t("navTypes")} />
             <NavButton active={view === "compare"} onClick={goCompare} icon={<Scale className="h-3 w-3" />} label={t("navCompare")} />
             <NavButton active={view === "learn"} onClick={goLearn} icon={<GraduationCap className="h-3 w-3" />} label={t("navLearn")} />
             <NavButton active={view === "about"} onClick={goAbout} icon={<Info className="h-3 w-3" />} label={t("navAbout")} />
-            {view === "home" && (
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={shareUrl}
-                disabled={opponentIds.length === 0}
-                className="hidden sm:inline-flex"
-              >
-                {copied ? (
-                  <>
-                    <Check className="h-3 w-3" /> {t("copied")}
-                  </>
-                ) : (
-                  <>
-                    <Share2 className="h-3 w-3" /> {t("share")}
-                  </>
-                )}
-              </Button>
-            )}
-            <LanguageDropdown />
-          </div>
+          </nav>
         </div>
       </header>
 
@@ -597,7 +604,7 @@ function NavButton({
       }
     >
       {icon}
-      <span className="hidden md:inline">{label}</span>
+      <span className="hidden sm:inline">{label}</span>
     </button>
   );
 }

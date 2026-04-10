@@ -36,7 +36,10 @@ export function LanguageDropdown() {
         />
       </button>
       {open && (
-        <div className="absolute right-0 z-[200] mt-2 w-60 max-w-[calc(100vw-1rem)] max-h-[70vh] overflow-auto rounded-xl border border-border bg-popover shadow-soft-lg">
+        <div
+          className="absolute right-0 z-[200] mt-2 w-60 max-w-[calc(100vw-1rem)] max-h-[70vh] overflow-auto rounded-xl border border-border shadow-soft-lg"
+          style={{ backgroundColor: "#FFFFFF" }}
+        >
           {SUPPORTED_LANGS.map((l: Lang) => {
             const active = l === lang;
             const meta = LANG_META[l];

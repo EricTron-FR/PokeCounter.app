@@ -83,7 +83,10 @@ export function PokemonSearch({
         />
       </div>
       {open && results.length > 0 && (
-        <div className="absolute z-50 mt-2 w-full max-h-80 overflow-auto rounded-xl border border-border bg-popover shadow-soft-lg">
+        <div
+          className="absolute z-50 mt-2 w-full max-h-80 overflow-auto rounded-xl border border-border shadow-soft-lg"
+          style={{ backgroundColor: "#FFFFFF" }}
+        >
           {results.map((p, i) => (
             <button
               key={p.id}

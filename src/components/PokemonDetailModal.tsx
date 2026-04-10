@@ -144,7 +144,8 @@ export function PokemonDetailModal({ pokemon, onClose }: Props) {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full sm:max-w-2xl max-h-[90vh] overflow-y-auto rounded-t-2xl sm:rounded-2xl border border-border bg-card shadow-soft-lg"
+        className="relative w-full sm:max-w-2xl max-h-[90vh] overflow-y-auto rounded-t-2xl sm:rounded-2xl border border-border shadow-soft-lg"
+        style={{ backgroundColor: "#FFFFFF" }}
       >
         {/* Header with sprite */}
         <div className="relative p-4 border-b border-border/60 bg-primary/5">

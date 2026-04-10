@@ -542,8 +542,14 @@ function MoveSelect({
         />
       </button>
       {open && (
-        <div className="absolute z-50 left-0 right-0 mt-1 max-h-72 overflow-auto rounded-xl border border-border bg-popover shadow-soft-lg">
-          <div className="sticky top-0 p-1.5 border-b border-border bg-popover">
+        <div
+          className="absolute z-50 left-0 right-0 mt-1 max-h-72 overflow-auto rounded-xl border border-border shadow-soft-lg"
+          style={{ backgroundColor: "#FFFFFF" }}
+        >
+          <div
+            className="sticky top-0 p-1.5 border-b border-border"
+            style={{ backgroundColor: "#FFFFFF" }}
+          >
             <Input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
@@ -640,7 +646,8 @@ function PokemonPickerModal({
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full sm:max-w-3xl max-h-[85vh] overflow-hidden rounded-t-2xl sm:rounded-2xl border border-border bg-card shadow-soft-lg flex flex-col"
+        className="relative w-full sm:max-w-3xl max-h-[85vh] overflow-hidden rounded-t-2xl sm:rounded-2xl border border-border shadow-soft-lg flex flex-col"
+        style={{ backgroundColor: "#FFFFFF" }}
       >
         <div className="p-3 border-b-2 border-border space-y-2">
           <div className="flex items-center gap-2">

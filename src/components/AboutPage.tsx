@@ -72,10 +72,13 @@ export function AboutPage({ onBack }: Props) {
       </div>
 
       {/* Header */}
-      <div className="text-center mb-10">
-        <h1 className="font-pixel text-2xl sm:text-3xl text-primary text-shadow-pixel">
-          {t("aboutTitle")}
-        </h1>
+      <div className="mb-10">
+        <div className="inline-flex items-center gap-3">
+          <span className="inline-block h-3 w-3 bg-primary rotate-45" aria-hidden />
+          <h1 className="font-pixel text-2xl sm:text-3xl text-foreground">
+            {t("aboutTitle")}
+          </h1>
+        </div>
         <p className="text-[10px] font-pixel uppercase tracking-wider text-muted-foreground mt-3">
           {t("aboutSubtitle")}
         </p>

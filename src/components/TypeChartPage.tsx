@@ -41,11 +41,14 @@ export function TypeChartPage() {
 
   return (
     <main className="container py-4 sm:py-8">
-      <header className="mb-6 text-center">
-        <h1 className="font-pixel text-xl sm:text-2xl text-primary text-shadow-pixel">
-          Type Chart
-        </h1>
-        <p className="text-[10px] font-pixel uppercase tracking-wider text-muted-foreground mt-2">
+      <header className="mb-8">
+        <div className="inline-flex items-center gap-3">
+          <span className="inline-block h-3 w-3 bg-primary rotate-45" aria-hidden />
+          <h1 className="font-pixel text-2xl sm:text-3xl text-foreground">
+            Type Chart
+          </h1>
+        </div>
+        <p className="text-[10px] font-pixel uppercase tracking-wider text-muted-foreground mt-3">
           18 × 18 interactive matchup table
         </p>
       </header>
