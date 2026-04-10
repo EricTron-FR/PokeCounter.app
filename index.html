@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b1020" />
+    <link rel="icon" type="image/svg+xml" href="/pokeball.svg" />
+
+    <!-- Primary SEO -->
+    <title>PokeCounter — Pokémon Champions Counter & Type Coverage Stats</title>
+    <meta
+      name="description"
+      content="Pokémon Champions counter tool: pick the opponent team and instantly see the best counters from your own roster. Type coverage stats, 1v1 / 2v2 battle format picker, super-effective matchups, and per-pick strong/weak explanations. 100% free, no login."
+    />
+    <meta
+      name="keywords"
+      content="pokemon counter, pokemon champions counter, pokemon counter stats, pokemon champions stats, pokemon type chart, pokemon type coverage, pokemon weakness calculator, pokemon team builder, pokemon counter picks, pokemon champions tier list, 1v1 pokemon, 2v2 pokemon, singles doubles pokemon, pokecounter"
+    />
+    <meta name="author" content="PokeCounter" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://pokecounter.app/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="PokeCounter" />
+    <meta
+      property="og:title"
+      content="PokeCounter — Pokémon Champions Counter & Type Coverage"
+    />
+    <meta
+      property="og:description"
+      content="Find the best counters for any Pokémon Champions opponent. Type coverage stats, 1v1/2v2 pick helper, super-effective matchups. Free and instant."
+    />
+    <meta property="og:url" content="https://pokecounter.app/" />
+    <meta property="og:image" content="https://pokecounter.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="fr_FR" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="PokeCounter — Pokémon Champions Counter"
+    />
+    <meta
+      name="twitter:description"
+      content="Pick the opponent, get the best counters from your team. Type coverage stats for Pokémon Champions — 1v1 & 2v2."
+    />
+    <meta name="twitter:image" content="https://pokecounter.app/og-image.png" />
+
+    <!-- Umami analytics (self-hosted) -->
+    <script
+      defer
+      src="https://umami.productcompanies.eu/script.js"
+      data-website-id="482c0a67-8e73-4a2b-91b9-f14093971743"
+    ></script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=JetBrains+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Structured data: WebApplication -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "PokeCounter",
+        "alternateName": ["Pokémon Champions Counter", "Pokémon Counter Stats"],
+        "url": "https://pokecounter.app/",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Any",
+        "description": "Pokémon Champions counter tool. Pick the opposing team and get the best counters from your own roster with type coverage stats and 1v1 / 2v2 battle format support.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "inLanguage": ["en", "fr"],
+        "featureList": [
+          "Pokémon Champions counter picker",
+          "Type coverage stats",
+          "Super-effective matchup explanations",
+          "1v1 and 2v2 battle formats",
+          "Team builder with auto-save",
+          "Shareable opponent URL",
+          "English and French"
+        ]
+      }
+    </script>
+
+    <!-- Structured data: FAQ -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is PokeCounter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PokeCounter is a free Pokémon Champions counter tool. Enter the opposing team and PokeCounter tells you which Pokémon from your own team to bring, ranked by type coverage against the opponents."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the Pokémon Champions counter picker work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PokeCounter scores each Pokémon in your team against the opponent using the complete 18-type effectiveness chart. It finds the optimal subset of 3 (for 1v1 singles) or 4 (for 2v2 doubles) that covers the most opponents super-effectively."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does it support 1v1 and 2v2 battles?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Pokémon Champions uses 1v1 (pick 3 from your 6) and 2v2 (pick 4 from your 6) battle formats. PokeCounter supports both via a format toggle."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is PokeCounter free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. PokeCounter is 100% free, runs entirely in your browser, has no ads, no login, and no tracking. Your team is auto-saved locally."
+            }
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <div style="padding: 2rem; font-family: sans-serif; color: #fff; background: #0b1020">
+        <h1>PokeCounter — Pokémon Champions Counter</h1>
+        <p>
+          PokeCounter is a free type-coverage counter tool for Pokémon
+          Champions. Enter your opponent's team and instantly see which of your
+          Pokémon to bring in 1v1 or 2v2 battles. JavaScript is required to
+          use the app.
+        </p>
+      </div>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
