@@ -10,7 +10,12 @@ import {
   ArrowLeft,
   Flame,
   BookOpen,
+  Github,
+  Bug,
 } from "lucide-react";
+
+export const GITHUB_REPO = "https://github.com/EricTron-FR/PokeCounter.app";
+export const GITHUB_ISSUES = `${GITHUB_REPO}/issues/new`;
 
 interface Props {
   onBack: () => void;
@@ -134,10 +139,32 @@ export function AboutPage({ onBack }: Props) {
             {t("contributeTitle")}
           </CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="space-y-3">
           <p className="text-xs text-muted-foreground leading-relaxed font-mono">
             {t("contributeBody")}
           </p>
+          <div className="flex flex-wrap gap-2">
+            <Button asChild variant="outline" size="sm">
+              <a
+                href={GITHUB_REPO}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github className="h-3 w-3" />
+                {t("viewSource")}
+              </a>
+            </Button>
+            <Button asChild size="sm">
+              <a
+                href={GITHUB_ISSUES}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Bug className="h-3 w-3" />
+                {t("reportBug")}
+              </a>
+            </Button>
+          </div>
         </CardContent>
       </Card>
     </main>

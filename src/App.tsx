@@ -36,7 +36,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { RotateCcw, Swords, Shield, Share2, Check, Star } from "lucide-react";
+import { RotateCcw, Swords, Shield, Share2, Check, Star, Github, Bug } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 
 const MAX_TEAM = 6;
@@ -464,7 +464,27 @@ export default function App() {
       </main>
       )}
 
-      <footer className="container pb-10 pt-4 text-center">
+      <footer className="container pb-10 pt-4 flex flex-col items-center gap-3">
+        <div className="flex items-center gap-2">
+          <a
+            href="https://github.com/EricTron-FR/PokeCounter.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-sm border-2 border-border bg-card/60 px-3 py-1.5 text-[9px] font-pixel uppercase tracking-wider text-muted-foreground hover:text-foreground hover:border-primary/60 transition-colors"
+          >
+            <Github className="h-3 w-3" />
+            {t("viewSource")}
+          </a>
+          <a
+            href="https://github.com/EricTron-FR/PokeCounter.app/issues/new"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-sm border-2 border-destructive/40 bg-destructive/10 px-3 py-1.5 text-[9px] font-pixel uppercase tracking-wider text-destructive hover:bg-destructive/20 transition-colors"
+          >
+            <Bug className="h-3 w-3" />
+            {t("reportBug")}
+          </a>
+        </div>
         <p className="text-[9px] font-pixel uppercase tracking-wider text-muted-foreground/60">
           {t("footer")}
         </p>

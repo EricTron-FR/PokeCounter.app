@@ -170,6 +170,8 @@ type Dict = {
   contributeTitle: string;
   contributeBody: string;
   backToApp: string;
+  reportBug: string;
+  viewSource: string;
 };
 
 const DICT: Record<Lang, Dict> = {
@@ -265,6 +267,8 @@ const DICT: Record<Lang, Dict> = {
     contributeBody:
       "Spot a bug, missing Pokémon or mistranslation? Want to add a feature? Any feedback is welcome — reach out and we'll make it happen.",
     backToApp: "Back to app",
+    reportBug: "Report a bug",
+    viewSource: "View source",
   },
   fr: {
     tagline: "Pokémon Champions · Couverture de types",
@@ -358,6 +362,8 @@ const DICT: Record<Lang, Dict> = {
     contributeBody:
       "Un bug, un Pokémon manquant, une traduction à corriger ? Une feature à ajouter ? Tous les retours sont bienvenus — contacte-nous et on fait le nécessaire.",
     backToApp: "Retour à l'app",
+    reportBug: "Signaler un bug",
+    viewSource: "Voir le code",
   },
   es: {
     tagline: "Pokémon Campeones · Cobertura de tipos",
@@ -451,6 +457,8 @@ const DICT: Record<Lang, Dict> = {
     contributeBody:
       "¿Un bug, un Pokémon que falta, una traducción incorrecta? ¿Quieres añadir una función? Cualquier feedback es bienvenido — escríbenos.",
     backToApp: "Volver a la app",
+    reportBug: "Reportar un bug",
+    viewSource: "Ver el código",
   },
   de: {
     tagline: "Pokémon Champions · Typen-Abdeckung",
@@ -545,6 +553,8 @@ const DICT: Record<Lang, Dict> = {
     contributeBody:
       "Einen Bug gefunden, ein fehlendes Pokémon oder eine Fehlübersetzung? Willst du ein Feature hinzufügen? Jedes Feedback ist willkommen — melde dich bei uns.",
     backToApp: "Zurück zur App",
+    reportBug: "Bug melden",
+    viewSource: "Quellcode",
   },
   it: {
     tagline: "Pokémon Campioni · Copertura di tipo",
@@ -639,6 +649,8 @@ const DICT: Record<Lang, Dict> = {
     contributeBody:
       "Hai trovato un bug, un Pokémon mancante, una traduzione sbagliata? Vuoi aggiungere una funzione? Qualsiasi feedback è benvenuto — contattaci.",
     backToApp: "Torna all'app",
+    reportBug: "Segnala un bug",
+    viewSource: "Codice sorgente",
   },
   ja: {
     tagline: "ポケモンチャンピオンズ · タイプ相性",
@@ -733,6 +745,8 @@ const DICT: Record<Lang, Dict> = {
     contributeBody:
       "バグ、欠けているポケモン、翻訳の間違いを見つけましたか？機能を追加したいですか？どんなフィードバックも歓迎です — ご連絡ください。",
     backToApp: "アプリに戻る",
+    reportBug: "バグを報告",
+    viewSource: "ソースを見る",
   },
   ko: {
     tagline: "포켓몬 챔피언스 · 타입 커버리지",
@@ -827,6 +841,8 @@ const DICT: Record<Lang, Dict> = {
     contributeBody:
       "버그, 누락된 포켓몬, 번역 오류를 발견하셨나요? 기능을 추가하고 싶으신가요? 모든 피드백을 환영합니다 — 저희에게 연락해 주세요.",
     backToApp: "앱으로 돌아가기",
+    reportBug: "버그 신고",
+    viewSource: "소스 보기",
   },
   "zh-Hans": {
     tagline: "宝可梦冠军赛 · 属性克制",
@@ -920,6 +936,8 @@ const DICT: Record<Lang, Dict> = {
     contributeBody:
       "发现 bug、缺失的宝可梦或翻译错误？想添加功能？欢迎任何反馈 — 请联系我们。",
     backToApp: "返回应用",
+    reportBug: "报告 bug",
+    viewSource: "查看源代码",
   },
   "zh-Hant": {
     tagline: "寶可夢冠軍賽 · 屬性克制",
@@ -1013,6 +1031,8 @@ const DICT: Record<Lang, Dict> = {
     contributeBody:
       "發現 bug、缺失的寶可夢或翻譯錯誤？想新增功能？歡迎任何回饋 — 請聯絡我們。",
     backToApp: "返回應用",
+    reportBug: "回報 bug",
+    viewSource: "查看原始碼",
   },
 };
 
