@@ -10,7 +10,7 @@ import {
 } from "@/lib/battleSim";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Swords, Sparkles, AlertTriangle, Trophy, X, Pencil } from "lucide-react";
+import { Swords, Sparkles, AlertTriangle, Trophy, X } from "lucide-react";
 import { PokemonSearch } from "./PokemonSearch";
 
 const STORAGE_KEY = "pokecounter.myteam.v1";
@@ -52,7 +52,6 @@ export function BattleSimPage() {
   const { lang } = useLang();
   const monById = useMemo(() => new Map(POKEMON.map((p) => [p.id, p])), []);
   const [myTeamIds, setMyTeamIds] = useState<number[]>(() => loadMyTeamIds());
-  const [editing, setEditing] = useState(false);
   const [pool, setPool] = useState<Archetype | "mixed">("mixed");
   const [count, setCount] = useState(30);
   const [bringN, setBringN] = useState<3 | 4>(4);
@@ -106,7 +105,7 @@ export function BattleSimPage() {
         </p>
       </header>
 
-      {/* Team preview / editor */}
+      {/* Team editor — always live, no edit toggle */}
       <section className="mb-8">
         <div className="flex items-baseline gap-3 mb-1">
           <span className="font-pixel text-2xl text-primary tabular-nums">
@@ -118,14 +117,6 @@ export function BattleSimPage() {
           <span className="ml-auto text-[10px] text-muted-foreground font-mono tabular-nums">
             {myTeam.length}/6
           </span>
-          <button
-            type="button"
-            onClick={() => setEditing((e) => !e)}
-            className="font-pixel text-[9px] uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1"
-          >
-            <Pencil className="h-3 w-3" />
-            {editing ? "Done" : "Edit"}
-          </button>
           {myTeamIds.length > 0 && (
             <button
               type="button"
@@ -139,26 +130,29 @@ export function BattleSimPage() {
         </div>
         <div className="h-[3px] bg-foreground mb-4" />
 
-        {editing && (
-          <div className="mb-3">
-            <PokemonSearch
-              onSelect={addToTeam}
-              excludeIds={myTeamIds}
-              disabled={myTeamIds.length >= 6}
-              placeholder="Add a Pokémon to your team..."
-            />
-          </div>
-        )}
+        <div className="mb-3">
+          <PokemonSearch
+            onSelect={addToTeam}
+            excludeIds={myTeamIds}
+            disabled={myTeamIds.length >= 6}
+            placeholder="Add a Pokémon..."
+          />
+        </div>
 
-        {myTeam.length === 0 ? (
-          <div className="rounded-xl border-2 border-dashed border-border bg-muted/40 p-8 text-center">
-            <p className="text-xs text-muted-foreground font-mono">
-              No team yet. Click <strong>Edit</strong> above to add 6 Pokémon.
-            </p>
-          </div>
-        ) : (
-          <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
-            {myTeam.map((p) => (
+        <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+          {Array.from({ length: 6 }).map((_, i) => {
+            const p = myTeam[i];
+            if (!p) {
+              return (
+                <div
+                  key={`empty-${i}`}
+                  className="aspect-square rounded-lg border-2 border-dashed border-border bg-muted/40 flex items-center justify-center text-muted-foreground text-xl"
+                >
+                  +
+                </div>
+              );
+            }
+            return (
               <div
                 key={p.id}
                 className="relative flex flex-col items-center group"
@@ -171,29 +165,18 @@ export function BattleSimPage() {
                 <span className="font-pixel text-[8px] uppercase truncate max-w-full">
                   {pokemonName(p, lang)}
                 </span>
-                {editing && (
-                  <button
-                    type="button"
-                    onClick={() => removeFromTeam(p.id)}
-                    className="absolute -top-1 -right-1 h-5 w-5 rounded-full border border-destructive/30 bg-destructive text-destructive-foreground flex items-center justify-center shadow-soft"
-                    aria-label="Remove"
-                  >
-                    <X className="h-3 w-3" />
-                  </button>
-                )}
-              </div>
-            ))}
-            {editing &&
-              Array.from({ length: 6 - myTeam.length }).map((_, i) => (
-                <div
-                  key={`empty-${i}`}
-                  className="aspect-square rounded-lg border-2 border-dashed border-border bg-muted/40 flex items-center justify-center text-muted-foreground text-xl"
+                <button
+                  type="button"
+                  onClick={() => removeFromTeam(p.id)}
+                  className="absolute -top-1 -right-1 h-5 w-5 rounded-full border border-destructive/30 bg-destructive text-destructive-foreground flex items-center justify-center shadow-soft opacity-0 group-hover:opacity-100 transition-opacity"
+                  aria-label="Remove"
                 >
-                  +
-                </div>
-              ))}
-          </div>
-        )}
+                  <X className="h-3 w-3" />
+                </button>
+              </div>
+            );
+          })}
+        </div>
       </section>
 
       {/* Config */}

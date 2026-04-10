@@ -212,6 +212,27 @@ type Dict = {
   suggestions: string;
   noTeamSuggestions: string;
   noTeamSuggestionsBody: string;
+  footerProse: string;
+  footerTools: string;
+  footerCountersByType: string;
+  footerPopularCounters: string;
+  footerCopyright: string;
+  footerTrademark: string;
+  navLegal: string;
+  legalTitle: string;
+  legalSubtitle: string;
+  legalWhoTitle: string;
+  legalWhoBody: string;
+  legalDataTitle: string;
+  legalDataBody: string;
+  legalThirdPartyTitle: string;
+  legalThirdPartyBody: string;
+  legalTrademarksTitle: string;
+  legalTrademarksBody: string;
+  legalWarrantyTitle: string;
+  legalWarrantyBody: string;
+  legalContactTitle: string;
+  legalContactBody: string;
 };
 
 const DICT: { en: Dict } & { [K in Exclude<Lang, "en">]: Partial<Dict> } = {
@@ -350,6 +371,34 @@ const DICT: { en: Dict } & { [K in Exclude<Lang, "en">]: Partial<Dict> } = {
     noTeamSuggestions: "No team? Here are the best counters",
     noTeamSuggestionsBody:
       "Top picks from the full Champions roster against this opponent. Build your own team to get personalized picks.",
+    footerProse:
+      "Free Pokémon Champions counter picker. Type in any of 9 languages, get the best picks from your 6-mon team instantly. Supports 1v1 and 2v2 VGC-style formats, full 250-mon Champions roster, damage calc, type chart, team analyzer and battle simulator. No account, no ads, no paywalls.",
+    footerTools: "Tools",
+    footerCountersByType: "Counters by type",
+    footerPopularCounters: "Popular counters",
+    footerCopyright: "© 2026 PokeCounter · MIT",
+    footerTrademark: "Pokémon © Nintendo · Game Freak · The Pokémon Company",
+    navLegal: "Legal",
+    legalTitle: "Legal & privacy",
+    legalSubtitle: "Who runs this, what we collect, and what we don't",
+    legalWhoTitle: "Who runs PokeCounter?",
+    legalWhoBody:
+      "PokeCounter is an independent, fan-made tool maintained by one hobby developer. It has no commercial purpose, no advertising, and no relationship with Nintendo, Game Freak or The Pokémon Company.",
+    legalDataTitle: "What data we collect",
+    legalDataBody:
+      "We use self-hosted Umami analytics to count page views (no cookies, no cross-site tracking, no fingerprinting). Your team and saved builds are stored exclusively in your browser's localStorage — we never see them. No account, no email, no personal data.",
+    legalThirdPartyTitle: "Third-party services",
+    legalThirdPartyBody:
+      "Pokémon sprites, localized names, base stats, abilities and movepools are fetched at build time from PokéAPI (pokeapi.co). Fonts are loaded from Google Fonts. Self-hosted Umami analytics is served from umami.productcompanies.eu.",
+    legalTrademarksTitle: "Trademarks",
+    legalTrademarksBody:
+      "Pokémon, Pokémon character names, and all related properties are trademarks of Nintendo / Game Freak / The Pokémon Company. PokeCounter is not affiliated with, endorsed, sponsored, or specifically approved by any of those entities. If you are a rights holder and want content removed, contact us via GitHub issues.",
+    legalWarrantyTitle: "No warranty",
+    legalWarrantyBody:
+      "PokeCounter is provided 'as is', without warranty of any kind. Tier rankings, damage calculations and battle simulation results are best-effort heuristics, not competitive guarantees. Use at your own risk and have fun.",
+    legalContactTitle: "Contact",
+    legalContactBody:
+      "Report a bug, suggest a feature or flag an issue via GitHub issues at github.com/EricTron-FR/PokeCounter.app/issues. Code is MIT licensed.",
   },
   fr: {
     tagline: "Pokémon Champions · Couverture de types",
@@ -486,6 +535,34 @@ const DICT: { en: Dict } & { [K in Exclude<Lang, "en">]: Partial<Dict> } = {
     noTeamSuggestions: "Pas de team ? Voici les meilleurs counters",
     noTeamSuggestionsBody:
       "Top picks du roster Champions complet contre cet adversaire. Construis ta team pour des picks personnalisés.",
+    footerProse:
+      "Outil gratuit de counter pour Pokémon Champions. Tape dans n'importe laquelle des 9 langues, obtiens instantanément les meilleurs picks depuis ta team de 6. Supporte les formats 1v1 et 2v2 VGC, roster Champions complet (250 mons), calculateur de dégâts, table des types, analyseur de team et simulateur de combat. Sans compte, sans pub, sans paywall.",
+    footerTools: "Outils",
+    footerCountersByType: "Counters par type",
+    footerPopularCounters: "Counters populaires",
+    footerCopyright: "© 2026 PokeCounter · MIT",
+    footerTrademark: "Pokémon © Nintendo · Game Freak · The Pokémon Company",
+    navLegal: "Mentions",
+    legalTitle: "Mentions légales & vie privée",
+    legalSubtitle: "Qui gère ça, ce qu'on collecte et ce qu'on ne collecte pas",
+    legalWhoTitle: "Qui gère PokeCounter ?",
+    legalWhoBody:
+      "PokeCounter est un outil indépendant, fan-made, maintenu par un développeur hobbyiste. Aucun but commercial, aucune publicité, aucun lien avec Nintendo, Game Freak ou The Pokémon Company.",
+    legalDataTitle: "Données collectées",
+    legalDataBody:
+      "On utilise Umami (self-hosted) pour compter les pages vues (aucun cookie, aucun tracking cross-site, aucun fingerprinting). Ta team et tes builds sauvegardés sont uniquement stockés dans le localStorage de ton navigateur — on ne les voit jamais. Pas de compte, pas d'email, pas de données personnelles.",
+    legalThirdPartyTitle: "Services tiers",
+    legalThirdPartyBody:
+      "Les sprites Pokémon, noms localisés, stats de base, talents et movepools sont récupérés au build depuis PokéAPI (pokeapi.co). Les polices viennent de Google Fonts. L'analytics Umami est servie depuis umami.productcompanies.eu.",
+    legalTrademarksTitle: "Marques",
+    legalTrademarksBody:
+      "Pokémon, les noms de personnages Pokémon et toutes les propriétés associées sont des marques de Nintendo / Game Freak / The Pokémon Company. PokeCounter n'est ni affilié, ni sponsorisé, ni approuvé par ces entités. Pour toute demande de retrait de contenu, contactez-nous via les issues GitHub.",
+    legalWarrantyTitle: "Aucune garantie",
+    legalWarrantyBody:
+      "PokeCounter est fourni 'tel quel', sans aucune garantie. Les tiers, calculs de dégâts et résultats de simulation de combat sont des heuristiques best-effort, pas des garanties compétitives. Utilise à tes propres risques et amuse-toi.",
+    legalContactTitle: "Contact",
+    legalContactBody:
+      "Signaler un bug, suggérer une feature ou remonter un problème via les GitHub issues : github.com/EricTron-FR/PokeCounter.app/issues. Code sous licence MIT.",
   },
   es: {
     tagline: "Pokémon Campeones · Cobertura de tipos",

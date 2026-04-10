@@ -8,6 +8,7 @@ const TITLES: Record<string, string> = {
   battle: "Battle Simulator · PokeCounter",
   learn: "Learn VGC · PokeCounter",
   about: "About · PokeCounter",
+  legal: "Legal & privacy · PokeCounter",
 };
 
 export function useDocumentTitle(view: string) {

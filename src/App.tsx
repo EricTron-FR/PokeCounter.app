@@ -31,6 +31,9 @@ const LearnPage = lazy(() =>
 const BattleSimPage = lazy(() =>
   import("@/components/BattleSimPage").then((m) => ({ default: m.BattleSimPage })),
 );
+const LegalPage = lazy(() =>
+  import("@/components/LegalPage").then((m) => ({ default: m.LegalPage })),
+);
 const AdvancedTeamBuilder = lazy(() =>
   import("@/components/AdvancedTeamBuilder").then((m) => ({
     default: m.AdvancedTeamBuilder,
@@ -117,14 +120,42 @@ export default function App() {
     );
   }, [advancedSlots]);
 
-  // Sync advanced slots → simple team ids so coverage / picks still work
+  // Bidirectional sync between the Simple (ids only) and Advanced (full
+  // BuildSlots) representations of the team — whichever mode the user
+  // is in, the other stays consistent and the full configs are preserved.
   useEffect(() => {
     if (advancedMode) {
+      // Advanced → Simple: just project down to ids
       const ids = advancedSlots.map((s) => s.pokemonId);
-      setMyTeamIds(ids);
+      // Avoid needless re-renders when nothing actually changed
+      setMyTeamIds((prev) =>
+        prev.length === ids.length && prev.every((v, i) => v === ids[i])
+          ? prev
+          : ids,
+      );
+    } else {
+      // Simple → Advanced: preserve existing slot configs for ids that stay,
+      // and create a default BuildSlot for any new id added in simple mode
+      const sameLength = advancedSlots.length === myTeamIds.length;
+      const sameIds =
+        sameLength && advancedSlots.every((s, i) => s.pokemonId === myTeamIds[i]);
+      if (sameIds) return;
+      const nextSlots = myTeamIds.map((id) => {
+        const existing = advancedSlots.find((s) => s.pokemonId === id);
+        if (existing) return existing;
+        const mon = POKEMON.find((p) => p.id === id);
+        return {
+          pokemonId: id,
+          ability: mon?.abilities?.[0]?.names.en,
+          moves: [],
+          sp: { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0 },
+          nature: "Hardy",
+        } satisfies BuildSlot;
+      });
+      setAdvancedSlots(nextSlots);
     }
-  }, [advancedMode, advancedSlots]);
-  function viewFromHash(): "home" | "about" | "pokedex" | "compare" | "types" | "learn" | "battle" {
+  }, [advancedMode, advancedSlots, myTeamIds]);
+  function viewFromHash(): "home" | "about" | "pokedex" | "compare" | "types" | "learn" | "battle" | "legal" {
     const h = window.location.hash;
     if (h === "#/about") return "about";
     if (h === "#/pokedex") return "pokedex";
@@ -132,9 +163,10 @@ export default function App() {
     if (h === "#/types") return "types";
     if (h === "#/learn") return "learn";
     if (h === "#/battle") return "battle";
+    if (h === "#/legal") return "legal";
     return "home";
   }
-  const [view, setView] = useState<"home" | "about" | "pokedex" | "compare" | "types" | "learn" | "battle">(
+  const [view, setView] = useState<"home" | "about" | "pokedex" | "compare" | "types" | "learn" | "battle" | "legal">(
     () => viewFromHash(),
   );
 
@@ -165,6 +197,9 @@ export default function App() {
   }, []);
   const goBattle = useCallback(() => {
     window.location.hash = "#/battle";
+  }, []);
+  const goLegal = useCallback(() => {
+    window.location.hash = "#/legal";
   }, []);
   const goHome = useCallback(() => {
     if (window.location.hash) {
@@ -374,6 +409,11 @@ export default function App() {
           <BattleSimPage />
         </Suspense>
       )}
+      {view === "legal" && (
+        <Suspense fallback={<LazyFallback />}>
+          <LegalPage />
+        </Suspense>
+      )}
       {view === "home" && (
       <>
       <div className="container pt-4 sm:pt-8">
@@ -557,7 +597,7 @@ export default function App() {
       </>
       )}
 
-      <SeoFooter />
+      <SeoFooter onGoLegal={goLegal} />
     </div>
   );
 }

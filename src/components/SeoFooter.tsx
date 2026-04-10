@@ -5,6 +5,10 @@ import { pokemonName, useLang, SUPPORTED_LANGS, LANG_META, typeLabel } from "@/l
 import { Github, Bug } from "lucide-react";
 import { TypeBadge } from "./TypeBadge";
 
+interface Props {
+  onGoLegal?: () => void;
+}
+
 const GITHUB = "https://github.com/EricTron-FR/PokeCounter.app";
 const ISSUES = `${GITHUB}/issues/new`;
 
@@ -16,7 +20,7 @@ function popularMons() {
   }).slice(0, 32);
 }
 
-export function SeoFooter() {
+export function SeoFooter({ onGoLegal }: Props) {
   const { t, lang, setLang } = useLang();
   const popular = popularMons();
 
@@ -31,11 +35,7 @@ export function SeoFooter() {
               <span className="font-pixel text-sm text-foreground">POKECOUNTER</span>
             </div>
             <p className="text-xs text-muted-foreground mt-3 leading-relaxed font-mono">
-              Free Pokémon Champions counter picker. Type in any of 9 languages,
-              get the best picks from your 6-mon team instantly. Supports 1v1 and
-              2v2 VGC-style formats, full 250-mon Champions roster, damage calc,
-              type chart, team analyzer and battle simulator. No account, no ads,
-              no paywalls.
+              {t("footerProse")}
             </p>
             <div className="flex gap-3 mt-4">
               <a
@@ -61,15 +61,24 @@ export function SeoFooter() {
 
           <div>
             <div className="font-pixel text-[9px] uppercase tracking-wider text-primary mb-3">
-              Tools
+              {t("footerTools")}
             </div>
             <ul className="space-y-1.5 text-xs font-mono">
-              <li><a className="hover:text-primary text-muted-foreground" href="#/pokedex">Pokédex</a></li>
-              <li><a className="hover:text-primary text-muted-foreground" href="#/compare">Compare Pokémon</a></li>
-              <li><a className="hover:text-primary text-muted-foreground" href="#/types">Type chart 18×18</a></li>
-              <li><a className="hover:text-primary text-muted-foreground" href="#/battle">Battle simulator</a></li>
-              <li><a className="hover:text-primary text-muted-foreground" href="#/learn">Learn VGC</a></li>
-              <li><a className="hover:text-primary text-muted-foreground" href="#/about">About</a></li>
+              <li><a className="hover:text-primary text-muted-foreground" href="#/pokedex">{t("navPokedex")}</a></li>
+              <li><a className="hover:text-primary text-muted-foreground" href="#/compare">{t("navCompare")}</a></li>
+              <li><a className="hover:text-primary text-muted-foreground" href="#/types">{t("navTypes")}</a></li>
+              <li><a className="hover:text-primary text-muted-foreground" href="#/battle">Battle</a></li>
+              <li><a className="hover:text-primary text-muted-foreground" href="#/learn">{t("navLearn")}</a></li>
+              <li><a className="hover:text-primary text-muted-foreground" href="#/about">{t("navAbout")}</a></li>
+              <li>
+                <button
+                  type="button"
+                  onClick={onGoLegal}
+                  className="hover:text-primary text-muted-foreground text-left"
+                >
+                  {t("navLegal")}
+                </button>
+              </li>
             </ul>
           </div>
 
@@ -100,7 +109,7 @@ export function SeoFooter() {
         {/* Row 2: type pages */}
         <div>
           <div className="font-pixel text-[9px] uppercase tracking-wider text-primary mb-3">
-            Counters by type
+            {t("footerCountersByType")}
           </div>
           <div className="flex flex-wrap gap-1.5">
             {ALL_TYPES.map((tp: PokemonType) => (
@@ -122,7 +131,7 @@ export function SeoFooter() {
         {/* Row 3: popular counters — dense long-tail SEO links, no sprites */}
         <div>
           <div className="font-pixel text-[9px] uppercase tracking-wider text-primary mb-3">
-            Popular counters
+            {t("footerPopularCounters")}
           </div>
           <div className="flex flex-wrap gap-x-3 gap-y-1 text-[10px] font-mono leading-relaxed text-muted-foreground">
             {popular.map((p) => (
@@ -140,12 +149,8 @@ export function SeoFooter() {
 
         {/* Bottom */}
         <div className="pt-6 border-t border-border/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-[9px] font-pixel uppercase tracking-wider text-muted-foreground/70">
-          <div>
-            © 2026 PokeCounter · MIT
-          </div>
-          <div>
-            Pokémon © Nintendo · Game Freak · The Pokémon Company
-          </div>
+          <div>{t("footerCopyright")}</div>
+          <div>{t("footerTrademark")}</div>
         </div>
       </div>
     </footer>
