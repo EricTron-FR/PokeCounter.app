@@ -1,16 +1,16 @@
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-/**
- * Scrolls the window to the top on every route change. Needed because
- * React Router preserves scroll position by default — when you click a
- * footer link at the bottom of /pokedex, you'd land at the bottom of the
- * new page without this.
- */
+// React Router preserves scroll position across navigations. Reset it on every
+// pathname change. useLayoutEffect runs synchronously before paint so the user
+// never sees the old scroll position flash; instant behavior survives
+// Suspense remounts that would interrupt a smooth animation.
 export function ScrollToTop() {
   const { pathname } = useLocation();
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
   }, [pathname]);
   return null;
 }

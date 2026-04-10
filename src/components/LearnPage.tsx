@@ -12,7 +12,35 @@ import {
   Clock,
   Layers,
   Star,
+  Sun,
+  CloudRain,
+  Wind,
+  Snowflake,
+  Leaf,
+  CloudFog,
+  Flame,
+  Moon,
+  Droplet,
+  Skull,
+  RefreshCw,
+  Bomb,
+  Target,
+  FlaskConical,
+  TrendingDown,
+  Trophy,
+  CloudSun,
 } from "lucide-react";
+
+// Inline icon helper — keeps the emoji replacements terse.
+const Inline = ({
+  Icon,
+  className = "",
+}: {
+  Icon: React.ComponentType<{ className?: string }>;
+  className?: string;
+}) => (
+  <Icon className={cn("inline h-3 w-3 mx-0.5 align-text-bottom", className)} />
+);
 
 interface Section {
   id: string;
@@ -149,19 +177,19 @@ const SECTIONS: Section[] = [
       en: (
         <ul className="space-y-2">
           <li>
-            <strong>Sun</strong> ☀️ — Fire +50 %, Water −50 %, Solar Beam no charge,
+            <strong>Sun <Inline Icon={Sun} /></strong> — Fire +50 %, Water −50 %, Solar Beam no charge,
             Chlorophyll doubles Speed, Solar Power +50 % SpA but −1/8 HP/turn.
           </li>
           <li>
-            <strong>Rain</strong> 🌧 — Water +50 %, Fire −50 %, Thunder 100 % accuracy, Swift
+            <strong>Rain <Inline Icon={CloudRain} /></strong> — Water +50 %, Fire −50 %, Thunder 100 % accuracy, Swift
             Swim doubles Speed.
           </li>
           <li>
-            <strong>Sandstorm</strong> 🏜 — Rock +50 % SpD, chip damage to non-Rock/Ground/
+            <strong>Sandstorm <Inline Icon={Wind} /></strong> — Rock +50 % SpD, chip damage to non-Rock/Ground/
             Steel, Sand Rush doubles Speed.
           </li>
           <li>
-            <strong>Snow</strong> ❄️ — Ice types get +50 % Defense, Slush Rush doubles Speed,
+            <strong>Snow <Inline Icon={Snowflake} /></strong> — Ice types get +50 % Defense, Slush Rush doubles Speed,
             Aurora Veil halves damage.
           </li>
           <li>
@@ -173,19 +201,19 @@ const SECTIONS: Section[] = [
       fr: (
         <ul className="space-y-2">
           <li>
-            <strong>Soleil</strong> ☀️ — Feu +50 %, Eau −50 %, Lance-Soleil sans charge,
+            <strong>Soleil <Inline Icon={Sun} /></strong> — Feu +50 %, Eau −50 %, Lance-Soleil sans charge,
             Chlorophylle double la Vitesse, Force Soleil +50 % AtkS mais −1/8 PV/tour.
           </li>
           <li>
-            <strong>Pluie</strong> 🌧 — Eau +50 %, Feu −50 %, Fatal-Foudre 100 % de précision,
+            <strong>Pluie <Inline Icon={CloudRain} /></strong> — Eau +50 %, Feu −50 %, Fatal-Foudre 100 % de précision,
             Glissade double la Vitesse.
           </li>
           <li>
-            <strong>Tempête de sable</strong> 🏜 — Roche +50 % DéfS, dégâts résiduels sauf
+            <strong>Tempête de sable <Inline Icon={Wind} /></strong> — Roche +50 % DéfS, dégâts résiduels sauf
             Roche/Sol/Acier, Hâte Sable double la Vitesse.
           </li>
           <li>
-            <strong>Neige</strong> ❄️ — Glace +50 % Défense, Hâte Neige double la Vitesse,
+            <strong>Neige <Inline Icon={Snowflake} /></strong> — Glace +50 % Défense, Hâte Neige double la Vitesse,
             Voile Aurore divise les dégâts par 2.
           </li>
           <li>
@@ -204,19 +232,19 @@ const SECTIONS: Section[] = [
       en: (
         <ul className="space-y-2">
           <li>
-            <strong>Electric Terrain</strong> ⚡ — Electric moves +30 %, grounded mons can't
+            <strong>Electric Terrain <Inline Icon={Zap} /></strong> — Electric moves +30 %, grounded mons can't
             be put to sleep.
           </li>
           <li>
-            <strong>Grassy Terrain</strong> 🌿 — Grass moves +30 %, grounded mons heal 1/16
+            <strong>Grassy Terrain <Inline Icon={Leaf} /></strong> — Grass moves +30 %, grounded mons heal 1/16
             HP per turn, Earthquake/Bulldoze halved.
           </li>
           <li>
-            <strong>Misty Terrain</strong> 🌫 — Dragon moves halved, grounded mons immune to
+            <strong>Misty Terrain <Inline Icon={CloudFog} /></strong> — Dragon moves halved, grounded mons immune to
             status.
           </li>
           <li>
-            <strong>Psychic Terrain</strong> 🔮 — Psychic moves +30 %, grounded mons immune to
+            <strong>Psychic Terrain <Inline Icon={Sparkles} /></strong> — Psychic moves +30 %, grounded mons immune to
             priority.
           </li>
           <li>
@@ -228,19 +256,19 @@ const SECTIONS: Section[] = [
       fr: (
         <ul className="space-y-2">
           <li>
-            <strong>Champ Électrifié</strong> ⚡ — Attaques Élec +30 %, les mons au sol ne
+            <strong>Champ Électrifié <Inline Icon={Zap} /></strong> — Attaques Élec +30 %, les mons au sol ne
             peuvent pas s'endormir.
           </li>
           <li>
-            <strong>Champ Herbu</strong> 🌿 — Attaques Plante +30 %, les mons au sol
+            <strong>Champ Herbu <Inline Icon={Leaf} /></strong> — Attaques Plante +30 %, les mons au sol
             récupèrent 1/16 PV par tour, Séisme/Bulldozer divisés par 2.
           </li>
           <li>
-            <strong>Champ Brumeux</strong> 🌫 — Attaques Dragon divisées par 2, les mons au
+            <strong>Champ Brumeux <Inline Icon={CloudFog} /></strong> — Attaques Dragon divisées par 2, les mons au
             sol immunisés aux statuts.
           </li>
           <li>
-            <strong>Champ Psychique</strong> 🔮 — Attaques Psy +30 %, les mons au sol
+            <strong>Champ Psychique <Inline Icon={Sparkles} /></strong> — Attaques Psy +30 %, les mons au sol
             immunisés aux attaques prioritaires.
           </li>
           <li>
@@ -328,23 +356,23 @@ const SECTIONS: Section[] = [
     body: {
       en: (
         <ul className="space-y-2">
-          <li><strong>Burn 🔥</strong> — halves physical attack, −1/16 HP per turn</li>
-          <li><strong>Paralysis ⚡</strong> — halves Speed, 25 % chance to skip turn</li>
-          <li><strong>Sleep 😴</strong> — can't act for 1–3 turns (1 with Sleep Talk)</li>
-          <li><strong>Freeze ❄️</strong> — can't act, 20 % chance to thaw each turn</li>
-          <li><strong>Poison 🟣</strong> — −1/8 HP per turn</li>
-          <li><strong>Badly poisoned 🟪</strong> — −1/16 HP first turn, then ramping up</li>
+          <li><strong>Burn <Inline Icon={Flame} /></strong> — halves physical attack, −1/16 HP per turn</li>
+          <li><strong>Paralysis <Inline Icon={Zap} /></strong> — halves Speed, 25 % chance to skip turn</li>
+          <li><strong>Sleep <Inline Icon={Moon} /></strong> — can't act for 1–3 turns (1 with Sleep Talk)</li>
+          <li><strong>Freeze <Inline Icon={Snowflake} /></strong> — can't act, 20 % chance to thaw each turn</li>
+          <li><strong>Poison <Inline Icon={Droplet} /></strong> — −1/8 HP per turn</li>
+          <li><strong>Badly poisoned <Inline Icon={Skull} /></strong> — −1/16 HP first turn, then ramping up</li>
           <li><strong>Confusion</strong> — 33 % chance to hit yourself for ~50 % of own Attack</li>
         </ul>
       ),
       fr: (
         <ul className="space-y-2">
-          <li><strong>Brûlure 🔥</strong> — divise l'attaque physique par 2, −1/16 PV/tour</li>
-          <li><strong>Paralysie ⚡</strong> — divise la Vitesse par 2, 25 % de rater son tour</li>
-          <li><strong>Sommeil 😴</strong> — ne peut pas agir pendant 1–3 tours (1 avec Blabla Dodo)</li>
-          <li><strong>Gel ❄️</strong> — ne peut pas agir, 20 % de dégeler par tour</li>
-          <li><strong>Poison 🟣</strong> — −1/8 PV par tour</li>
-          <li><strong>Poison grave 🟪</strong> — −1/16 PV au début, augmente chaque tour</li>
+          <li><strong>Brûlure <Inline Icon={Flame} /></strong> — divise l'attaque physique par 2, −1/16 PV/tour</li>
+          <li><strong>Paralysie <Inline Icon={Zap} /></strong> — divise la Vitesse par 2, 25 % de rater son tour</li>
+          <li><strong>Sommeil <Inline Icon={Moon} /></strong> — ne peut pas agir pendant 1–3 tours (1 avec Blabla Dodo)</li>
+          <li><strong>Gel <Inline Icon={Snowflake} /></strong> — ne peut pas agir, 20 % de dégeler par tour</li>
+          <li><strong>Poison <Inline Icon={Droplet} /></strong> — −1/8 PV par tour</li>
+          <li><strong>Poison grave <Inline Icon={Skull} /></strong> — −1/16 PV au début, augmente chaque tour</li>
           <li><strong>Confusion</strong> — 33 % de se taper soi-même pour ~50 % de sa propre Attaque</li>
         </ul>
       ),
@@ -358,7 +386,8 @@ const SECTIONS: Section[] = [
       en: (
         <div className="space-y-3">
           <MoveGroup
-            title="🛡️ Protection & anticipation"
+            title="Protection & anticipation"
+            icon={Shield}
             moves={[
               { name: "Protect", body: "Doubles staple. Shield one mon while the partner kills a threat, or scout the opponent's set without taking damage." },
               { name: "Fake Out", body: "Priority flinch. Crucial to prevent an opponent from setting Trick Room or Tailwind on turn 1." },
@@ -368,7 +397,8 @@ const SECTIONS: Section[] = [
             ]}
           />
           <MoveGroup
-            title="🌤️ Terrain control"
+            title="Terrain control"
+            icon={CloudSun}
             moves={[
               { name: "Sunny Day", body: "Mandatory on sun teams. Enables Chlorophyll (2× Speed) and lets Solar Beam fire in one turn." },
               { name: "Rain Dance", body: "Boosts Water moves and makes Hurricane and Thunder 100 % accurate." },
@@ -377,7 +407,8 @@ const SECTIONS: Section[] = [
             ]}
           />
           <MoveGroup
-            title="🔄 Pivoting & momentum"
+            title="Pivoting & momentum"
+            icon={RefreshCw}
             moves={[
               { name: "Parting Shot", body: "Weakens the opponent and safely pivots out — you see their move before choosing yours." },
               { name: "U-turn", body: "Keeps momentum. If opponent switches, you attack then pivot to keep the type advantage." },
@@ -385,7 +416,8 @@ const SECTIONS: Section[] = [
             ]}
           />
           <MoveGroup
-            title="💥 High-risk offense"
+            title="High-risk offense"
+            icon={Bomb}
             moves={[
               { name: "Flare Blitz", body: "Devastating physical Fire move. Recoil hurts but often the only way to secure a clean KO." },
               { name: "Wave Crash", body: "Water equivalent of Flare Blitz. Under rain, KOs almost anything that doesn't resist." },
@@ -393,7 +425,8 @@ const SECTIONS: Section[] = [
             ]}
           />
           <MoveGroup
-            title="🎯 Targeting & item removal"
+            title="Targeting & item removal"
+            icon={Target}
             moves={[
               { name: "Rage Powder", body: "Forces opponents to attack the user (bulky redirector like Amoonguss), freeing the partner to set up." },
               { name: "Follow Me", body: "Same role as Rage Powder, but not blocked by Grass types or Safety Goggles." },
@@ -402,7 +435,8 @@ const SECTIONS: Section[] = [
             ]}
           />
           <MoveGroup
-            title="🧪 Niche specials"
+            title="Niche specials"
+            icon={FlaskConical}
             moves={[
               { name: "Last Respects", body: "Scales with fainted teammates: from 50 BP at full team up to 200+ late-game. Terrifying." },
               { name: "Electro Shot", body: "Raikou / Raging Bolt signature. Boosts SpA and hits. One reason rain is so strong right now." },
@@ -411,7 +445,8 @@ const SECTIONS: Section[] = [
             ]}
           />
           <MoveGroup
-            title="📉 Stat control / debuffs"
+            title="Stat control / debuffs"
+            icon={TrendingDown}
             moves={[
               { name: "Thunder Wave", body: "Paralysis cuts Speed by 50 %. Alternative to Tailwind for controlling speed." },
               { name: "Will-O-Wisp", body: "Burn halves physical Attack — the worst nightmare for phys attackers." },
@@ -421,7 +456,8 @@ const SECTIONS: Section[] = [
             ]}
           />
           <MoveGroup
-            title="🏆 Setup & win conditions"
+            title="Setup & win conditions"
+            icon={Trophy}
             moves={[
               { name: "Dragon Dance / Quiver Dance", body: "Turn a decent mon into a solo sweeper. Risky — they cost a turn of setup." },
               { name: "Perish Song", body: "Endgame tool. In the last 2v2, forces a win in 3 turns if you have the numerical advantage." },
@@ -432,7 +468,8 @@ const SECTIONS: Section[] = [
       fr: (
         <div className="space-y-3">
           <MoveGroup
-            title="🛡️ Protection et anticipation"
+            title="Protection et anticipation"
+            icon={Shield}
             moves={[
               { name: "Abri (Protect)", body: "La base du combat double. Permet de protéger un Pokémon pendant que son partenaire élimine une menace, ou de scouter le set adverse sans prendre de dégâts." },
               { name: "Bluff (Fake Out)", body: "Attaque de priorité qui apeure la cible. Cruciale pour empêcher l'adversaire de poser une Distorsion ou un Vent Arrière au premier tour." },
@@ -442,7 +479,8 @@ const SECTIONS: Section[] = [
             ]}
           />
           <MoveGroup
-            title="🌤️ Contrôle du terrain"
+            title="Contrôle du terrain"
+            icon={CloudSun}
             moves={[
               { name: "Zénith (Sunny Day)", body: "Indispensable aux équipes Sun. Active Chlorophylle (×2 vitesse) et permet à Lance-Soleil de partir en un seul tour." },
               { name: "Danse Pluie (Rain Dance)", body: "Booste les attaques Eau et permet d'utiliser Vent Violent ou Fatal-Foudre sans risque de rater (100 % de précision)." },
@@ -451,7 +489,8 @@ const SECTIONS: Section[] = [
             ]}
           />
           <MoveGroup
-            title="🔄 Pivot et mobilité"
+            title="Pivot et mobilité"
+            icon={RefreshCw}
             moves={[
               { name: "Dernier Mot (Parting Shot)", body: "Capacité de Pivot. Affaiblit l'adversaire et permet de placer un Pokémon en sécurité en voyant ce qu'a fait l'adversaire." },
               { name: "Demi-Tour (U-turn)", body: "Garde le momentum. Si l'adversaire change, tu attaques puis pivot pour reprendre l'avantage du type." },
@@ -459,7 +498,8 @@ const SECTIONS: Section[] = [
             ]}
           />
           <MoveGroup
-            title="💥 Offensives à risque"
+            title="Offensives à risque"
+            icon={Bomb}
             moves={[
               { name: "Boutefeu (Flare Blitz)", body: "Attaque physique Feu dévastatrice. Le recul fait mal, mais souvent le seul moyen d'infliger un KO immédiat sur les cibles résistantes." },
               { name: "Aquatacle (Wave Crash)", body: "Équivalent Eau de Boutefeu. Particulièrement puissant sous la pluie, met presque n'importe quoi KO si pas de résistance." },
@@ -467,7 +507,8 @@ const SECTIONS: Section[] = [
             ]}
           />
           <MoveGroup
-            title="🎯 Ciblage et objets"
+            title="Ciblage et objets"
+            icon={Target}
             moves={[
               { name: "Poudre Fureur (Rage Powder)", body: "Force l'adversaire à attaquer le lanceur (souvent un tank comme Gaulet), laissant le partenaire libre d'attaquer ou se booster." },
               { name: "Par Ici (Follow Me)", body: "Même rôle que Poudre Fureur mais supérieur : pas bloquée par les Pokémon Plante ou les Lunettes Filtre." },
@@ -476,7 +517,8 @@ const SECTIONS: Section[] = [
             ]}
           />
           <MoveGroup
-            title="🧪 Capacités de niche"
+            title="Capacités de niche"
+            icon={FlaskConical}
             moves={[
               { name: "Hommage Postume (Last Respects)", body: "Devient terrifiante en fin de combat. Si 3 de tes Pokémon sont KO, la puissance passe de 50 à 200 — c'est colossal." },
               { name: "Fulgurayon (Electro Shot)", body: "Spécifique à Pondralugon. Augmente l'attaque spéciale en frappant. Une des raisons pour lesquelles la pluie est si forte actuellement." },
@@ -485,7 +527,8 @@ const SECTIONS: Section[] = [
             ]}
           />
           <MoveGroup
-            title="📉 Contrôle des stats"
+            title="Contrôle des stats"
+            icon={TrendingDown}
             moves={[
               { name: "Cage Éclair (Thunder Wave)", body: "La paralysie réduit la vitesse de 50 %. Excellent moyen de contrôler la vitesse sans Vent Arrière." },
               { name: "Feu Follet (Will-O-Wisp)", body: "La brûlure est le pire cauchemar des attaquants physiques. Réduit définitivement leur dangerosité." },
@@ -495,7 +538,8 @@ const SECTIONS: Section[] = [
             ]}
           />
           <MoveGroup
-            title="🏆 Setup et conditions de victoire"
+            title="Setup et conditions de victoire"
+            icon={Trophy}
             moves={[
               { name: "Setup (Danse Draco / Papillodanse)", body: "Transforment un Pokémon moyen en monstre capable de finir le match seul. Risqués : ils demandent un tour de préparation." },
               { name: "Requiem (Perish Song)", body: "Utilisée en fin de match (quand il ne reste que 2 Pokémon de chaque côté) pour forcer la victoire en 3 tours si tu as l'avantage numérique." },
@@ -536,14 +580,17 @@ const SECTIONS: Section[] = [
 
 function MoveGroup({
   title,
+  icon: Icon,
   moves,
 }: {
   title: string;
+  icon: React.ComponentType<{ className?: string }>;
   moves: { name: string; body: string }[];
 }) {
   return (
     <div>
-      <div className="font-pixel text-[10px] uppercase tracking-wider text-primary mb-2">
+      <div className="font-pixel text-[10px] uppercase tracking-wider text-primary mb-2 flex items-center gap-1.5">
+        <Icon className="h-3 w-3" />
         {title}
       </div>
       <ul className="space-y-1.5">
