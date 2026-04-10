@@ -32,6 +32,9 @@ const AdvancedTeamBuilder = lazy(() =>
     default: m.AdvancedTeamBuilder,
   })),
 );
+const TeamAnalyzer = lazy(() =>
+  import("@/components/TeamAnalyzer").then((m) => ({ default: m.TeamAnalyzer })),
+);
 import { Info, Home as HomeIcon, BookOpen, Settings, Zap, Scale, Grid3x3, GraduationCap } from "lucide-react";
 import {
   loadSavedTeams,
@@ -502,6 +505,11 @@ export default function App() {
               onLoadTemplate={loadTemplate}
               activeTeamId={activeTeamId}
             />
+            {myTeam.length > 0 && (
+              <Suspense fallback={<LazyFallback />}>
+                <TeamAnalyzer team={myTeam} />
+              </Suspense>
+            )}
           </CardContent>
         </Card>
 
