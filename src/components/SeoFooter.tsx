@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { POKEMON, monSlug } from "@/lib/pokemon";
 import { ALL_TYPES, PokemonType } from "@/lib/types";
 import { getTier } from "@/lib/tiers";
@@ -64,12 +65,12 @@ export function SeoFooter({ onGoLegal }: Props) {
               {t("footerTools")}
             </div>
             <ul className="space-y-1.5 text-xs font-mono">
-              <li><a className="hover:text-primary text-muted-foreground" href="/pokedex">{t("navPokedex")}</a></li>
-              <li><a className="hover:text-primary text-muted-foreground" href="/compare">{t("navCompare")}</a></li>
-              <li><a className="hover:text-primary text-muted-foreground" href="/types-chart">{t("navTypes")}</a></li>
-              <li><a className="hover:text-primary text-muted-foreground" href="/battle">{t("navSimulator")}</a></li>
-              <li><a className="hover:text-primary text-muted-foreground" href="/learn">{t("navLearn")}</a></li>
-              <li><a className="hover:text-primary text-muted-foreground" href="/about">{t("navAbout")}</a></li>
+              <li><Link className="hover:text-primary text-muted-foreground" to="/pokedex">{t("navPokedex")}</Link></li>
+              <li><Link className="hover:text-primary text-muted-foreground" to="/compare">{t("navCompare")}</Link></li>
+              <li><Link className="hover:text-primary text-muted-foreground" to="/types-chart">{t("navTypes")}</Link></li>
+              <li><Link className="hover:text-primary text-muted-foreground" to="/battle">{t("navSimulator")}</Link></li>
+              <li><Link className="hover:text-primary text-muted-foreground" to="/learn">{t("navLearn")}</Link></li>
+              <li><Link className="hover:text-primary text-muted-foreground" to="/about">{t("navAbout")}</Link></li>
               <li>
                 <button
                   type="button"
@@ -113,9 +114,9 @@ export function SeoFooter({ onGoLegal }: Props) {
           </div>
           <div className="flex flex-wrap gap-1.5">
             {ALL_TYPES.map((tp: PokemonType) => (
-              <a
+              <Link
                 key={tp}
-                href={`/type/${tp.toLowerCase()}`}
+                to={`/type/${tp.toLowerCase()}`}
                 className="transition-opacity hover:opacity-100 opacity-80"
                 aria-label={`Counters for ${tp} type`}
               >
@@ -123,7 +124,7 @@ export function SeoFooter({ onGoLegal }: Props) {
                 <span className="sr-only">
                   Best {typeLabel(tp, lang)} counters
                 </span>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
@@ -135,14 +136,14 @@ export function SeoFooter({ onGoLegal }: Props) {
           </div>
           <div className="flex flex-wrap gap-x-3 gap-y-1 text-[10px] font-mono leading-relaxed text-muted-foreground">
             {popular.map((p) => (
-              <a
+              <Link
                 key={p.id}
-                href={`/pokemon/${monSlug(p)}`}
+                to={`/pokemon/${monSlug(p)}`}
                 className="hover:text-primary whitespace-nowrap"
                 title={`Best counters for ${pokemonName(p, lang)}`}
               >
                 {pokemonName(p, lang)}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
