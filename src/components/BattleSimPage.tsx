@@ -10,7 +10,22 @@ import {
 } from "@/lib/battleSim";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Swords, Sparkles, AlertTriangle, Trophy, X } from "lucide-react";
+import {
+  Swords,
+  Sparkles,
+  AlertTriangle,
+  Trophy,
+  X,
+  Shuffle,
+  HelpCircle,
+  Sun,
+  CloudRain,
+  RefreshCw,
+  Wind,
+  Shield,
+  Palette,
+  Flame,
+} from "lucide-react";
 import { PokemonSearch } from "./PokemonSearch";
 
 const STORAGE_KEY = "pokecounter.myteam.v1";
@@ -33,17 +48,21 @@ function saveMyTeamIds(ids: number[]) {
   }
 }
 
-const POOL_OPTIONS: { key: Archetype | "mixed"; label: string; emoji: string }[] = [
-  { key: "mixed", label: "Mixed", emoji: "🎲" },
-  { key: "random", label: "Random", emoji: "❓" },
-  { key: "meta", label: "Meta", emoji: "⭐" },
-  { key: "sun", label: "Sun", emoji: "☀️" },
-  { key: "rain", label: "Rain", emoji: "🌧" },
-  { key: "trick-room", label: "Trick Room", emoji: "🔄" },
-  { key: "tailwind", label: "Tailwind", emoji: "💨" },
-  { key: "hyper-offense", label: "Hyper Offense", emoji: "💥" },
-  { key: "bulky", label: "Bulky", emoji: "🛡" },
-  { key: "mono", label: "Mono-type", emoji: "🎨" },
+const POOL_OPTIONS: {
+  key: Archetype | "mixed";
+  label: string;
+  Icon: React.ComponentType<{ className?: string }>;
+}[] = [
+  { key: "mixed", label: "Mixed", Icon: Shuffle },
+  { key: "random", label: "Random", Icon: HelpCircle },
+  { key: "meta", label: "Meta", Icon: Trophy },
+  { key: "sun", label: "Sun", Icon: Sun },
+  { key: "rain", label: "Rain", Icon: CloudRain },
+  { key: "trick-room", label: "Trick Room", Icon: RefreshCw },
+  { key: "tailwind", label: "Tailwind", Icon: Wind },
+  { key: "hyper-offense", label: "Hyper Offense", Icon: Flame },
+  { key: "bulky", label: "Bulky", Icon: Shield },
+  { key: "mono", label: "Mono-type", Icon: Palette },
 ];
 
 const COUNT_OPTIONS = [10, 30, 50, 100];
@@ -222,22 +241,25 @@ export function BattleSimPage() {
               Opponent pool
             </div>
             <div className="flex flex-wrap gap-1.5">
-              {POOL_OPTIONS.map((p) => (
-                <button
-                  key={p.key}
-                  type="button"
-                  onClick={() => setPool(p.key)}
-                  className={cn(
-                    "px-3 py-1.5 rounded-full border font-pixel text-[9px] uppercase tracking-wider transition-all flex items-center gap-1.5",
-                    pool === p.key
-                      ? "border-primary/30 bg-primary text-primary-foreground shadow-soft-primary"
-                      : "border-border bg-card text-muted-foreground hover:bg-muted",
-                  )}
-                >
-                  <span>{p.emoji}</span>
-                  <span>{p.label}</span>
-                </button>
-              ))}
+              {POOL_OPTIONS.map((p) => {
+                const Icon = p.Icon;
+                return (
+                  <button
+                    key={p.key}
+                    type="button"
+                    onClick={() => setPool(p.key)}
+                    className={cn(
+                      "px-3 py-1.5 rounded-full border font-pixel text-[9px] uppercase tracking-wider transition-all flex items-center gap-1.5",
+                      pool === p.key
+                        ? "border-primary/30 bg-primary text-primary-foreground shadow-soft-primary"
+                        : "border-border bg-card text-muted-foreground hover:bg-muted",
+                    )}
+                  >
+                    <Icon className="h-3 w-3 shrink-0" />
+                    <span>{p.label}</span>
+                  </button>
+                );
+              })}
             </div>
           </div>
 
