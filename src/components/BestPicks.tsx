@@ -246,11 +246,11 @@ function PickRow({
         <div className="flex flex-col items-end shrink-0">
           <div
             className={cn(
-              "font-pixel text-sm text-shadow-pixel",
+              "font-pixel text-sm text-shadow-pixel tabular-nums",
               chosen ? "text-primary" : "text-muted-foreground",
             )}
           >
-            {score}
+            {Number.isInteger(score) ? score : score.toFixed(1)}
           </div>
           <div className="text-[8px] text-muted-foreground font-pixel uppercase">
             {t("score")}

@@ -129,12 +129,8 @@ export function optimalSubset(
     );
     const covered = opposing.length - uncovered.length;
     let totalScore = 0;
-    for (const def of opposing) {
-      for (const att of combo) {
-        const mult = bestStabMultiplier(att, def);
-        if (mult >= 2) totalScore += 1;
-        if (mult >= 4) totalScore += 1;
-      }
+    for (const att of combo) {
+      totalScore += pickScore(att, opposing);
     }
     if (
       covered > best.covered ||
@@ -165,13 +161,37 @@ export function defensiveMatchups(
   return { weak, resist, immune };
 }
 
-/** Score an individual attacker against a full opposing team. */
+/**
+ * Score an individual attacker against a full opposing team, accounting for
+ * BOTH offensive coverage and defensive safety:
+ *
+ *   +1 per opponent the attacker hits ≥2× (super-effective)
+ *   +1 bonus per opponent the attacker hits ≥4× (quad-effective)
+ *   +0.5 "clean hit" bonus — for each SE hit where the opponent can't hit you ≥2×
+ *   +1   "immune pivot" bonus — per opponent you are immune to (×0)
+ *  −0.5 per opponent that threatens you ≥2×
+ *  −0.5 extra per opponent that threatens you ≥4×
+ *
+ * A pick that hits 3 SE without any threat back scores 3 + 1.5 = 4.5, whereas
+ * a pick that hits 3 SE but trades with 3 mutual threats scores 3 − 1.5 = 1.5.
+ */
 export function pickScore(attacker: Pokemon, opposing: Pokemon[]): number {
   let s = 0;
   for (const def of opposing) {
-    const mult = bestStabMultiplier(attacker, def);
-    if (mult >= 2) s += 1;
-    if (mult >= 4) s += 1;
+    const off = bestStabMultiplier(attacker, def);
+    const inc = bestStabMultiplier(def, attacker);
+
+    // Offense
+    if (off >= 2) s += 1;
+    if (off >= 4) s += 1;
+
+    // Defense
+    if (inc === 0) s += 1;              // you are immune to them
+    else if (inc >= 4) s -= 1;          // quad-threatened
+    else if (inc >= 2) s -= 0.5;        // threatened
+
+    // Clean-hit synergy bonus
+    if (off >= 2 && inc < 2) s += 0.5;
   }
   return s;
 }
