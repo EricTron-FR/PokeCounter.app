@@ -47,21 +47,6 @@
     background-color: hsl(var(--background));
   }
 
-  /* Very subtle warm dot grid texture */
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    background-image: radial-gradient(
-      circle,
-      rgba(0, 0, 0, 0.045) 1px,
-      transparent 1px
-    );
-    background-size: 22px 22px;
-    z-index: 0;
-  }
-
   #root {
     position: relative;
     z-index: 1;

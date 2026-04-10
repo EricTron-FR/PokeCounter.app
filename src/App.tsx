@@ -42,14 +42,8 @@ import {
   newTeamId,
   SavedTeam,
 } from "@/lib/savedTeams";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { RotateCcw, Swords, Shield, Share2, Check, Star, Github, Bug } from "lucide-react";
+import { Share2, Check, Github, Bug, RotateCcw } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 
 const MAX_TEAM = 6;
@@ -368,30 +362,30 @@ export default function App() {
       <div className="container pt-4 sm:pt-8">
         <SeasonBanner />
       </div>
-      <main className="container py-4 sm:py-8 grid gap-4 sm:gap-6 items-start lg:grid-cols-[1fr_1fr_1.1fr]">
-        {/* Opponent team */}
-        <Card className="shadow-[0_6px_0_0_hsl(var(--destructive)/0.4)] border-destructive/40">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-destructive">
-              <Swords className="h-4 w-4" />
+      <main className="container py-6 sm:py-10 grid gap-10 sm:gap-12 items-start lg:grid-cols-[1fr_1fr_1.1fr]">
+        {/* 01 — Opponent team */}
+        <section>
+          <div className="flex items-baseline gap-3 mb-1">
+            <span className="font-pixel text-2xl text-primary tabular-nums">01</span>
+            <h2 className="font-pixel text-base uppercase tracking-wider text-foreground">
               {t("opponentTeam")}
-              <span className="ml-auto text-[10px] text-muted-foreground">
-                {opponents.length}/{MAX_TEAM}
-              </span>
-              {opponents.length > 0 && (
-                <Button
-                  size="icon"
-                  variant="outline"
-                  onClick={resetOpponents}
-                  className="h-7 w-7 hover:border-destructive hover:text-destructive"
-                  title={t("reset")}
-                >
-                  <RotateCcw className="h-3 w-3" />
-                </Button>
-              )}
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
+            </h2>
+            <span className="ml-auto text-[10px] text-muted-foreground font-mono tabular-nums">
+              {opponents.length}/{MAX_TEAM}
+            </span>
+            {opponents.length > 0 && (
+              <button
+                type="button"
+                onClick={resetOpponents}
+                className="font-pixel text-[9px] uppercase tracking-wider text-muted-foreground hover:text-primary transition-colors"
+                title={t("reset")}
+              >
+                ↺
+              </button>
+            )}
+          </div>
+          <div className="h-[3px] bg-foreground mb-4" />
+          <div className="space-y-4">
             <PokemonSearch
               onSelect={addOpponent}
               excludeIds={opponentIds}
@@ -412,21 +406,22 @@ export default function App() {
                 />
               ))}
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </section>
 
-        {/* My team */}
-        <Card className="shadow-[0_6px_0_0_hsl(var(--primary)/0.4)] border-primary/40">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-primary">
-              <Shield className="h-4 w-4" />
+        {/* 02 — My team */}
+        <section>
+          <div className="flex items-baseline gap-3 mb-1">
+            <span className="font-pixel text-2xl text-primary tabular-nums">02</span>
+            <h2 className="font-pixel text-base uppercase tracking-wider text-foreground">
               {t("myTeam")}
-              <span className="ml-auto text-[10px] text-muted-foreground">
-                {myTeam.length}/{MAX_TEAM}
-              </span>
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
+            </h2>
+            <span className="ml-auto text-[10px] text-muted-foreground font-mono tabular-nums">
+              {myTeam.length}/{MAX_TEAM}
+            </span>
+          </div>
+          <div className="h-[3px] bg-foreground mb-4" />
+          <div className="space-y-4">
             {/* Simple / Advanced mode toggle */}
             <div className="grid grid-cols-2 gap-1 rounded-xl border border-border bg-muted/60 p-1">
               <button
@@ -517,29 +512,30 @@ export default function App() {
                 <TeamAnalyzer team={myTeam} />
               </Suspense>
             )}
-          </CardContent>
-        </Card>
+          </div>
+        </section>
 
-        {/* Best picks */}
-        <Card className="shadow-[0_6px_0_0_hsl(var(--accent)/0.5)] border-accent/40 lg:col-span-1">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2 text-accent">
-              <Star className="h-4 w-4" />
+        {/* 03 — Best picks */}
+        <section>
+          <div className="flex items-baseline gap-3 mb-1">
+            <span className="font-pixel text-2xl text-primary tabular-nums">03</span>
+            <h2 className="font-pixel text-base uppercase tracking-wider text-foreground">
               {t("bestPicks")}
-              <span className="ml-auto text-[9px] text-muted-foreground lowercase">
-                {t("bring")} {BRING_COUNT[format]}/{MAX_TEAM}
-              </span>
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-3">
+            </h2>
+            <span className="ml-auto text-[10px] text-muted-foreground font-mono lowercase">
+              {t("bring")} {BRING_COUNT[format]}/{MAX_TEAM}
+            </span>
+          </div>
+          <div className="h-[3px] bg-foreground mb-4" />
+          <div className="space-y-3">
             <FormatToggle value={format} onChange={setFormat} />
             <BestPicks
               opponents={opponents}
               myTeam={myTeam}
               format={format}
             />
-          </CardContent>
-        </Card>
+          </div>
+        </section>
       </main>
       </>
       )}
