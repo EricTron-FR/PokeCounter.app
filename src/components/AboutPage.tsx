@@ -43,49 +43,42 @@ export function AboutPage({ onBack }: Props) {
           {isFr ? (
             <>
               <p>
-                Salut. Je suis <strong className="text-foreground">Eric</strong>,
-                dev indé, et PokeCounter est un projet de week-end qui a
-                dégénéré. J'ai commencé à jouer à Pokémon Champions dès le
-                lancement en avril 2026 et j'en avais marre de scroller trois
-                sites pour comparer des matchups entre deux mons.
+                Salut. Moi c'est <strong className="text-foreground">Eric</strong>,
+                dev indé. PokeCounter est un projet perso, construit en
+                une seule journée comme un petit défi.
               </p>
               <p>
-                Donc j'ai fait le mien. L'idée de base était simple : tu tapes
-                ton adversaire, je te sors les 3 ou 4 Pokémon de ta team qui
-                couvrent le mieux. Trois semaines plus tard, y'a un Pokédex
-                complet, un simulateur de combats, un calculateur de dégâts, 9
-                langues et un tier list qui croise les stats Smogon. J'ai pas
-                vraiment su m'arrêter.
+                L'idée : tu colles la team adverse, l'outil te dit quels
+                Pokémon de ta propre team amener. Basique et rapide. Autour
+                de ça il y a un Pokédex complet, un simulateur de combats,
+                un calculateur de dégâts, un comparateur, un tier list
+                croisé avec les stats Smogon, et 9 langues. Tout ça dans
+                un SPA statique sans backend.
               </p>
               <p>
-                Le site est gratuit, sans compte, sans pub, sans paywall et
-                le restera. Si tu veux dire bonjour, signaler un bug ou
-                proposer une feature, ouvre une issue sur GitHub (voir plus
-                bas) — c'est l'endroit où je traîne.
+                Gratuit, sans compte, sans pub, sans paywall — et ça le
+                restera. Bug, typo, idée ? Ouvre une issue GitHub (liens
+                plus bas).
               </p>
             </>
           ) : (
             <>
               <p>
-                Hi, I'm <strong className="text-foreground">Eric</strong>, an
-                indie dev, and PokeCounter is a weekend project that got
-                completely out of hand. I started playing Pokémon Champions on
-                launch day in April 2026 and I was tired of jumping between
-                three different sites to compare matchups between two mons.
+                Hi, I'm <strong className="text-foreground">Eric</strong>,
+                indie dev. PokeCounter is a personal project, built in a
+                single day as a small challenge.
               </p>
               <p>
-                So I built my own. The original idea was simple: type the
-                opponent, I show you the 3 or 4 Pokémon on your team that
-                cover it best. Three weeks later it has a full Pokédex, a
-                battle simulator, a damage calculator, 9 languages and a tier
-                list cross-referenced with Smogon usage stats. I kind of
-                couldn't stop.
+                The idea: paste the opposing team, the tool tells you which
+                of your own Pokémon to bring. Simple and fast. Around it
+                there's a full Pokédex, a battle simulator, a damage
+                calculator, a comparator, a tier list cross-referenced with
+                Smogon usage stats, and 9 languages. All of it in a static
+                SPA with no backend.
               </p>
               <p>
-                The site is free, no account, no ads, no paywall, and it will
-                stay that way. If you want to say hi, report a bug or suggest
-                a feature, open a GitHub issue (see below) — that's where I
-                hang out.
+                Free, no account, no ads, no paywall — and it'll stay that
+                way. Bug, typo, idea? Open a GitHub issue (links below).
               </p>
             </>
           )}
