@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { POKEMON, findBySlug, monSlug, spriteUrl } from "@/lib/pokemon";
 import { pickScore, defensiveMatchups } from "@/lib/coverage";
 import { getTier, TIER_COLORS } from "@/lib/tiers";
@@ -20,9 +20,12 @@ const STATS: Array<{ key: keyof PokemonStats; label: "statHp" | "statAtk" | "sta
 ];
 
 export function PokemonLandingPage() {
-  const { slug } = useParams<{ slug: string }>();
+  const location = useLocation();
   const { t, lang } = useLang();
-  const mon = useMemo(() => (slug ? findBySlug(slug) : undefined), [slug]);
+  const mon = useMemo(() => {
+    const match = location.pathname.match(/^\/pokemon\/([^/]+)/);
+    return match ? findBySlug(match[1]) : undefined;
+  }, [location.pathname]);
 
   // Update the <title> dynamically for this landing page
   useEffect(() => {

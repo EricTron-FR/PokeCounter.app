@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { POKEMON, monSlug, spriteUrl } from "@/lib/pokemon";
 import { ALL_TYPES, PokemonType, TYPE_CHART } from "@/lib/types";
 import { getTier } from "@/lib/tiers";
@@ -17,9 +17,12 @@ function parseType(slug: string | undefined): PokemonType | null {
 }
 
 export function TypeLandingPage() {
-  const { type: typeParam } = useParams<{ type: string }>();
+  const location = useLocation();
   const { t, lang } = useLang();
-  const type = useMemo(() => parseType(typeParam), [typeParam]);
+  const type = useMemo(() => {
+    const match = location.pathname.match(/^\/type\/([^/]+)/);
+    return parseType(match?.[1]);
+  }, [location.pathname]);
 
   useEffect(() => {
     if (!type) return;

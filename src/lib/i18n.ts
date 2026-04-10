@@ -127,6 +127,7 @@ type Dict = {
   navPokedex: string;
   navTypes: string;
   navLearn: string;
+  navSimulator: string;
   pokedexTitle: string;
   pokedexCount: string;
   filterAll: string;
@@ -212,6 +213,34 @@ type Dict = {
   suggestions: string;
   noTeamSuggestions: string;
   noTeamSuggestionsBody: string;
+  simTitle: string;
+  simSubtitle: string;
+  simYourTeam: string;
+  simConfig: string;
+  simResults: string;
+  simFormat: string;
+  simOpponentPool: string;
+  simCount: string;
+  simRun: string;
+  simRunning: string;
+  simWinRate: string;
+  simInsight: string;
+  simBestMatchups: string;
+  simWorstMatchups: string;
+  simAllBattles: string;
+  simNoTeam: string;
+  simAddPlaceholder: string;
+  simBattles: string;
+  simPoolMixed: string;
+  simPoolRandom: string;
+  simPoolMeta: string;
+  simPoolSun: string;
+  simPoolRain: string;
+  simPoolTrickRoom: string;
+  simPoolTailwind: string;
+  simPoolHyperOff: string;
+  simPoolBulky: string;
+  simPoolMono: string;
   footerProse: string;
   footerTools: string;
   footerCountersByType: string;
@@ -281,6 +310,7 @@ const DICT: { en: Dict } & { [K in Exclude<Lang, "en">]: Partial<Dict> } = {
     navPokedex: "Pokédex",
     navTypes: "Types",
     navLearn: "Learn",
+    navSimulator: "Simulator",
     pokedexTitle: "Pokédex",
     pokedexCount: "{n} Pokémon",
     filterAll: "All",
@@ -371,6 +401,34 @@ const DICT: { en: Dict } & { [K in Exclude<Lang, "en">]: Partial<Dict> } = {
     noTeamSuggestions: "No team? Here are the best counters",
     noTeamSuggestionsBody:
       "Top picks from the full Champions roster against this opponent. Build your own team to get personalized picks.",
+    simTitle: "Team Simulator",
+    simSubtitle: "Test your team against varied opposing teams",
+    simYourTeam: "Your team",
+    simConfig: "Configuration",
+    simResults: "Results",
+    simFormat: "Format",
+    simOpponentPool: "Opponent pool",
+    simCount: "Battles to simulate",
+    simRun: "Run simulation",
+    simRunning: "Running...",
+    simWinRate: "Estimated win rate",
+    simInsight: "Insight",
+    simBestMatchups: "Best matchups",
+    simWorstMatchups: "Worst matchups",
+    simAllBattles: "All {n} battles",
+    simNoTeam: "No team yet. Add Pokémon below to start.",
+    simAddPlaceholder: "Add a Pokémon...",
+    simBattles: "battles",
+    simPoolMixed: "Mixed",
+    simPoolRandom: "Random",
+    simPoolMeta: "Meta",
+    simPoolSun: "Sun",
+    simPoolRain: "Rain",
+    simPoolTrickRoom: "Trick Room",
+    simPoolTailwind: "Tailwind",
+    simPoolHyperOff: "Hyper Offense",
+    simPoolBulky: "Bulky",
+    simPoolMono: "Mono-type",
     footerProse:
       "Free Pokémon Champions counter picker. Type in any of 9 languages, get the best picks from your 6-mon team instantly. Supports 1v1 and 2v2 VGC-style formats, full 250-mon Champions roster, damage calc, type chart, team analyzer and battle simulator. No account, no ads, no paywalls.",
     footerTools: "Tools",
@@ -445,6 +503,7 @@ const DICT: { en: Dict } & { [K in Exclude<Lang, "en">]: Partial<Dict> } = {
     navPokedex: "Pokédex",
     navTypes: "Types",
     navLearn: "Apprendre",
+    navSimulator: "Simulateur",
     pokedexTitle: "Pokédex",
     pokedexCount: "{n} Pokémon",
     filterAll: "Tous",
@@ -535,6 +594,34 @@ const DICT: { en: Dict } & { [K in Exclude<Lang, "en">]: Partial<Dict> } = {
     noTeamSuggestions: "Pas de team ? Voici les meilleurs counters",
     noTeamSuggestionsBody:
       "Top picks du roster Champions complet contre cet adversaire. Construis ta team pour des picks personnalisés.",
+    simTitle: "Simulateur de team",
+    simSubtitle: "Teste ta team contre des adversaires variés",
+    simYourTeam: "Ta team",
+    simConfig: "Configuration",
+    simResults: "Résultats",
+    simFormat: "Format",
+    simOpponentPool: "Pool adverse",
+    simCount: "Nombre de combats",
+    simRun: "Lancer la simulation",
+    simRunning: "En cours...",
+    simWinRate: "Taux de victoire estimé",
+    simInsight: "Insight",
+    simBestMatchups: "Meilleurs matchups",
+    simWorstMatchups: "Pires matchups",
+    simAllBattles: "{n} combats au total",
+    simNoTeam: "Aucune team. Ajoute des Pokémon ci-dessous pour commencer.",
+    simAddPlaceholder: "Ajouter un Pokémon...",
+    simBattles: "combats",
+    simPoolMixed: "Mixte",
+    simPoolRandom: "Aléatoire",
+    simPoolMeta: "Meta",
+    simPoolSun: "Soleil",
+    simPoolRain: "Pluie",
+    simPoolTrickRoom: "Distorsion",
+    simPoolTailwind: "Vent arrière",
+    simPoolHyperOff: "Hyper offense",
+    simPoolBulky: "Tank",
+    simPoolMono: "Mono-type",
     footerProse:
       "Outil gratuit de counter pour Pokémon Champions. Tape dans n'importe laquelle des 9 langues, obtiens instantanément les meilleurs picks depuis ta team de 6. Supporte les formats 1v1 et 2v2 VGC, roster Champions complet (250 mons), calculateur de dégâts, table des types, analyseur de team et simulateur de combat. Sans compte, sans pub, sans paywall.",
     footerTools: "Outils",

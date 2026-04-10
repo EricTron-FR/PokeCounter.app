@@ -68,7 +68,20 @@ const POOL_OPTIONS: {
 const COUNT_OPTIONS = [10, 30, 50, 100];
 
 export function BattleSimPage() {
-  const { lang } = useLang();
+  const { t, lang } = useLang();
+  const poolLabels: Record<Archetype | "mixed", string> = {
+    mixed: t("simPoolMixed"),
+    random: t("simPoolRandom"),
+    meta: t("simPoolMeta"),
+    sun: t("simPoolSun"),
+    rain: t("simPoolRain"),
+    "trick-room": t("simPoolTrickRoom"),
+    tailwind: t("simPoolTailwind"),
+    "hyper-offense": t("simPoolHyperOff"),
+    bulky: t("simPoolBulky"),
+    mono: t("simPoolMono"),
+    balance: "Balance",
+  };
   const monById = useMemo(() => new Map(POKEMON.map((p) => [p.id, p])), []);
   const [myTeamIds, setMyTeamIds] = useState<number[]>(() => loadMyTeamIds());
   const [pool, setPool] = useState<Archetype | "mixed">("mixed");
@@ -116,11 +129,11 @@ export function BattleSimPage() {
         <div className="inline-flex items-center gap-3">
           <span className="inline-block h-3 w-3 bg-primary rotate-45" aria-hidden />
           <h1 className="font-pixel text-2xl sm:text-3xl text-foreground">
-            Battle Simulator
+            {t("simTitle")}
           </h1>
         </div>
         <p className="text-[10px] font-pixel uppercase tracking-wider text-muted-foreground mt-3">
-          Test your team against varied opposing teams
+          {t("simSubtitle")}
         </p>
       </header>
 
@@ -131,7 +144,7 @@ export function BattleSimPage() {
             01
           </span>
           <h2 className="font-pixel text-base uppercase tracking-wider text-foreground">
-            Your team
+            {t("simYourTeam")}
           </h2>
           <span className="ml-auto text-[10px] text-muted-foreground font-mono tabular-nums">
             {myTeam.length}/6
@@ -154,7 +167,7 @@ export function BattleSimPage() {
             onSelect={addToTeam}
             excludeIds={myTeamIds}
             disabled={myTeamIds.length >= 6}
-            placeholder="Add a Pokémon..."
+            placeholder={t("simAddPlaceholder")}
           />
         </div>
 
@@ -205,7 +218,7 @@ export function BattleSimPage() {
             02
           </span>
           <h2 className="font-pixel text-base uppercase tracking-wider text-foreground">
-            Configuration
+            {t("simConfig")}
           </h2>
         </div>
         <div className="h-[3px] bg-foreground mb-4" />
@@ -214,7 +227,7 @@ export function BattleSimPage() {
           {/* Format */}
           <div>
             <div className="text-[9px] font-pixel uppercase tracking-wider text-muted-foreground mb-2">
-              Format
+              {t("simFormat")}
             </div>
             <div className="flex gap-2">
               {[3, 4].map((n) => (
@@ -238,7 +251,7 @@ export function BattleSimPage() {
           {/* Pool */}
           <div>
             <div className="text-[9px] font-pixel uppercase tracking-wider text-muted-foreground mb-2">
-              Opponent pool
+              {t("simOpponentPool")}
             </div>
             <div className="flex flex-wrap gap-1.5">
               {POOL_OPTIONS.map((p) => {
@@ -256,7 +269,7 @@ export function BattleSimPage() {
                     )}
                   >
                     <Icon className="h-3 w-3 shrink-0" />
-                    <span>{p.label}</span>
+                    <span>{poolLabels[p.key]}</span>
                   </button>
                 );
               })}
@@ -266,7 +279,7 @@ export function BattleSimPage() {
           {/* Count */}
           <div>
             <div className="text-[9px] font-pixel uppercase tracking-wider text-muted-foreground mb-2">
-              Battles to simulate
+              {t("simCount")}
             </div>
             <div className="flex gap-2">
               {COUNT_OPTIONS.map((n) => (
@@ -295,7 +308,7 @@ export function BattleSimPage() {
             className="w-full"
           >
             <Swords className="h-4 w-4" />
-            {running ? "Running..." : "Run simulation"}
+            {running ? t("simRunning") : t("simRun")}
           </Button>
         </div>
       </section>
@@ -308,10 +321,10 @@ export function BattleSimPage() {
               03
             </span>
             <h2 className="font-pixel text-base uppercase tracking-wider text-foreground">
-              Results
+              {t("simResults")}
             </h2>
             <span className="ml-auto text-[10px] text-muted-foreground font-mono tabular-nums">
-              {result.matchups.length} battles
+              {result.matchups.length} {t("simBattles")}
             </span>
           </div>
           <div className="h-[3px] bg-foreground mb-4" />
@@ -319,7 +332,7 @@ export function BattleSimPage() {
           {/* Big win rate */}
           <div className="mb-6 text-center">
             <div className="text-[9px] font-pixel uppercase tracking-wider text-muted-foreground">
-              Estimated win rate
+              {t("simWinRate")}
             </div>
             <div
               className={cn(
@@ -340,7 +353,7 @@ export function BattleSimPage() {
             <div className="mb-6 rounded-lg border border-accent/50 bg-accent/10 p-3 flex items-start gap-2">
               <Sparkles className="h-4 w-4 shrink-0 mt-0.5 text-accent-foreground" />
               <span className="text-[10px] font-mono leading-relaxed text-accent-foreground">
-                <strong className="font-pixel text-[9px] uppercase">Insight:</strong>{" "}
+                <strong className="font-pixel text-[9px] uppercase">{t("simInsight")}:</strong>{" "}
                 {result.analysisHint}
               </span>
             </div>
@@ -351,7 +364,7 @@ export function BattleSimPage() {
             <div className="flex items-center gap-2 mb-2">
               <Trophy className="h-4 w-4 text-emerald-600" />
               <span className="font-pixel text-[10px] uppercase tracking-wider text-emerald-600">
-                Best matchups
+                {t("simBestMatchups")}
               </span>
             </div>
             <div className="space-y-1.5">
@@ -366,7 +379,7 @@ export function BattleSimPage() {
             <div className="flex items-center gap-2 mb-2">
               <AlertTriangle className="h-4 w-4 text-red-600" />
               <span className="font-pixel text-[10px] uppercase tracking-wider text-red-600">
-                Worst matchups
+                {t("simWorstMatchups")}
               </span>
             </div>
             <div className="space-y-1.5">
@@ -379,7 +392,7 @@ export function BattleSimPage() {
           {/* Full list (collapsible) */}
           <details className="mt-4">
             <summary className="cursor-pointer font-pixel text-[10px] uppercase tracking-wider text-muted-foreground hover:text-foreground select-none">
-              All {result.matchups.length} battles
+              {t("simAllBattles", { n: result.matchups.length })}
             </summary>
             <div className="mt-3 space-y-1">
               {result.matchups

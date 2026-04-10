@@ -29,7 +29,10 @@ export function findBySlug(slug: string): Pokemon | undefined {
 }
 
 export function spriteUrl(p: Pokemon): string {
-  if (p.mega && p.base_id) {
+  // IDs ≥ 10000 are PokeAPI "form" ids (Megas, regional forms, gigantamax…)
+  // whose default sprite often doesn't exist. Use the official-artwork
+  // endpoint instead, which is reliable for all form ids.
+  if (p.id >= 10000) {
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${p.id}.png`;
   }
   return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${p.id}.png`;

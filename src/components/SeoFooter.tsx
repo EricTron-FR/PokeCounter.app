@@ -67,7 +67,7 @@ export function SeoFooter({ onGoLegal }: Props) {
               <li><a className="hover:text-primary text-muted-foreground" href="/pokedex">{t("navPokedex")}</a></li>
               <li><a className="hover:text-primary text-muted-foreground" href="/compare">{t("navCompare")}</a></li>
               <li><a className="hover:text-primary text-muted-foreground" href="/types-chart">{t("navTypes")}</a></li>
-              <li><a className="hover:text-primary text-muted-foreground" href="/battle">Battle</a></li>
+              <li><a className="hover:text-primary text-muted-foreground" href="/battle">{t("navSimulator")}</a></li>
               <li><a className="hover:text-primary text-muted-foreground" href="/learn">{t("navLearn")}</a></li>
               <li><a className="hover:text-primary text-muted-foreground" href="/about">{t("navAbout")}</a></li>
               <li>

@@ -11,6 +11,7 @@ import { LanguageDropdown } from "@/components/LanguageDropdown";
 import { SavedTeamsPanel } from "@/components/SavedTeamsPanel";
 import { SeasonBanner } from "@/components/SeasonBanner";
 import { SeoFooter } from "@/components/SeoFooter";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import { BuildSlot } from "@/lib/types";
 
 // Lazy-loaded views — keep moves.json + heavy components out of the initial bundle
@@ -317,6 +318,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen">
+      <ScrollToTop />
       {/* Header */}
       <header className="sticky top-0 z-[100] border-b border-border bg-background/90 backdrop-blur">
         <div className="container py-3 sm:py-4 flex flex-col gap-3">
@@ -367,7 +369,7 @@ export default function App() {
             <NavButton active={view === "pokedex"} onClick={goPokedex} icon={<BookOpen className="h-3 w-3" />} label={t("navPokedex")} />
             <NavButton active={view === "types"} onClick={goTypes} icon={<Grid3x3 className="h-3 w-3" />} label={t("navTypes")} />
             <NavButton active={view === "compare"} onClick={goCompare} icon={<Scale className="h-3 w-3" />} label={t("navCompare")} />
-            <NavButton active={view === "battle"} onClick={goBattle} icon={<Swords className="h-3 w-3" />} label="Battle" />
+            <NavButton active={view === "battle"} onClick={goBattle} icon={<Swords className="h-3 w-3" />} label={t("navSimulator")} />
             <NavButton active={view === "learn"} onClick={goLearn} icon={<GraduationCap className="h-3 w-3" />} label={t("navLearn")} />
             <NavButton active={view === "about"} onClick={goAbout} icon={<Info className="h-3 w-3" />} label={t("navAbout")} />
           </nav>
