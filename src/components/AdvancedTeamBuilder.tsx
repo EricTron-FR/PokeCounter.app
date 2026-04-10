@@ -4,6 +4,8 @@ import { POKEMON, spriteUrl } from "@/lib/pokemon";
 import { MOVES } from "@/lib/moves";
 import { loadMovepools } from "@/lib/pokemonMoves";
 import { NATURES } from "@/lib/natures";
+import { applySet, getCommonSets } from "@/lib/sets";
+import { exportShowdown, importShowdown } from "@/lib/showdown";
 import {
   defaultSp,
   SP_MAX_PER_STAT,
@@ -16,7 +18,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ALL_TYPES } from "@/lib/types";
 import { cn } from "@/lib/utils";
-import { X, Search, ChevronDown, Plus, Minus } from "lucide-react";
+import { X, Search, ChevronDown, Plus, Minus, Download, Upload, Sparkles } from "lucide-react";
 
 interface Props {
   slots: BuildSlot[];
@@ -35,6 +37,9 @@ export function AdvancedTeamBuilder({
   const [pickerOpen, setPickerOpen] = useState<number | null>(null);
   const [editingIdx, setEditingIdx] = useState<number | null>(null);
   const [movepools, setMovepools] = useState<Record<number, string[]> | null>(null);
+  const [exported, setExported] = useState(false);
+  const [importOpen, setImportOpen] = useState(false);
+  const [importText, setImportText] = useState("");
 
   useEffect(() => {
     loadMovepools().then(setMovepools);
@@ -72,8 +77,70 @@ export function AdvancedTeamBuilder({
     setEditingIdx(idx >= slots.length ? slots.length : idx);
   }
 
+  function handleExport() {
+    const text = exportShowdown(slots, monById);
+    navigator.clipboard.writeText(text).catch(() => {});
+    setExported(true);
+    setTimeout(() => setExported(false), 1500);
+  }
+
+  function handleImportSubmit() {
+    const parsed = importShowdown(importText);
+    if (parsed.length > 0) {
+      onChange(parsed);
+      setImportText("");
+      setImportOpen(false);
+    }
+  }
+
   return (
     <div className="space-y-3">
+      {/* Export / Import row */}
+      <div className="flex flex-wrap gap-1.5">
+        <Button
+          type="button"
+          size="sm"
+          variant="outline"
+          onClick={handleExport}
+          disabled={slots.length === 0}
+          className="flex-1 min-w-[120px]"
+        >
+          <Download className="h-3 w-3" />
+          {exported ? t("copied") : t("exportShowdown")}
+        </Button>
+        <Button
+          type="button"
+          size="sm"
+          variant="outline"
+          onClick={() => setImportOpen(true)}
+          className="flex-1 min-w-[120px]"
+        >
+          <Upload className="h-3 w-3" />
+          {t("importShowdown")}
+        </Button>
+      </div>
+
+      {importOpen && (
+        <div className="rounded-sm border-2 border-primary/60 bg-card/90 p-2 space-y-2">
+          <textarea
+            value={importText}
+            onChange={(e) => setImportText(e.target.value)}
+            placeholder={t("pasteShowdown")}
+            rows={6}
+            className="w-full rounded-sm border-2 border-border bg-input/40 px-2 py-1 text-[10px] font-mono focus:outline-none focus:border-primary resize-y"
+            autoFocus
+          />
+          <div className="flex gap-2 justify-end">
+            <Button size="sm" variant="outline" onClick={() => setImportOpen(false)}>
+              {t("close")}
+            </Button>
+            <Button size="sm" onClick={handleImportSubmit} disabled={!importText.trim()}>
+              {t("importShowdown")}
+            </Button>
+          </div>
+        </div>
+      )}
+
       {/* Slot grid */}
       <div className="grid grid-cols-3 gap-2">
         {Array.from({ length: maxSlots }).map((_, i) => {
@@ -245,6 +312,29 @@ function SlotEditor({
           <X className="h-4 w-4" />
         </Button>
       </div>
+
+      {/* Common sets quick-apply */}
+      {(() => {
+        const sets = getCommonSets(pokemon.id);
+        if (sets.length === 0) return null;
+        return (
+          <Field label={t("applySet")}>
+            <div className="flex flex-wrap gap-1">
+              {sets.map((s) => (
+                <button
+                  key={s.name}
+                  type="button"
+                  onClick={() => onChange(applySet(slot, s))}
+                  className="inline-flex items-center gap-1 px-2 py-1 rounded-sm border-2 border-accent/50 bg-accent/10 hover:bg-accent/25 font-pixel text-[8px] uppercase tracking-wider text-accent transition-colors"
+                >
+                  <Sparkles className="h-2.5 w-2.5" />
+                  {s.name}
+                </button>
+              ))}
+            </div>
+          </Field>
+        );
+      })()}
 
       {/* Ability */}
       {pokemon.abilities && pokemon.abilities.length > 0 && (

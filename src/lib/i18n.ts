@@ -181,9 +181,25 @@ type Dict = {
   startsIn: string;
   rules: string;
   format: string;
+  exportShowdown: string;
+  importShowdown: string;
+  pasteShowdown: string;
+  importDone: string;
+  notesPlaceholder: string;
+  applySet: string;
+  loadTemplate: string;
+  templates: string;
+  navCompare: string;
+  compareTitle: string;
+  pickFirst: string;
+  pickSecond: string;
+  damageCalc: string;
+  noDamageData: string;
+  ko: string;
+  installApp: string;
 };
 
-const DICT: Record<Lang, Dict> = {
+const DICT: { en: Dict } & { [K in Exclude<Lang, "en">]: Partial<Dict> } = {
   en: {
     tagline: "Pokémon Champions · Type Coverage",
     share: "Share",
@@ -287,6 +303,22 @@ const DICT: Record<Lang, Dict> = {
     startsIn: "Starts in {n} days",
     rules: "Rules",
     format: "Format",
+    exportShowdown: "Export to Showdown",
+    importShowdown: "Import from Showdown",
+    pasteShowdown: "Paste a Pokémon Showdown team here...",
+    importDone: "Imported",
+    notesPlaceholder: "Notes for this team...",
+    applySet: "Apply set",
+    loadTemplate: "Load template",
+    templates: "Team templates",
+    navCompare: "Compare",
+    compareTitle: "Compare two Pokémon",
+    pickFirst: "Pick first",
+    pickSecond: "Pick second",
+    damageCalc: "Damage vs",
+    noDamageData: "Configure attacker moves to see damage",
+    ko: "KO",
+    installApp: "Install app",
   },
   fr: {
     tagline: "Pokémon Champions · Couverture de types",
@@ -391,6 +423,22 @@ const DICT: Record<Lang, Dict> = {
     startsIn: "Commence dans {n} jours",
     rules: "Règles",
     format: "Format",
+    exportShowdown: "Exporter vers Showdown",
+    importShowdown: "Importer depuis Showdown",
+    pasteShowdown: "Colle ici une team Pokémon Showdown...",
+    importDone: "Importée",
+    notesPlaceholder: "Notes pour cette team...",
+    applySet: "Appliquer set",
+    loadTemplate: "Charger template",
+    templates: "Templates de teams",
+    navCompare: "Comparer",
+    compareTitle: "Comparer deux Pokémon",
+    pickFirst: "Choisir le 1er",
+    pickSecond: "Choisir le 2nd",
+    damageCalc: "Dégâts vs",
+    noDamageData: "Configure les attaques pour voir les dégâts",
+    ko: "KO",
+    installApp: "Installer l'app",
   },
   es: {
     tagline: "Pokémon Campeones · Cobertura de tipos",

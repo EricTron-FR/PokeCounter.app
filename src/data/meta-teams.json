@@ -1,0 +1,38 @@
+[
+  {
+    "id": "sun-attack",
+    "name": "Sun Offense",
+    "description": "Charizard + Venusaur sun core with bulky support",
+    "pokemonIds": [10035, 3, 376, 248, 445, 461]
+  },
+  {
+    "id": "rain-stall",
+    "name": "Rain Stall",
+    "description": "Politoed rain with bulky water sweepers",
+    "pokemonIds": [186, 9, 230, 472, 248, 445]
+  },
+  {
+    "id": "trick-room",
+    "name": "Trick Room",
+    "description": "Slow heavy hitters with Trick Room support",
+    "pokemonIds": [199, 376, 488, 217, 297, 248]
+  },
+  {
+    "id": "tailwind-rush",
+    "name": "Tailwind Rush",
+    "description": "Fast pivot team with Togekiss + Salamence",
+    "pokemonIds": [468, 373, 445, 461, 376, 282]
+  },
+  {
+    "id": "psychic-spam",
+    "name": "Psychic Spam",
+    "description": "Mewtwo + Cresselia with psy support",
+    "pokemonIds": [150, 488, 196, 376, 282, 248]
+  },
+  {
+    "id": "balance",
+    "name": "All-Type Balance",
+    "description": "Full type coverage starter team",
+    "pokemonIds": [6, 9, 3, 25, 143, 149]
+  }
+]

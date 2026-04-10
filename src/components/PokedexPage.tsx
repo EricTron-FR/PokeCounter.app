@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { POKEMON, spriteUrl } from "@/lib/pokemon";
 import { Pokemon, ALL_TYPES, PokemonType } from "@/lib/types";
 import { pokemonName, useLang } from "@/lib/i18n";
+import { getTier, TIER_COLORS, TIER_ORDER, Tier } from "@/lib/tiers";
 import { TypeBadge } from "./TypeBadge";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -16,6 +17,7 @@ export function PokedexPage() {
   const [query, setQuery] = useState("");
   const [typeFilter, setTypeFilter] = useState<PokemonType | null>(null);
   const [megaFilter, setMegaFilter] = useState<MegaFilter>("all");
+  const [tierFilter, setTierFilter] = useState<Tier | null>(null);
   const [selected, setSelected] = useState<Pokemon | null>(null);
 
   const filtered = useMemo(() => {
@@ -27,6 +29,7 @@ export function PokedexPage() {
       if (megaFilter === "mega" && !p.mega) return false;
       if (megaFilter === "base" && p.mega) return false;
       if (typeFilter && !p.types.includes(typeFilter)) return false;
+      if (tierFilter && getTier(p.id) !== tierFilter) return false;
       if (q) {
         const names = Object.values(p.names)
           .map((n) =>
@@ -40,7 +43,7 @@ export function PokedexPage() {
       }
       return true;
     });
-  }, [query, typeFilter, megaFilter]);
+  }, [query, typeFilter, megaFilter, tierFilter]);
 
   return (
     <main className="container py-4 sm:py-8">
@@ -114,6 +117,25 @@ export function PokedexPage() {
             </Button>
           )}
         </div>
+
+        <div className="flex flex-wrap gap-1">
+          {TIER_ORDER.map((tt) => {
+            const active = tierFilter === tt;
+            return (
+              <button
+                key={tt}
+                type="button"
+                onClick={() => setTierFilter(active ? null : tt)}
+                className={cn(
+                  "px-2 py-1 rounded-sm border-2 font-pixel text-[9px] uppercase tracking-wider transition-all",
+                  active ? `${TIER_COLORS[tt]} ring-2 ring-primary` : TIER_COLORS[tt] + " opacity-60 hover:opacity-100",
+                )}
+              >
+                {tt}
+              </button>
+            );
+          })}
+        </div>
       </div>
 
       {/* Grid */}
@@ -127,9 +149,14 @@ export function PokedexPage() {
           >
             <div className="flex items-center justify-between text-[8px] text-muted-foreground font-mono">
               <span>#{p.id}</span>
-              {p.mega && (
-                <span className="font-pixel text-primary">{t("mega")}</span>
-              )}
+              {(() => {
+                const tier = getTier(p.id);
+                return tier ? (
+                  <span className={cn("font-pixel px-1 rounded-sm border", TIER_COLORS[tier])}>{tier}</span>
+                ) : p.mega ? (
+                  <span className="font-pixel text-primary">{t("mega")}</span>
+                ) : null;
+              })()}
             </div>
             <img
               src={spriteUrl(p)}

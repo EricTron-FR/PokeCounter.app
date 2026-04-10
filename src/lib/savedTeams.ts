@@ -3,6 +3,7 @@ export interface SavedTeam {
   name: string;
   pokemonIds: number[];
   createdAt: number;
+  notes?: string;
 }
 
 const KEY = "pokecounter.teams.v1";

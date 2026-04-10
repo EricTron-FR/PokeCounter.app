@@ -4,8 +4,9 @@ import { Button } from "@/components/ui/button";
 import { SavedTeam } from "@/lib/savedTeams";
 import { POKEMON, spriteUrl } from "@/lib/pokemon";
 import { useLang } from "@/lib/i18n";
+import { META_TEAMS } from "@/lib/metaTeams";
 import { cn } from "@/lib/utils";
-import { Save, Trash2, Upload, Bookmark } from "lucide-react";
+import { Save, Trash2, Upload, Bookmark, Sparkles } from "lucide-react";
 
 interface Props {
   currentTeamIds: number[];
@@ -13,6 +14,8 @@ interface Props {
   onSave: (name: string) => void;
   onLoad: (team: SavedTeam) => void;
   onDelete: (id: string) => void;
+  onUpdateNotes: (id: string, notes: string) => void;
+  onLoadTemplate: (ids: number[]) => void;
   activeTeamId?: string | null;
 }
 
@@ -22,10 +25,14 @@ export function SavedTeamsPanel({
   onSave,
   onLoad,
   onDelete,
+  onUpdateNotes,
+  onLoadTemplate,
   activeTeamId,
 }: Props) {
   const { t } = useLang();
   const [name, setName] = useState("");
+  const [showTemplates, setShowTemplates] = useState(false);
+  const [editingNotesId, setEditingNotesId] = useState<string | null>(null);
 
   const canSave = name.trim().length > 0 && currentTeamIds.length > 0;
 
@@ -66,6 +73,56 @@ export function SavedTeamsPanel({
           {t("saveTeam")}
         </Button>
       </form>
+
+      {/* Templates toggle */}
+      <div>
+        <button
+          type="button"
+          onClick={() => setShowTemplates((v) => !v)}
+          className="w-full flex items-center gap-2 text-[9px] font-pixel uppercase tracking-wider text-accent hover:text-foreground transition-colors"
+        >
+          <Sparkles className="h-3 w-3" />
+          {t("templates")} ({META_TEAMS.length})
+        </button>
+        {showTemplates && (
+          <div className="mt-2 space-y-1.5 max-h-[180px] overflow-auto pr-1">
+            {META_TEAMS.map((tpl) => {
+              const mons = tpl.pokemonIds
+                .map((id) => monById.get(id))
+                .filter((p): p is NonNullable<typeof p> => !!p);
+              return (
+                <button
+                  key={tpl.id}
+                  type="button"
+                  onClick={() => {
+                    onLoadTemplate(tpl.pokemonIds);
+                    setShowTemplates(false);
+                  }}
+                  className="w-full text-left rounded-sm border-2 border-accent/40 bg-accent/5 hover:bg-accent/15 p-2 transition-colors"
+                >
+                  <div className="font-pixel text-[10px] uppercase tracking-wider text-accent">
+                    {tpl.name}
+                  </div>
+                  <div className="text-[9px] text-muted-foreground font-mono mt-0.5 truncate">
+                    {tpl.description}
+                  </div>
+                  <div className="flex gap-0.5 mt-1">
+                    {mons.slice(0, 6).map((m) => (
+                      <img
+                        key={m.id}
+                        src={spriteUrl(m)}
+                        alt={m.names.en ?? ""}
+                        className="pixelated h-6 w-6"
+                        loading="lazy"
+                      />
+                    ))}
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        )}
+      </div>
 
       {savedTeams.length === 0 ? (
         <div className="text-[9px] font-pixel uppercase tracking-wider text-muted-foreground/60 text-center py-3">
@@ -137,6 +194,29 @@ export function SavedTeamsPanel({
                     </Button>
                   </div>
                 </div>
+                {/* Notes editor */}
+                {(editingNotesId === team.id || team.notes) && (
+                  <div className="mt-2">
+                    <textarea
+                      value={team.notes ?? ""}
+                      onChange={(e) => onUpdateNotes(team.id, e.target.value)}
+                      onFocus={() => setEditingNotesId(team.id)}
+                      onBlur={() => setEditingNotesId(null)}
+                      placeholder={t("notesPlaceholder")}
+                      rows={2}
+                      className="w-full rounded-sm border-2 border-border bg-input/40 px-2 py-1 text-[10px] font-mono focus:outline-none focus:border-primary resize-y"
+                    />
+                  </div>
+                )}
+                {!team.notes && editingNotesId !== team.id && (
+                  <button
+                    type="button"
+                    onClick={() => setEditingNotesId(team.id)}
+                    className="mt-1 text-[8px] font-pixel uppercase tracking-wider text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    + {t("notesPlaceholder")}
+                  </button>
+                )}
               </div>
             );
           })}

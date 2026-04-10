@@ -1,0 +1,19 @@
+{
+  "name": "PokeCounter — Pokémon Champions Counter",
+  "short_name": "PokeCounter",
+  "description": "Free type-coverage counter for Pokémon Champions. Pick the opponent, get the perfect counter.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1020",
+  "theme_color": "#0b1020",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/pokeball.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "lang": "en"
+}

@@ -18,12 +18,18 @@ const AboutPage = lazy(() =>
 const PokedexPage = lazy(() =>
   import("@/components/PokedexPage").then((m) => ({ default: m.PokedexPage })),
 );
+const ComparePage = lazy(() =>
+  import("@/components/ComparePage").then((m) => ({ default: m.ComparePage })),
+);
+const TypeChartPage = lazy(() =>
+  import("@/components/TypeChartPage").then((m) => ({ default: m.TypeChartPage })),
+);
 const AdvancedTeamBuilder = lazy(() =>
   import("@/components/AdvancedTeamBuilder").then((m) => ({
     default: m.AdvancedTeamBuilder,
   })),
 );
-import { Info, Home as HomeIcon, BookOpen, Settings, Zap } from "lucide-react";
+import { Info, Home as HomeIcon, BookOpen, Settings, Zap, Scale, Grid3x3 } from "lucide-react";
 import {
   loadSavedTeams,
   writeSavedTeams,
@@ -113,14 +119,16 @@ export default function App() {
       setMyTeamIds(ids);
     }
   }, [advancedMode, advancedSlots]);
-  function viewFromHash(): "home" | "about" | "pokedex" {
+  function viewFromHash(): "home" | "about" | "pokedex" | "compare" | "types" {
     const h = window.location.hash;
     if (h === "#/about") return "about";
     if (h === "#/pokedex") return "pokedex";
+    if (h === "#/compare") return "compare";
+    if (h === "#/types") return "types";
     return "home";
   }
-  const [view, setView] = useState<"home" | "about" | "pokedex">(() =>
-    viewFromHash(),
+  const [view, setView] = useState<"home" | "about" | "pokedex" | "compare" | "types">(
+    () => viewFromHash(),
   );
 
   useEffect(() => {
@@ -136,6 +144,12 @@ export default function App() {
   }, []);
   const goPokedex = useCallback(() => {
     window.location.hash = "#/pokedex";
+  }, []);
+  const goCompare = useCallback(() => {
+    window.location.hash = "#/compare";
+  }, []);
+  const goTypes = useCallback(() => {
+    window.location.hash = "#/types";
   }, []);
   const goHome = useCallback(() => {
     if (window.location.hash) {
@@ -226,6 +240,26 @@ export default function App() {
     [savedTeams, activeTeamId],
   );
 
+  const updateTeamNotes = useCallback(
+    (id: string, notes: string) => {
+      const next = savedTeams.map((t) =>
+        t.id === id ? { ...t, notes } : t,
+      );
+      setSavedTeams(next);
+      writeSavedTeams(next);
+    },
+    [savedTeams],
+  );
+
+  const loadTemplate = useCallback((ids: number[]) => {
+    setMyTeamIds(ids);
+    setActiveTeamId(null);
+  }, []);
+
+  const resetOpponents = useCallback(() => {
+    setOpponentIds([]);
+  }, []);
+
   const shareUrl = useCallback(async () => {
     try {
       await navigator.clipboard.writeText(window.location.href);
@@ -287,10 +321,22 @@ export default function App() {
                 <span className="hidden sm:inline">{t("navPokedex")}</span>
               </Button>
             )}
+            {view !== "types" && (
+              <Button variant="outline" size="sm" onClick={goTypes}>
+                <Grid3x3 className="h-3 w-3" />
+                <span className="hidden md:inline">Types</span>
+              </Button>
+            )}
+            {view !== "compare" && (
+              <Button variant="outline" size="sm" onClick={goCompare}>
+                <Scale className="h-3 w-3" />
+                <span className="hidden md:inline">{t("navCompare")}</span>
+              </Button>
+            )}
             {view !== "about" && (
               <Button variant="outline" size="sm" onClick={goAbout}>
                 <Info className="h-3 w-3" />
-                <span className="hidden sm:inline">{t("navAbout")}</span>
+                <span className="hidden lg:inline">{t("navAbout")}</span>
               </Button>
             )}
             <LanguageDropdown />
@@ -308,6 +354,16 @@ export default function App() {
           <PokedexPage />
         </Suspense>
       )}
+      {view === "compare" && (
+        <Suspense fallback={<LazyFallback />}>
+          <ComparePage />
+        </Suspense>
+      )}
+      {view === "types" && (
+        <Suspense fallback={<LazyFallback />}>
+          <TypeChartPage />
+        </Suspense>
+      )}
       {view === "home" && (
       <>
       <div className="container pt-4 sm:pt-8">
@@ -323,6 +379,17 @@ export default function App() {
               <span className="ml-auto text-[10px] text-muted-foreground">
                 {opponents.length}/{MAX_TEAM}
               </span>
+              {opponents.length > 0 && (
+                <Button
+                  size="icon"
+                  variant="outline"
+                  onClick={resetOpponents}
+                  className="h-7 w-7 hover:border-destructive hover:text-destructive"
+                  title={t("reset")}
+                >
+                  <RotateCcw className="h-3 w-3" />
+                </Button>
+              )}
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -441,6 +508,8 @@ export default function App() {
               onSave={saveCurrentAs}
               onLoad={loadTeam}
               onDelete={deleteTeam}
+              onUpdateNotes={updateTeamNotes}
+              onLoadTemplate={loadTemplate}
               activeTeamId={activeTeamId}
             />
           </CardContent>
