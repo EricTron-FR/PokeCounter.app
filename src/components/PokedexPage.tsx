@@ -45,7 +45,7 @@ export function PokedexPage() {
   return (
     <main className="container py-4 sm:py-8">
       <header className="mb-6 text-center">
-        <h1 className="font-pixel text-xl sm:text-2xl bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent text-shadow-pixel">
+        <h1 className="font-pixel text-xl sm:text-2xl text-primary text-shadow-pixel">
           {t("pokedexTitle")}
         </h1>
         <p className="text-[10px] font-pixel uppercase tracking-wider text-muted-foreground mt-2">

@@ -73,7 +73,7 @@ export function AboutPage({ onBack }: Props) {
 
       {/* Header */}
       <div className="text-center mb-10">
-        <h1 className="font-pixel text-2xl sm:text-3xl bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent text-shadow-pixel">
+        <h1 className="font-pixel text-2xl sm:text-3xl text-primary text-shadow-pixel">
           {t("aboutTitle")}
         </h1>
         <p className="text-[10px] font-pixel uppercase tracking-wider text-muted-foreground mt-3">
