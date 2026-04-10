@@ -6,6 +6,7 @@ import { loadMovepools } from "@/lib/pokemonMoves";
 import { NATURES } from "@/lib/natures";
 import { applySet, getCommonSets } from "@/lib/sets";
 import { exportShowdown, importShowdown } from "@/lib/showdown";
+import { calcAllMoves, CalcResult } from "@/lib/damageCalc";
 import {
   defaultSp,
   SP_MAX_PER_STAT,
@@ -25,6 +26,8 @@ interface Props {
   onChange: (slots: BuildSlot[]) => void;
   maxSlots?: number;
   accent?: "me" | "opponent";
+  /** External targets (e.g. opponent team) the damage calc can shoot at. */
+  externalTargets?: number[];
 }
 
 export function AdvancedTeamBuilder({
@@ -32,6 +35,7 @@ export function AdvancedTeamBuilder({
   onChange,
   maxSlots = 6,
   accent = "me",
+  externalTargets = [],
 }: Props) {
   const { t, lang } = useLang();
   const [pickerOpen, setPickerOpen] = useState<number | null>(null);
@@ -223,6 +227,15 @@ export function AdvancedTeamBuilder({
           slot={slots[editingIdx]}
           pokemon={monById.get(slots[editingIdx].pokemonId)!}
           movepool={movepools?.[slots[editingIdx].pokemonId] ?? []}
+          targets={[
+            ...slots.filter((_, i) => i !== editingIdx),
+            ...externalTargets.map<BuildSlot>((id) => ({
+              pokemonId: id,
+              moves: [],
+              sp: defaultSp(),
+              nature: "Hardy",
+            })),
+          ]}
           onChange={(updated) => {
             const next = [...slots];
             next[editingIdx] = updated;
@@ -250,12 +263,14 @@ function SlotEditor({
   slot,
   pokemon,
   movepool,
+  targets,
   onChange,
   onClose,
 }: {
   slot: BuildSlot;
   pokemon: Pokemon;
   movepool: string[];
+  targets: BuildSlot[];
   onChange: (s: BuildSlot) => void;
   onClose: () => void;
 }) {
@@ -465,6 +480,9 @@ function SlotEditor({
           })}
         </div>
       </Field>
+
+      {/* Damage calculator */}
+      <DamagePanel slot={slot} targets={targets} />
     </div>
   );
 }
@@ -684,5 +702,116 @@ function PokemonPickerModal({
         </div>
       </div>
     </div>
+  );
+}
+
+// ----------------- Damage Calc Panel -----------------
+
+function DamagePanel({
+  slot,
+  targets,
+}: {
+  slot: BuildSlot;
+  targets: BuildSlot[];
+}) {
+  const { t, lang } = useLang();
+  const monById = useMemo(() => new Map(POKEMON.map((p) => [p.id, p])), []);
+  const [targetIdx, setTargetIdx] = useState(0);
+
+  const validTargets = targets.filter((tg) => monById.has(tg.pokemonId));
+  const target = validTargets[targetIdx];
+
+  if (validTargets.length === 0) {
+    return (
+      <Field label={t("damageCalc")}>
+        <div className="text-[10px] text-muted-foreground font-mono italic">
+          {t("noDamageData")}
+        </div>
+      </Field>
+    );
+  }
+
+  const results: CalcResult[] = target ? calcAllMoves({ attacker: slot, defender: target }) : [];
+  const targetMon = target ? monById.get(target.pokemonId) : undefined;
+
+  return (
+    <Field label={t("damageCalc")}>
+      <div className="space-y-2">
+        <select
+          value={targetIdx}
+          onChange={(e) => setTargetIdx(parseInt(e.target.value, 10))}
+          className="w-full h-9 rounded-sm border-2 border-border bg-input/60 px-2 text-xs font-mono focus:outline-none focus:border-primary"
+        >
+          {validTargets.map((tg, i) => {
+            const m = monById.get(tg.pokemonId);
+            return (
+              <option key={`${tg.pokemonId}-${i}`} value={i}>
+                vs {m ? pokemonName(m, lang) : `#${tg.pokemonId}`}
+              </option>
+            );
+          })}
+        </select>
+
+        {targetMon && (
+          <div className="flex items-center gap-2 px-2 py-1 rounded-sm bg-muted/30 border border-border/40">
+            <img
+              src={spriteUrl(targetMon)}
+              alt={targetMon.names.en ?? ""}
+              className="pixelated h-8 w-8"
+            />
+            <div className="font-pixel text-[9px] uppercase truncate">
+              {pokemonName(targetMon, lang)}
+            </div>
+            <div className="ml-auto flex gap-1">
+              {targetMon.types.map((tp) => (
+                <TypeBadge key={tp} type={tp} size="xs" />
+              ))}
+            </div>
+          </div>
+        )}
+
+        {results.length === 0 && (
+          <div className="text-[10px] text-muted-foreground font-mono italic">
+            {t("noDamageData")}
+          </div>
+        )}
+
+        {results.map((r) => (
+          <div
+            key={r.move}
+            className={cn(
+              "flex items-center gap-2 px-2 py-1.5 rounded-sm border-2",
+              r.effectiveness === 0
+                ? "border-zinc-700 bg-zinc-900/30"
+                : r.effectiveness >= 2
+                  ? "border-emerald-500/50 bg-emerald-500/10"
+                  : r.effectiveness < 1
+                    ? "border-red-500/40 bg-red-500/5"
+                    : "border-border bg-muted/20",
+            )}
+          >
+            <TypeBadge type={r.type} size="xs" />
+            <span className="font-mono text-[10px] flex-1 truncate">{r.move}</span>
+            <span className="font-mono text-[10px] text-muted-foreground tabular-nums">
+              {r.minPct}–{r.maxPct}%
+            </span>
+            <span
+              className={cn(
+                "font-pixel text-[8px] uppercase tracking-wider px-1.5 py-0.5 rounded-sm border",
+                r.ko === "OHKO"
+                  ? "bg-rose-500/20 border-rose-500/60 text-rose-300"
+                  : r.ko === "2HKO"
+                    ? "bg-orange-500/20 border-orange-500/60 text-orange-300"
+                    : r.ko === "3HKO"
+                      ? "bg-yellow-500/20 border-yellow-500/60 text-yellow-300"
+                      : "bg-muted/40 border-border text-muted-foreground",
+              )}
+            >
+              {r.ko}
+            </span>
+          </div>
+        ))}
+      </div>
+    </Field>
   );
 }

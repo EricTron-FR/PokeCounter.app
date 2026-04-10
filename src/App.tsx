@@ -24,12 +24,15 @@ const ComparePage = lazy(() =>
 const TypeChartPage = lazy(() =>
   import("@/components/TypeChartPage").then((m) => ({ default: m.TypeChartPage })),
 );
+const LearnPage = lazy(() =>
+  import("@/components/LearnPage").then((m) => ({ default: m.LearnPage })),
+);
 const AdvancedTeamBuilder = lazy(() =>
   import("@/components/AdvancedTeamBuilder").then((m) => ({
     default: m.AdvancedTeamBuilder,
   })),
 );
-import { Info, Home as HomeIcon, BookOpen, Settings, Zap, Scale, Grid3x3 } from "lucide-react";
+import { Info, Home as HomeIcon, BookOpen, Settings, Zap, Scale, Grid3x3, GraduationCap } from "lucide-react";
 import {
   loadSavedTeams,
   writeSavedTeams,
@@ -119,15 +122,16 @@ export default function App() {
       setMyTeamIds(ids);
     }
   }, [advancedMode, advancedSlots]);
-  function viewFromHash(): "home" | "about" | "pokedex" | "compare" | "types" {
+  function viewFromHash(): "home" | "about" | "pokedex" | "compare" | "types" | "learn" {
     const h = window.location.hash;
     if (h === "#/about") return "about";
     if (h === "#/pokedex") return "pokedex";
     if (h === "#/compare") return "compare";
     if (h === "#/types") return "types";
+    if (h === "#/learn") return "learn";
     return "home";
   }
-  const [view, setView] = useState<"home" | "about" | "pokedex" | "compare" | "types">(
+  const [view, setView] = useState<"home" | "about" | "pokedex" | "compare" | "types" | "learn">(
     () => viewFromHash(),
   );
 
@@ -150,6 +154,9 @@ export default function App() {
   }, []);
   const goTypes = useCallback(() => {
     window.location.hash = "#/types";
+  }, []);
+  const goLearn = useCallback(() => {
+    window.location.hash = "#/learn";
   }, []);
   const goHome = useCallback(() => {
     if (window.location.hash) {
@@ -333,6 +340,12 @@ export default function App() {
                 <span className="hidden md:inline">{t("navCompare")}</span>
               </Button>
             )}
+            {view !== "learn" && (
+              <Button variant="outline" size="sm" onClick={goLearn}>
+                <GraduationCap className="h-3 w-3" />
+                <span className="hidden md:inline">Learn</span>
+              </Button>
+            )}
             {view !== "about" && (
               <Button variant="outline" size="sm" onClick={goAbout}>
                 <Info className="h-3 w-3" />
@@ -362,6 +375,11 @@ export default function App() {
       {view === "types" && (
         <Suspense fallback={<LazyFallback />}>
           <TypeChartPage />
+        </Suspense>
+      )}
+      {view === "learn" && (
+        <Suspense fallback={<LazyFallback />}>
+          <LearnPage />
         </Suspense>
       )}
       {view === "home" && (
@@ -477,6 +495,7 @@ export default function App() {
                   slots={advancedSlots}
                   onChange={setAdvancedSlots}
                   maxSlots={MAX_TEAM}
+                  externalTargets={opponentIds}
                 />
               </Suspense>
             )}
