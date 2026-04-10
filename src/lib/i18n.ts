@@ -172,6 +172,15 @@ type Dict = {
   backToApp: string;
   reportBug: string;
   viewSource: string;
+  currentSeason: string;
+  seasonActive: string;
+  seasonUpcoming: string;
+  seasonEnded: string;
+  daysLeft: string;
+  daysIn: string;
+  startsIn: string;
+  rules: string;
+  format: string;
 };
 
 const DICT: Record<Lang, Dict> = {
@@ -269,6 +278,15 @@ const DICT: Record<Lang, Dict> = {
     backToApp: "Back to app",
     reportBug: "Report a bug",
     viewSource: "View source",
+    currentSeason: "Current Season",
+    seasonActive: "Active",
+    seasonUpcoming: "Upcoming",
+    seasonEnded: "Ended",
+    daysLeft: "{n} days left",
+    daysIn: "Day {n}",
+    startsIn: "Starts in {n} days",
+    rules: "Rules",
+    format: "Format",
   },
   fr: {
     tagline: "Pokémon Champions · Couverture de types",
@@ -364,6 +382,15 @@ const DICT: Record<Lang, Dict> = {
     backToApp: "Retour à l'app",
     reportBug: "Signaler un bug",
     viewSource: "Voir le code",
+    currentSeason: "Saison en cours",
+    seasonActive: "En cours",
+    seasonUpcoming: "À venir",
+    seasonEnded: "Terminée",
+    daysLeft: "{n} jours restants",
+    daysIn: "Jour {n}",
+    startsIn: "Commence dans {n} jours",
+    rules: "Règles",
+    format: "Format",
   },
   es: {
     tagline: "Pokémon Campeones · Cobertura de tipos",
@@ -459,6 +486,15 @@ const DICT: Record<Lang, Dict> = {
     backToApp: "Volver a la app",
     reportBug: "Reportar un bug",
     viewSource: "Ver el código",
+    currentSeason: "Temporada actual",
+    seasonActive: "Activa",
+    seasonUpcoming: "Próxima",
+    seasonEnded: "Terminada",
+    daysLeft: "{n} días restantes",
+    daysIn: "Día {n}",
+    startsIn: "Empieza en {n} días",
+    rules: "Reglas",
+    format: "Formato",
   },
   de: {
     tagline: "Pokémon Champions · Typen-Abdeckung",
@@ -555,6 +591,15 @@ const DICT: Record<Lang, Dict> = {
     backToApp: "Zurück zur App",
     reportBug: "Bug melden",
     viewSource: "Quellcode",
+    currentSeason: "Aktuelle Saison",
+    seasonActive: "Aktiv",
+    seasonUpcoming: "Bevorstehend",
+    seasonEnded: "Beendet",
+    daysLeft: "Noch {n} Tage",
+    daysIn: "Tag {n}",
+    startsIn: "Beginnt in {n} Tagen",
+    rules: "Regeln",
+    format: "Format",
   },
   it: {
     tagline: "Pokémon Campioni · Copertura di tipo",
@@ -651,6 +696,15 @@ const DICT: Record<Lang, Dict> = {
     backToApp: "Torna all'app",
     reportBug: "Segnala un bug",
     viewSource: "Codice sorgente",
+    currentSeason: "Stagione attuale",
+    seasonActive: "In corso",
+    seasonUpcoming: "Prossima",
+    seasonEnded: "Conclusa",
+    daysLeft: "{n} giorni rimasti",
+    daysIn: "Giorno {n}",
+    startsIn: "Inizia tra {n} giorni",
+    rules: "Regole",
+    format: "Formato",
   },
   ja: {
     tagline: "ポケモンチャンピオンズ · タイプ相性",
@@ -747,6 +801,15 @@ const DICT: Record<Lang, Dict> = {
     backToApp: "アプリに戻る",
     reportBug: "バグを報告",
     viewSource: "ソースを見る",
+    currentSeason: "現在のシーズン",
+    seasonActive: "開催中",
+    seasonUpcoming: "予定",
+    seasonEnded: "終了",
+    daysLeft: "残り{n}日",
+    daysIn: "{n}日目",
+    startsIn: "{n}日後に開始",
+    rules: "ルール",
+    format: "フォーマット",
   },
   ko: {
     tagline: "포켓몬 챔피언스 · 타입 커버리지",
@@ -843,6 +906,15 @@ const DICT: Record<Lang, Dict> = {
     backToApp: "앱으로 돌아가기",
     reportBug: "버그 신고",
     viewSource: "소스 보기",
+    currentSeason: "현재 시즌",
+    seasonActive: "진행 중",
+    seasonUpcoming: "예정",
+    seasonEnded: "종료",
+    daysLeft: "{n}일 남음",
+    daysIn: "{n}일째",
+    startsIn: "{n}일 후 시작",
+    rules: "규칙",
+    format: "포맷",
   },
   "zh-Hans": {
     tagline: "宝可梦冠军赛 · 属性克制",
@@ -938,6 +1010,15 @@ const DICT: Record<Lang, Dict> = {
     backToApp: "返回应用",
     reportBug: "报告 bug",
     viewSource: "查看源代码",
+    currentSeason: "当前赛季",
+    seasonActive: "进行中",
+    seasonUpcoming: "即将到来",
+    seasonEnded: "已结束",
+    daysLeft: "剩余 {n} 天",
+    daysIn: "第 {n} 天",
+    startsIn: "{n} 天后开始",
+    rules: "规则",
+    format: "格式",
   },
   "zh-Hant": {
     tagline: "寶可夢冠軍賽 · 屬性克制",
@@ -1033,6 +1114,15 @@ const DICT: Record<Lang, Dict> = {
     backToApp: "返回應用",
     reportBug: "回報 bug",
     viewSource: "查看原始碼",
+    currentSeason: "目前賽季",
+    seasonActive: "進行中",
+    seasonUpcoming: "即將到來",
+    seasonEnded: "已結束",
+    daysLeft: "剩餘 {n} 天",
+    daysIn: "第 {n} 天",
+    startsIn: "{n} 天後開始",
+    rules: "規則",
+    format: "格式",
   },
 };
 

@@ -8,6 +8,7 @@ import { FormatToggle } from "@/components/FormatToggle";
 import { TypeCoverageGrid } from "@/components/TypeCoverageGrid";
 import { LanguageDropdown } from "@/components/LanguageDropdown";
 import { SavedTeamsPanel } from "@/components/SavedTeamsPanel";
+import { SeasonBanner } from "@/components/SeasonBanner";
 import { BuildSlot } from "@/lib/types";
 
 // Lazy-loaded views — keep moves.json + heavy components out of the initial bundle
@@ -308,6 +309,10 @@ export default function App() {
         </Suspense>
       )}
       {view === "home" && (
+      <>
+      <div className="container pt-4 sm:pt-8">
+        <SeasonBanner />
+      </div>
       <main className="container py-4 sm:py-8 grid gap-4 sm:gap-6 items-start lg:grid-cols-[1fr_1fr_1.1fr]">
         {/* Opponent team */}
         <Card className="shadow-[0_6px_0_0_hsl(var(--destructive)/0.4)] border-destructive/40">
@@ -462,6 +467,7 @@ export default function App() {
           </CardContent>
         </Card>
       </main>
+      </>
       )}
 
       <footer className="container pb-10 pt-4 flex flex-col items-center gap-3">
