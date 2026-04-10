@@ -75,22 +75,9 @@ export default {
         },
       },
       borderRadius: {
-        lg: "0px",
-        md: "0px",
-        sm: "0px",
-      },
-      borderWidth: {
-        3: "3px",
-        brutal: "4px",
-      },
-      keyframes: {
-        "blink": {
-          "0%, 49%": { opacity: "1" },
-          "50%, 100%": { opacity: "0" },
-        },
-      },
-      animation: {
-        "blink": "blink 1s step-end infinite",
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 4px)",
+        sm: "calc(var(--radius) - 8px)",
       },
     },
   },

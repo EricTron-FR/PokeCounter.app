@@ -139,17 +139,15 @@ export function PokemonDetailModal({ pokemon, onClose }: Props) {
 
   return (
     <div
-      className="fixed inset-0 z-[300] flex items-end sm:items-center justify-center p-0 sm:p-4"
+      className="fixed inset-0 z-[300] flex items-end sm:items-center justify-center p-0 sm:p-4 bg-background/70 backdrop-blur-sm"
       onClick={onClose}
-      style={{ backgroundColor: "rgba(5, 7, 18, 0.8)" }}
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full sm:max-w-2xl max-h-[90vh] overflow-y-auto rounded-t-lg sm:rounded-md border-2 border-border shadow-[0_-6px_24px_rgba(0,0,0,0.6),0_0_0_2px_hsl(var(--primary)/0.3)]"
-        style={{ backgroundColor: "#0f1326" }}
+        className="relative w-full sm:max-w-2xl max-h-[90vh] overflow-y-auto rounded-t-2xl sm:rounded-2xl border border-border bg-card shadow-soft-lg"
       >
         {/* Header with sprite */}
-        <div className="relative p-4 border-b-2 border-border/60 bg-gradient-to-b from-primary/10 to-transparent">
+        <div className="relative p-4 border-b border-border/60 bg-primary/5">
           <Button
             type="button"
             size="icon"
@@ -164,7 +162,7 @@ export function PokemonDetailModal({ pokemon, onClose }: Props) {
             <img
               src={spriteUrl(pokemon)}
               alt={pokemon.names.en ?? ""}
-              className="pixelated h-24 w-24 sm:h-28 sm:w-28 shrink-0 drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]"
+              className="pixelated h-24 w-24 sm:h-28 sm:w-28 shrink-0 drop-shadow-[0_4px_10px_rgba(60,40,20,0.25)]"
               loading="lazy"
               onError={(e) => {
                 (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
@@ -268,7 +266,7 @@ export function PokemonDetailModal({ pokemon, onClose }: Props) {
               {matchups.weak.map((w) => (
                 <div key={w.type} className="flex items-center gap-1">
                   <TypeBadge type={w.type} size="xs" />
-                  <span className="text-[8px] font-pixel text-red-400">
+                  <span className="text-[8px] font-pixel text-red-600">
                     ×{w.mult}
                   </span>
                 </div>
@@ -276,14 +274,14 @@ export function PokemonDetailModal({ pokemon, onClose }: Props) {
             </div>
             {matchups.resist.length > 0 && (
               <>
-                <h3 className="font-pixel text-[10px] uppercase tracking-wider text-emerald-400 mt-3">
+                <h3 className="font-pixel text-[10px] uppercase tracking-wider text-emerald-600 mt-3">
                   {t("resistances")}
                 </h3>
                 <div className="flex flex-wrap gap-1">
                   {matchups.resist.map((r) => (
                     <div key={r.type} className="flex items-center gap-1">
                       <TypeBadge type={r.type} size="xs" />
-                      <span className="text-[8px] font-pixel text-emerald-400">
+                      <span className="text-[8px] font-pixel text-emerald-600">
                         ×{r.mult}
                       </span>
                     </div>
@@ -293,7 +291,7 @@ export function PokemonDetailModal({ pokemon, onClose }: Props) {
             )}
             {matchups.immune.length > 0 && (
               <>
-                <h3 className="font-pixel text-[10px] uppercase tracking-wider text-sky-400 mt-3">
+                <h3 className="font-pixel text-[10px] uppercase tracking-wider text-sky-600 mt-3">
                   {t("immunities")}
                 </h3>
                 <div className="flex flex-wrap gap-1">

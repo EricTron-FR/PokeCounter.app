@@ -14,7 +14,7 @@ export function FormatToggle({ value, onChange }: Props) {
     { key: "2v2", label: "2v2", sub: t("double") },
   ];
   return (
-    <div className="grid grid-cols-2 gap-1 rounded-sm border-2 border-border bg-muted/30 p-1">
+    <div className="grid grid-cols-2 gap-1 rounded-xl border border-border bg-muted/60 p-1">
       {FORMATS.map((f) => {
         const active = f.key === value;
         return (
@@ -23,13 +23,13 @@ export function FormatToggle({ value, onChange }: Props) {
             type="button"
             onClick={() => onChange(f.key)}
             className={cn(
-              "relative flex flex-col items-center justify-center rounded-sm px-2 py-2 transition-all",
+              "relative flex flex-col items-center justify-center rounded-lg px-2 py-2 transition-all",
               active
-                ? "bg-primary text-primary-foreground shadow-[0_3px_0_0_hsl(var(--primary)/0.5)]"
-                : "text-muted-foreground hover:text-foreground hover:bg-muted/60",
+                ? "bg-primary text-primary-foreground shadow-soft-primary"
+                : "text-muted-foreground hover:text-foreground hover:bg-card",
             )}
           >
-            <span className="font-pixel text-xs tracking-wider text-shadow-pixel">
+            <span className="font-pixel text-xs tracking-wider">
               {f.label}
             </span>
             <span className="text-[8px] font-pixel uppercase tracking-wider opacity-80 mt-0.5">

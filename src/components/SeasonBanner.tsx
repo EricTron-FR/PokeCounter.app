@@ -23,18 +23,18 @@ export function SeasonBanner() {
 
   const stateColor =
     status.state === "active"
-      ? "border-border bg-primary text-primary-foreground"
+      ? "border-primary/30 bg-primary/10 text-primary"
       : status.state === "upcoming"
-        ? "border-border bg-foreground text-background"
+        ? "border-accent/50 bg-accent/20 text-accent-foreground"
         : "border-border bg-muted text-muted-foreground";
 
   return (
-    <div className="border-4 border-border bg-card p-4 shadow-brutal">
+    <div className="rounded-xl border border-border bg-card p-5 shadow-soft">
       <div className="flex items-start justify-between gap-4 flex-wrap">
         {/* Left: title + name */}
         <div className="flex items-start gap-3 min-w-0 flex-1">
-          <div className="border-4 border-border bg-primary p-2 shrink-0">
-            <Trophy className="h-5 w-5 text-primary-foreground" />
+          <div className="rounded-lg border border-primary/30 bg-primary/10 p-2 shrink-0">
+            <Trophy className="h-5 w-5 text-primary" />
           </div>
           <div className="min-w-0 flex-1">
             <div className="flex items-center gap-2 flex-wrap">
@@ -43,7 +43,7 @@ export function SeasonBanner() {
               </span>
               <span
                 className={cn(
-                  "font-pixel text-[8px] uppercase tracking-wider px-1.5 py-0.5 border-2",
+                  "font-pixel text-[8px] uppercase tracking-wider px-2 py-0.5 rounded-full border",
                   stateColor,
                 )}
               >
@@ -58,11 +58,11 @@ export function SeasonBanner() {
 
         {/* Right: countdown + format */}
         <div className="flex flex-col items-end gap-1.5 shrink-0">
-          <div className="inline-flex items-center gap-1.5 px-2 py-1 border-4 border-border bg-primary font-pixel text-[10px] uppercase tracking-wider text-primary-foreground">
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-primary/30 bg-primary/10 font-pixel text-[10px] uppercase tracking-wider text-primary">
             <Calendar className="h-3 w-3" />
             {season.format.toUpperCase()}
           </div>
-          <div className="inline-flex items-center gap-1.5 px-2 py-1 border-4 border-border bg-background font-pixel text-[10px] uppercase tracking-wider text-foreground">
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-border bg-muted font-pixel text-[10px] uppercase tracking-wider text-foreground">
             <Clock className="h-3 w-3" />
             {status.state === "active" && t("daysLeft", { n: status.daysLeft ?? 0 })}
             {status.state === "upcoming" && t("startsIn", { n: status.daysIn ?? 0 })}
@@ -74,9 +74,9 @@ export function SeasonBanner() {
       {/* Progress bar (only when active) */}
       {status.state === "active" && status.daysIn != null && status.daysLeft != null && (
         <div className="mt-3">
-          <div className="h-2 w-full border-2 border-border bg-background overflow-hidden">
+          <div className="h-2 w-full rounded-full bg-muted overflow-hidden">
             <div
-              className="h-full bg-primary"
+              className="h-full rounded-full bg-primary transition-[width]"
               style={{
                 width: `${Math.min(100, (status.daysIn / (status.daysIn + status.daysLeft)) * 100)}%`,
               }}

@@ -283,16 +283,16 @@ export default function App() {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <header className="sticky top-0 z-[100] border-b-4 border-border bg-background">
+      <header className="sticky top-0 z-[100] border-b border-border bg-background/90 backdrop-blur">
         <div className="container py-3 sm:py-5 flex items-center justify-between gap-2 sm:gap-4 flex-wrap">
           <div className="flex items-center gap-2 sm:gap-3 min-w-0">
             <img
               src="/pokeball.svg"
               alt=""
-              className="pixelated h-8 w-8 sm:h-10 sm:w-10 shrink-0 border-2 border-border"
+              className="pixelated h-8 w-8 sm:h-10 sm:w-10 shrink-0 rounded-md shadow-soft"
             />
             <div className="min-w-0">
-              <h1 className="font-pixel text-sm sm:text-xl text-foreground text-shadow-primary truncate">
+              <h1 className="font-pixel text-sm sm:text-xl text-primary text-shadow-pixel truncate">
                 POKECOUNTER
               </h1>
               <p className="text-[8px] sm:text-[10px] text-muted-foreground font-pixel uppercase tracking-wider mt-0.5 sm:mt-1 truncate hidden sm:block">
@@ -421,11 +421,11 @@ export default function App() {
           </CardHeader>
           <CardContent className="space-y-4">
             {/* Simple / Advanced mode toggle */}
-            <div className="grid grid-cols-2 gap-1 rounded-sm border-2 border-border bg-muted/30 p-1">
+            <div className="grid grid-cols-2 gap-1 rounded-xl border border-border bg-muted/60 p-1">
               <button
                 type="button"
                 onClick={() => setAdvancedMode(false)}
-                className={`flex items-center justify-center gap-1.5 rounded-sm px-2 py-1.5 transition-all ${!advancedMode ? "bg-primary text-primary-foreground shadow-[0_3px_0_0_hsl(var(--primary)/0.5)]" : "text-muted-foreground hover:text-foreground hover:bg-muted/60"}`}
+                className={`flex items-center justify-center gap-1.5 rounded-lg px-2 py-1.5 transition-all ${!advancedMode ? "bg-primary text-primary-foreground shadow-soft-primary" : "text-muted-foreground hover:text-foreground hover:bg-card"}`}
               >
                 <Zap className="h-3 w-3" />
                 <span className="font-pixel text-[9px] uppercase tracking-wider">Simple</span>
@@ -433,7 +433,7 @@ export default function App() {
               <button
                 type="button"
                 onClick={() => setAdvancedMode(true)}
-                className={`flex items-center justify-center gap-1.5 rounded-sm px-2 py-1.5 transition-all ${advancedMode ? "bg-primary text-primary-foreground shadow-[0_3px_0_0_hsl(var(--primary)/0.5)]" : "text-muted-foreground hover:text-foreground hover:bg-muted/60"}`}
+                className={`flex items-center justify-center gap-1.5 rounded-lg px-2 py-1.5 transition-all ${advancedMode ? "bg-primary text-primary-foreground shadow-soft-primary" : "text-muted-foreground hover:text-foreground hover:bg-card"}`}
               >
                 <Settings className="h-3 w-3" />
                 <span className="font-pixel text-[9px] uppercase tracking-wider">Advanced</span>
@@ -543,7 +543,7 @@ export default function App() {
             href="https://github.com/EricTron-FR/PokeCounter.app"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-sm border-2 border-border bg-card/60 px-3 py-1.5 text-[9px] font-pixel uppercase tracking-wider text-muted-foreground hover:text-foreground hover:border-primary/60 transition-colors"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-card px-3 py-1.5 text-[9px] font-pixel uppercase tracking-wider text-muted-foreground hover:text-foreground hover:border-primary/50 shadow-soft transition-all"
           >
             <Github className="h-3 w-3" />
             {t("viewSource")}
@@ -552,7 +552,7 @@ export default function App() {
             href="https://github.com/EricTron-FR/PokeCounter.app/issues/new"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-sm border-2 border-destructive/40 bg-destructive/10 px-3 py-1.5 text-[9px] font-pixel uppercase tracking-wider text-destructive hover:bg-destructive/20 transition-colors"
+            className="inline-flex items-center gap-1.5 rounded-lg border border-destructive/40 bg-destructive/10 px-3 py-1.5 text-[9px] font-pixel uppercase tracking-wider text-destructive hover:bg-destructive/20 transition-colors"
           >
             <Bug className="h-3 w-3" />
             {t("reportBug")}
@@ -592,8 +592,8 @@ function NavButton({
       aria-current={active ? "page" : undefined}
       className={
         active
-          ? "inline-flex items-center gap-1.5 h-9 px-2 sm:px-3 border-4 border-border bg-primary text-primary-foreground font-pixel text-[10px] uppercase tracking-wider"
-          : "inline-flex items-center gap-1.5 h-9 px-2 sm:px-3 border-4 border-border bg-background hover:bg-foreground hover:text-background text-foreground font-pixel text-[10px] uppercase tracking-wider transition-colors"
+          ? "inline-flex items-center gap-1.5 h-9 px-2 sm:px-3 rounded-lg border border-primary/30 bg-primary text-primary-foreground font-pixel text-[10px] uppercase tracking-wider shadow-soft-primary"
+          : "inline-flex items-center gap-1.5 h-9 px-2 sm:px-3 rounded-lg border border-border bg-card hover:bg-muted text-foreground font-pixel text-[10px] uppercase tracking-wider transition-colors shadow-soft"
       }
     >
       {icon}

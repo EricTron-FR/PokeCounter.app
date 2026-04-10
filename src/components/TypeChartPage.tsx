@@ -6,13 +6,13 @@ import { cn } from "@/lib/utils";
 type Mode = "attacker" | "defender";
 
 const MULT_STYLE = (m: number) => {
-  if (m === 0) return { bg: "bg-zinc-900 border-zinc-700 text-zinc-500", label: "0" };
-  if (m === 0.25) return { bg: "bg-red-900/60 border-red-700/60 text-red-300", label: "¼" };
-  if (m === 0.5) return { bg: "bg-red-700/40 border-red-600/50 text-red-300", label: "½" };
-  if (m === 1) return { bg: "bg-zinc-800/40 border-zinc-700/40 text-muted-foreground", label: "1" };
-  if (m === 2) return { bg: "bg-emerald-700/50 border-emerald-600/60 text-emerald-200", label: "2" };
-  if (m === 4) return { bg: "bg-emerald-500/60 border-emerald-400/80 text-emerald-50", label: "4" };
-  return { bg: "bg-zinc-800/40 border-zinc-700/40 text-muted-foreground", label: String(m) };
+  if (m === 0) return { bg: "bg-zinc-800 border-zinc-900 text-zinc-100", label: "0" };
+  if (m === 0.25) return { bg: "bg-red-200 border-red-400 text-red-800", label: "¼" };
+  if (m === 0.5) return { bg: "bg-red-100 border-red-300 text-red-700", label: "½" };
+  if (m === 1) return { bg: "bg-muted border-border text-muted-foreground", label: "1" };
+  if (m === 2) return { bg: "bg-emerald-100 border-emerald-400 text-emerald-800", label: "2" };
+  if (m === 4) return { bg: "bg-emerald-300 border-emerald-600 text-emerald-900", label: "4" };
+  return { bg: "bg-muted border-border text-muted-foreground", label: String(m) };
 };
 
 export function TypeChartPage() {
@@ -59,7 +59,7 @@ export function TypeChartPage() {
             className={cn(
               "px-3 py-1.5 rounded-sm font-pixel text-[9px] uppercase tracking-wider transition-colors",
               mode === "attacker"
-                ? "bg-primary text-primary-foreground shadow-[0_3px_0_0_hsl(var(--primary)/0.5)]"
+                ? "bg-primary text-primary-foreground shadow-soft-primary"
                 : "text-muted-foreground hover:text-foreground",
             )}
           >
@@ -71,7 +71,7 @@ export function TypeChartPage() {
             className={cn(
               "px-3 py-1.5 rounded-sm font-pixel text-[9px] uppercase tracking-wider transition-colors",
               mode === "defender"
-                ? "bg-primary text-primary-foreground shadow-[0_3px_0_0_hsl(var(--primary)/0.5)]"
+                ? "bg-primary text-primary-foreground shadow-soft-primary"
                 : "text-muted-foreground hover:text-foreground",
             )}
           >

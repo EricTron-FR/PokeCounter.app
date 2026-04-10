@@ -24,7 +24,7 @@ export function LanguageDropdown() {
       <button
         type="button"
         onClick={() => setOpen((o) => !o)}
-        className="inline-flex items-center gap-2 h-9 px-3 rounded-sm border-2 border-border bg-card/80 hover:bg-accent/20 transition-colors font-pixel text-[10px] uppercase tracking-wider text-shadow-pixel"
+        className="inline-flex items-center gap-2 h-9 px-3 rounded-lg border border-border bg-card hover:bg-muted transition-colors font-pixel text-[10px] uppercase tracking-wider shadow-soft"
       >
         <Flag lang={lang} />
         <span>{current.flag}</span>
@@ -36,10 +36,7 @@ export function LanguageDropdown() {
         />
       </button>
       {open && (
-        <div
-          className="absolute right-0 z-[200] mt-2 w-60 max-w-[calc(100vw-1rem)] max-h-[70vh] overflow-auto rounded-sm border-2 border-border shadow-[0_6px_0_0_hsl(var(--border)),0_12px_32px_rgba(0,0,0,0.8)]"
-          style={{ backgroundColor: "#0f1326" }}
-        >
+        <div className="absolute right-0 z-[200] mt-2 w-60 max-w-[calc(100vw-1rem)] max-h-[70vh] overflow-auto rounded-xl border border-border bg-popover shadow-soft-lg">
           {SUPPORTED_LANGS.map((l: Lang) => {
             const active = l === lang;
             const meta = LANG_META[l];

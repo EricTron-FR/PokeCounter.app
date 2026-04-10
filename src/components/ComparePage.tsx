@@ -298,7 +298,7 @@ function BuildColumn({
                   </Button>
                   <div className="flex-1 h-1.5 bg-muted/60 rounded-sm overflow-hidden">
                     <div
-                      className="h-full bg-gradient-to-r from-primary via-accent to-primary"
+                      className="h-full bg-primary"
                       style={{ width: `${(v / SP_MAX_PER_STAT) * 100}%` }}
                     />
                   </div>
@@ -391,7 +391,7 @@ function ComparisonResults({
             return (
               <div key={key} className="grid grid-cols-[1fr_auto_1fr] items-center gap-3">
                 <div className="flex items-center justify-end gap-2">
-                  <span className={cn("font-mono text-xs tabular-nums", av > bv && "text-emerald-400 font-bold")}>{av}</span>
+                  <span className={cn("font-mono text-xs tabular-nums", av > bv && "text-emerald-600 font-bold")}>{av}</span>
                   <div className="flex-1 max-w-[120px] h-2 bg-muted/60 rounded-sm overflow-hidden flex">
                     <div className="flex-1" />
                     <div
@@ -410,7 +410,7 @@ function ComparisonResults({
                       style={{ width: `${(bv / max) * 100}%` }}
                     />
                   </div>
-                  <span className={cn("font-mono text-xs tabular-nums", bv > av && "text-emerald-400 font-bold")}>{bv}</span>
+                  <span className={cn("font-mono text-xs tabular-nums", bv > av && "text-emerald-600 font-bold")}>{bv}</span>
                 </div>
               </div>
             );
@@ -479,7 +479,7 @@ function ComparisonResults({
               <div className="font-pixel text-[9px] uppercase text-muted-foreground mb-1">
                 {pokemonName(a, lang)} →
               </div>
-              <div className={cn("font-pixel text-2xl text-shadow-pixel", aVsB >= 2 ? "text-emerald-400" : aVsB <= 0.5 ? "text-red-400" : "text-foreground")}>
+              <div className={cn("font-pixel text-2xl text-shadow-pixel", aVsB >= 2 ? "text-emerald-600" : aVsB <= 0.5 ? "text-red-600" : "text-foreground")}>
                 ×{aVsB}
               </div>
             </div>
@@ -487,7 +487,7 @@ function ComparisonResults({
               <div className="font-pixel text-[9px] uppercase text-muted-foreground mb-1">
                 ← {pokemonName(b, lang)}
               </div>
-              <div className={cn("font-pixel text-2xl text-shadow-pixel", bVsA >= 2 ? "text-emerald-400" : bVsA <= 0.5 ? "text-red-400" : "text-foreground")}>
+              <div className={cn("font-pixel text-2xl text-shadow-pixel", bVsA >= 2 ? "text-emerald-600" : bVsA <= 0.5 ? "text-red-600" : "text-foreground")}>
                 ×{bVsA}
               </div>
             </div>
@@ -509,7 +509,7 @@ function ComparisonResults({
               {aMatchups.weak.map((w) => (
                 <div key={w.type} className="flex items-center gap-1">
                   <TypeBadge type={w.type} size="xs" />
-                  <span className="text-[8px] font-pixel text-red-400">×{w.mult}</span>
+                  <span className="text-[8px] font-pixel text-red-600">×{w.mult}</span>
                 </div>
               ))}
             </div>
@@ -522,7 +522,7 @@ function ComparisonResults({
               {bMatchups.weak.map((w) => (
                 <div key={w.type} className="flex items-center gap-1">
                   <TypeBadge type={w.type} size="xs" />
-                  <span className="text-[8px] font-pixel text-red-400">×{w.mult}</span>
+                  <span className="text-[8px] font-pixel text-red-600">×{w.mult}</span>
                 </div>
               ))}
             </div>
@@ -556,9 +556,9 @@ function DamageRow({ r }: { r: import("@/lib/damageCalc").CalcResult }) {
         className={cn(
           "font-pixel text-[8px] uppercase tracking-wider px-1.5 py-0.5 rounded-sm border",
           r.ko === "OHKO"
-            ? "bg-rose-500/20 border-rose-500/60 text-rose-300"
+            ? "bg-rose-500/20 border-rose-500/60 text-rose-600"
             : r.ko === "2HKO"
-              ? "bg-orange-500/20 border-orange-500/60 text-orange-300"
+              ? "bg-orange-500/20 border-orange-500/60 text-orange-600"
               : "bg-muted/40 border-border text-muted-foreground",
         )}
       >

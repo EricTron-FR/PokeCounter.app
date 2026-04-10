@@ -35,7 +35,7 @@ export function AboutPage({ onBack }: Props) {
       icon: <Code2 className="h-4 w-4" />,
       title: t("factOssTitle"),
       body: t("factOssBody"),
-      color: "text-emerald-400 border-emerald-500/50",
+      color: "text-emerald-600 border-emerald-500/50",
     },
     {
       icon: <Gift className="h-4 w-4" />,
@@ -47,7 +47,7 @@ export function AboutPage({ onBack }: Props) {
       icon: <Users className="h-4 w-4" />,
       title: t("factCommunityTitle"),
       body: t("factCommunityBody"),
-      color: "text-sky-400 border-sky-500/50",
+      color: "text-sky-600 border-sky-500/50",
     },
   ];
 
@@ -134,7 +134,7 @@ export function AboutPage({ onBack }: Props) {
       {/* Contribute */}
       <Card className="mb-6">
         <CardHeader>
-          <CardTitle className="flex items-center gap-2 text-emerald-400">
+          <CardTitle className="flex items-center gap-2 text-emerald-600">
             <Heart className="h-4 w-4" />
             {t("contributeTitle")}
           </CardTitle>

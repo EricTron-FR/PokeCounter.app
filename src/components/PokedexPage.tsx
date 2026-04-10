@@ -145,7 +145,7 @@ export function PokedexPage() {
             key={p.id}
             type="button"
             onClick={() => setSelected(p)}
-            className="group rounded-sm border-2 border-border bg-card/70 p-2 transition-all hover:border-primary/70 hover:shadow-[0_0_16px_hsl(var(--primary)/0.4)] hover:-translate-y-0.5"
+            className="group rounded-xl border border-border bg-card p-2 shadow-soft transition-all hover:border-primary/50 hover:shadow-soft-lg hover:-translate-y-0.5"
           >
             <div className="flex items-center justify-between text-[8px] text-muted-foreground font-mono">
               <span>#{p.id}</span>
@@ -161,7 +161,7 @@ export function PokedexPage() {
             <img
               src={spriteUrl(p)}
               alt={p.names.en ?? ""}
-              className="pixelated h-16 w-16 sm:h-20 sm:w-20 mx-auto drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)]"
+              className="pixelated h-16 w-16 sm:h-20 sm:w-20 mx-auto drop-shadow-[0_3px_6px_rgba(60,40,20,0.2)]"
               loading="lazy"
               onError={(e) => {
                 (e.currentTarget as HTMLImageElement).style.visibility = "hidden";

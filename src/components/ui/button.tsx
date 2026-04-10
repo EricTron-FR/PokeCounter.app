@@ -4,18 +4,18 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-pixel text-[10px] uppercase tracking-wider transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-40 [&_svg]:pointer-events-none [&_svg]:size-3.5 [&_svg]:shrink-0 border-4 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-pixel text-[10px] uppercase tracking-wider rounded-lg transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-40 [&_svg]:pointer-events-none [&_svg]:size-3.5 [&_svg]:shrink-0 border",
   {
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground border-border shadow-brutal hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[8px_8px_0_0_hsl(var(--border))]",
+          "border-primary/30 bg-primary text-primary-foreground shadow-soft-primary hover:brightness-110 active:translate-y-[1px]",
         destructive:
-          "bg-destructive text-destructive-foreground border-border shadow-brutal hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[8px_8px_0_0_hsl(var(--border))]",
+          "border-destructive/30 bg-destructive text-destructive-foreground shadow-soft hover:brightness-110 active:translate-y-[1px]",
         outline:
-          "bg-transparent text-foreground border-border hover:bg-foreground hover:text-background",
+          "border-border bg-card text-foreground shadow-soft hover:bg-muted hover:shadow-soft-lg",
         secondary:
-          "bg-secondary text-secondary-foreground border-border shadow-brutal hover:-translate-x-[2px] hover:-translate-y-[2px] hover:shadow-[8px_8px_0_0_hsl(var(--border))]",
+          "border-border bg-secondary text-secondary-foreground shadow-soft hover:brightness-105",
         ghost: "border-transparent hover:bg-muted",
         link: "border-transparent text-primary underline-offset-4 hover:underline",
       },

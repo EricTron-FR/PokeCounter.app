@@ -190,7 +190,7 @@ export function AdvancedTeamBuilder({
                   <img
                     src={spriteUrl(mon)}
                     alt={mon.names.en ?? ""}
-                    className="pixelated h-14 w-14 sm:h-20 sm:w-20 drop-shadow-[0_4px_8px_rgba(0,0,0,0.6)]"
+                    className="pixelated h-14 w-14 sm:h-20 sm:w-20 drop-shadow-[0_3px_6px_rgba(60,40,20,0.22)]"
                     loading="lazy"
                     onError={(e) => {
                       (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
@@ -212,7 +212,7 @@ export function AdvancedTeamBuilder({
                       setSlot(i, null);
                       if (editingIdx === i) setEditingIdx(null);
                     }}
-                    className="absolute -top-2 -right-2 h-6 w-6 rounded-sm border-2 border-border bg-destructive text-destructive-foreground flex items-center justify-center shadow-[0_2px_0_0_hsl(var(--border))] cursor-pointer"
+                    className="absolute -top-2 -right-2 h-6 w-6 rounded-full border border-destructive/30 bg-destructive text-destructive-foreground flex items-center justify-center shadow-soft cursor-pointer"
                     aria-label="Remove"
                   >
                     <X className="h-3 w-3" />
@@ -308,7 +308,7 @@ function SlotEditor({
   const moves = slot.moves ?? [];
 
   return (
-    <div className="rounded-sm border-2 border-primary/60 bg-card/95 p-3 space-y-3 shadow-[0_4px_0_0_hsl(var(--primary)/0.3)]">
+    <div className="rounded-xl border border-primary/40 bg-card p-3 space-y-3 shadow-soft-lg">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2 min-w-0">
           <img
@@ -469,7 +469,7 @@ function SlotEditor({
                   </Button>
                   <div className="flex-1 h-2 bg-muted/60 rounded-sm overflow-hidden">
                     <div
-                      className="h-full bg-gradient-to-r from-primary via-accent to-primary"
+                      className="h-full bg-primary"
                       style={{ width: `${(v / SP_MAX_PER_STAT) * 100}%` }}
                     />
                   </div>
@@ -542,11 +542,8 @@ function MoveSelect({
         />
       </button>
       {open && (
-        <div
-          className="absolute z-50 left-0 right-0 mt-1 max-h-72 overflow-auto rounded-sm border-2 border-border shadow-[0_6px_0_0_hsl(var(--border)),0_12px_32px_rgba(0,0,0,0.8)]"
-          style={{ backgroundColor: "#0f1326" }}
-        >
-          <div className="sticky top-0 p-1.5 border-b-2 border-border bg-[#0f1326]">
+        <div className="absolute z-50 left-0 right-0 mt-1 max-h-72 overflow-auto rounded-xl border border-border bg-popover shadow-soft-lg">
+          <div className="sticky top-0 p-1.5 border-b border-border bg-popover">
             <Input
               value={query}
               onChange={(e) => setQuery(e.target.value)}
@@ -638,14 +635,12 @@ function PokemonPickerModal({
 
   return (
     <div
-      className="fixed inset-0 z-[300] flex items-end sm:items-center justify-center p-0 sm:p-4"
+      className="fixed inset-0 z-[300] flex items-end sm:items-center justify-center p-0 sm:p-4 bg-background/70 backdrop-blur-sm"
       onClick={onClose}
-      style={{ backgroundColor: "rgba(5, 7, 18, 0.8)" }}
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full sm:max-w-3xl max-h-[85vh] overflow-hidden rounded-t-lg sm:rounded-md border-2 border-border flex flex-col"
-        style={{ backgroundColor: "#0f1326" }}
+        className="relative w-full sm:max-w-3xl max-h-[85vh] overflow-hidden rounded-t-2xl sm:rounded-2xl border border-border bg-card shadow-soft-lg flex flex-col"
       >
         <div className="p-3 border-b-2 border-border space-y-2">
           <div className="flex items-center gap-2">
@@ -809,11 +804,11 @@ function DamagePanel({
               className={cn(
                 "font-pixel text-[8px] uppercase tracking-wider px-1.5 py-0.5 rounded-sm border",
                 r.ko === "OHKO"
-                  ? "bg-rose-500/20 border-rose-500/60 text-rose-300"
+                  ? "bg-rose-500/20 border-rose-500/60 text-rose-600"
                   : r.ko === "2HKO"
-                    ? "bg-orange-500/20 border-orange-500/60 text-orange-300"
+                    ? "bg-orange-500/20 border-orange-500/60 text-orange-600"
                     : r.ko === "3HKO"
-                      ? "bg-yellow-500/20 border-yellow-500/60 text-yellow-300"
+                      ? "bg-yellow-500/20 border-yellow-500/60 text-yellow-600"
                       : "bg-muted/40 border-border text-muted-foreground",
               )}
             >

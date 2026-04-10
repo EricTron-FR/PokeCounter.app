@@ -73,10 +73,10 @@ export function TeamAnalyzer({ team }: Props) {
               className={cn(
                 "font-pixel text-3xl text-shadow-pixel mt-1",
                 result.overallScore >= 75
-                  ? "text-emerald-400"
+                  ? "text-emerald-600"
                   : result.overallScore >= 50
-                    ? "text-yellow-400"
-                    : "text-red-400",
+                    ? "text-yellow-600"
+                    : "text-red-600",
               )}
             >
               {result.overallScore}
@@ -91,25 +91,25 @@ export function TeamAnalyzer({ team }: Props) {
               icon={<Zap className="h-3 w-3" />}
               label={t("avgSpeed")}
               value={result.averageSpeed}
-              color="text-sky-400"
+              color="text-sky-600"
             />
             <Metric
               icon={<Shield className="h-3 w-3" />}
               label={t("avgBulk")}
               value={result.averageBulk}
-              color="text-emerald-400"
+              color="text-emerald-600"
             />
             <Metric
               icon={<Swords className="h-3 w-3" />}
               label={t("physicalAttackers")}
               value={result.physicalAttackers}
-              color="text-orange-400"
+              color="text-orange-600"
             />
             <Metric
               icon={<Sparkles className="h-3 w-3" />}
               label={t("specialAttackers")}
               value={result.specialAttackers}
-              color="text-purple-400"
+              color="text-purple-600"
             />
           </div>
 
@@ -120,7 +120,7 @@ export function TeamAnalyzer({ team }: Props) {
             color="primary"
           >
             <div className="mb-2">
-              <div className="text-[9px] font-pixel uppercase text-emerald-400 mb-1">
+              <div className="text-[9px] font-pixel uppercase text-emerald-600 mb-1">
                 {t("covered")} ({result.offensiveCoverage.length}/18)
               </div>
               <div className="flex flex-wrap gap-1">
@@ -131,7 +131,7 @@ export function TeamAnalyzer({ team }: Props) {
             </div>
             {result.coverageHoles.length > 0 && (
               <div>
-                <div className="text-[9px] font-pixel uppercase text-red-400 mb-1">
+                <div className="text-[9px] font-pixel uppercase text-red-600 mb-1">
                   {t("notCovered")} ({result.coverageHoles.length})
                 </div>
                 <div className="flex flex-wrap gap-1">
@@ -208,9 +208,9 @@ export function TeamAnalyzer({ team }: Props) {
                     )}
                   >
                     {s.severity === "critical" ? (
-                      <AlertTriangle className="h-3 w-3 shrink-0 mt-0.5 text-red-400" />
+                      <AlertTriangle className="h-3 w-3 shrink-0 mt-0.5 text-red-600" />
                     ) : s.severity === "warn" ? (
-                      <AlertTriangle className="h-3 w-3 shrink-0 mt-0.5 text-orange-400" />
+                      <AlertTriangle className="h-3 w-3 shrink-0 mt-0.5 text-orange-600" />
                     ) : (
                       <CircleCheck className="h-3 w-3 shrink-0 mt-0.5 text-muted-foreground" />
                     )}
