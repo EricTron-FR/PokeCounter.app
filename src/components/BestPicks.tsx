@@ -103,7 +103,7 @@ export function BestPicks({ opponents, myTeam, format }: Props) {
             {t("opponentsCovered")}
           </div>
           {!allCovered && (
-            <div className="text-[9px] text-muted-foreground font-mono mt-1 truncate">
+            <div className="text-[9px] text-muted-foreground font-mono mt-1 break-words">
               {t("uncovered")} :{" "}
               {best.uncovered.map((p) => pokemonName(p, lang)).join(", ")}
             </div>
@@ -327,7 +327,7 @@ function MatchupRow({
                 (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
               }}
             />
-            <span className="font-mono text-[9px] truncate max-w-[70px] sm:max-w-[90px]">
+            <span className="font-mono text-[9px] truncate max-w-[52px] sm:max-w-[90px]">
               {pokemonName(m, lang)}
             </span>
           </div>

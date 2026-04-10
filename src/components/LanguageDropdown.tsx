@@ -37,7 +37,7 @@ export function LanguageDropdown() {
       </button>
       {open && (
         <div
-          className="absolute right-0 z-[200] mt-2 w-60 max-h-[70vh] overflow-auto rounded-sm border-2 border-border shadow-[0_6px_0_0_hsl(var(--border)),0_12px_32px_rgba(0,0,0,0.8)]"
+          className="absolute right-0 z-[200] mt-2 w-60 max-w-[calc(100vw-1rem)] max-h-[70vh] overflow-auto rounded-sm border-2 border-border shadow-[0_6px_0_0_hsl(var(--border)),0_12px_32px_rgba(0,0,0,0.8)]"
           style={{ backgroundColor: "#0f1326" }}
         >
           {SUPPORTED_LANGS.map((l: Lang) => {

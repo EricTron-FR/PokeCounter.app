@@ -50,7 +50,7 @@ export function SeasonBanner() {
                 {stateLabel}
               </span>
             </div>
-            <h2 className="font-pixel text-base sm:text-lg leading-relaxed mt-2 text-foreground text-shadow-pixel">
+            <h2 className="font-pixel text-xs sm:text-lg leading-relaxed mt-2 text-foreground text-shadow-pixel break-words">
               {season.name}
             </h2>
           </div>

@@ -325,7 +325,7 @@ function BuildColumn({
             <div className="text-[9px] font-pixel uppercase text-muted-foreground mb-1">
               {t("moves")}
             </div>
-            <div className="grid grid-cols-2 gap-1">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-1">
               {[0, 1, 2, 3].map((i) => (
                 <select
                   key={i}
@@ -336,7 +336,7 @@ function BuildColumn({
                     else delete moves[i];
                     onSlotChange({ ...slot, moves: moves.filter(Boolean) });
                   }}
-                  className="h-8 rounded-sm border-2 border-border bg-input/60 px-2 text-[10px] font-mono"
+                  className="h-8 min-w-0 rounded-sm border-2 border-border bg-input/60 px-2 text-[10px] font-mono"
                 >
                   <option value="">—</option>
                   {movepool.map((m) => (

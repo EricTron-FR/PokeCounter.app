@@ -21,7 +21,7 @@ export function TypeCoverageGrid({ myTeam }: { myTeam: Pokemon[] }) {
   }
 
   return (
-    <div className="grid grid-cols-6 gap-1">
+    <div className="grid grid-cols-3 sm:grid-cols-6 gap-1">
       {ALL_TYPES.map((t) => {
         const ok = covered.has(t);
         return (

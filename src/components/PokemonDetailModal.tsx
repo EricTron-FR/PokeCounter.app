@@ -327,7 +327,7 @@ export function PokemonDetailModal({ pokemon, onClose }: Props) {
               </div>
             )}
             {moves && moves.length > 0 && (
-              <div className="grid grid-cols-2 gap-1">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-1">
                 {moves.map((m) => {
                   const ty = normalizeType(m.type);
                   return (

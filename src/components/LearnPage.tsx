@@ -421,7 +421,7 @@ export function LearnPage() {
               </CardHeader>
               {open && (
                 <CardContent>
-                  <div className="text-xs text-muted-foreground leading-relaxed font-mono">
+                  <div className="text-xs text-muted-foreground leading-relaxed font-mono break-words">
                     {isFr ? s.body.fr : s.body.en}
                   </div>
                 </CardContent>
