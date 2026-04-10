@@ -75,23 +75,22 @@ export default {
         },
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        lg: "0px",
+        md: "0px",
+        sm: "0px",
+      },
+      borderWidth: {
+        3: "3px",
+        brutal: "4px",
       },
       keyframes: {
-        "glow-pulse": {
-          "0%, 100%": { boxShadow: "0 0 0px hsl(var(--primary) / 0.0)" },
-          "50%": { boxShadow: "0 0 24px hsl(var(--primary) / 0.6)" },
-        },
-        "scan": {
-          "0%": { transform: "translateY(-100%)" },
-          "100%": { transform: "translateY(100%)" },
+        "blink": {
+          "0%, 49%": { opacity: "1" },
+          "50%, 100%": { opacity: "0" },
         },
       },
       animation: {
-        "glow-pulse": "glow-pulse 2.4s ease-in-out infinite",
-        "scan": "scan 6s linear infinite",
+        "blink": "blink 1s step-end infinite",
       },
     },
   },

@@ -4,8 +4,8 @@
   "description": "Free type-coverage counter for Pokémon Champions. Pick the opponent, get the perfect counter.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0b1020",
-  "theme_color": "#0b1020",
+  "background_color": "#FFEDCE",
+  "theme_color": "#FFEDCE",
   "orientation": "portrait-primary",
   "icons": [
     {

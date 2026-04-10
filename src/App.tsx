@@ -283,16 +283,16 @@ export default function App() {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      <header className="sticky top-0 z-[100] border-b-2 border-border/60 bg-background/80 backdrop-blur">
+      <header className="sticky top-0 z-[100] border-b-4 border-border bg-background">
         <div className="container py-3 sm:py-5 flex items-center justify-between gap-2 sm:gap-4 flex-wrap">
           <div className="flex items-center gap-2 sm:gap-3 min-w-0">
             <img
               src="/pokeball.svg"
               alt=""
-              className="pixelated h-8 w-8 sm:h-10 sm:w-10 animate-glow-pulse shrink-0"
+              className="pixelated h-8 w-8 sm:h-10 sm:w-10 shrink-0 border-2 border-border"
             />
             <div className="min-w-0">
-              <h1 className="font-pixel text-sm sm:text-xl text-shadow-pixel text-primary truncate">
+              <h1 className="font-pixel text-sm sm:text-xl text-foreground text-shadow-primary truncate">
                 POKECOUNTER
               </h1>
               <p className="text-[8px] sm:text-[10px] text-muted-foreground font-pixel uppercase tracking-wider mt-0.5 sm:mt-1 truncate hidden sm:block">
@@ -592,8 +592,8 @@ function NavButton({
       aria-current={active ? "page" : undefined}
       className={
         active
-          ? "inline-flex items-center gap-1.5 h-9 px-2 sm:px-3 rounded-sm border-2 border-primary bg-primary/20 text-primary font-pixel text-[10px] uppercase tracking-wider text-shadow-pixel"
-          : "inline-flex items-center gap-1.5 h-9 px-2 sm:px-3 rounded-sm border-2 border-border bg-card/60 hover:bg-accent/20 text-muted-foreground hover:text-foreground font-pixel text-[10px] uppercase tracking-wider transition-colors"
+          ? "inline-flex items-center gap-1.5 h-9 px-2 sm:px-3 border-4 border-border bg-primary text-primary-foreground font-pixel text-[10px] uppercase tracking-wider"
+          : "inline-flex items-center gap-1.5 h-9 px-2 sm:px-3 border-4 border-border bg-background hover:bg-foreground hover:text-background text-foreground font-pixel text-[10px] uppercase tracking-wider transition-colors"
       }
     >
       {icon}

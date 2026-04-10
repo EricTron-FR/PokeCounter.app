@@ -57,7 +57,7 @@ export function BestPicks({ opponents, myTeam, format }: Props) {
 
   if (opponents.length === 0) {
     return (
-      <div className="rounded-sm border-2 border-dashed border-border/50 bg-muted/10 p-8 text-center">
+      <div className="border-4 border-dashed border-border bg-muted p-8 text-center">
         <Sparkles className="mx-auto h-8 w-8 text-muted-foreground mb-3" />
         <p className="font-pixel text-[10px] uppercase text-muted-foreground leading-relaxed">
           {t("selectOpponent")}
@@ -68,7 +68,7 @@ export function BestPicks({ opponents, myTeam, format }: Props) {
 
   if (myTeam.length === 0) {
     return (
-      <div className="rounded-sm border-2 border-dashed border-border/50 bg-muted/10 p-8 text-center">
+      <div className="border-4 border-dashed border-border bg-muted p-8 text-center">
         <Swords className="mx-auto h-8 w-8 text-muted-foreground mb-3" />
         <p className="font-pixel text-[10px] uppercase text-muted-foreground leading-relaxed whitespace-pre-line">
           {t("buildTeamFirst")}
@@ -86,16 +86,14 @@ export function BestPicks({ opponents, myTeam, format }: Props) {
       {/* Summary */}
       <div
         className={cn(
-          "rounded-sm border-2 p-3 flex items-center gap-3",
-          allCovered
-            ? "border-primary/60 bg-primary/10"
-            : "border-destructive/60 bg-destructive/10",
+          "border-4 border-border p-3 flex items-center gap-3",
+          allCovered ? "bg-accent" : "bg-primary text-primary-foreground",
         )}
       >
         {allCovered ? (
-          <CircleCheck className="h-5 w-5 text-primary shrink-0" />
+          <CircleCheck className="h-5 w-5 shrink-0" />
         ) : (
-          <AlertTriangle className="h-5 w-5 text-destructive shrink-0" />
+          <AlertTriangle className="h-5 w-5 shrink-0" />
         )}
         <div className="flex-1 min-w-0">
           <div className="font-pixel text-[9px] uppercase tracking-wider">
@@ -103,7 +101,7 @@ export function BestPicks({ opponents, myTeam, format }: Props) {
             {t("opponentsCovered")}
           </div>
           {!allCovered && (
-            <div className="text-[9px] text-muted-foreground font-mono mt-1 break-words">
+            <div className="text-[9px] font-mono mt-1 break-words">
               {t("uncovered")} :{" "}
               {best.uncovered.map((p) => pokemonName(p, lang)).join(", ")}
             </div>
@@ -112,7 +110,7 @@ export function BestPicks({ opponents, myTeam, format }: Props) {
       </div>
 
       {notEnough && (
-        <div className="rounded-sm border-2 border-accent/50 bg-accent/10 p-2 text-[9px] font-pixel uppercase tracking-wider text-accent">
+        <div className="border-4 border-border bg-secondary p-2 text-[9px] font-pixel uppercase tracking-wider text-secondary-foreground">
           {t("notEnough", { n: myTeam.length, k: bringN })}
         </div>
       )}
@@ -191,10 +189,8 @@ function PickRow({
   return (
     <div
       className={cn(
-        "relative rounded-sm border-2 p-2 transition-all",
-        chosen
-          ? "border-primary/70 bg-card/90 shadow-[0_3px_0_0_hsl(var(--primary)/0.6)]"
-          : "border-border/60 bg-card/40 opacity-80 hover:opacity-100",
+        "relative border-4 border-border p-2 transition-colors",
+        chosen ? "bg-card shadow-brutal-sm" : "bg-muted opacity-80 hover:opacity-100",
       )}
     >
       <div className="flex items-center gap-2 sm:gap-3">
@@ -231,14 +227,9 @@ function PickRow({
               <TypeBadge key={ty} type={ty} size="xs" />
             ))}
           </div>
-          <div className="mt-1.5 h-1.5 w-full rounded-full bg-muted/60 overflow-hidden">
+          <div className="mt-1.5 h-2 w-full border-2 border-border bg-background overflow-hidden">
             <div
-              className={cn(
-                "h-full",
-                chosen
-                  ? "bg-gradient-to-r from-primary via-accent to-primary"
-                  : "bg-muted-foreground/40",
-              )}
+              className={cn("h-full", chosen ? "bg-primary" : "bg-muted-foreground/60")}
               style={{ width: `${pct}%` }}
             />
           </div>
@@ -311,10 +302,8 @@ function MatchupRow({
           <div
             key={m.id}
             className={cn(
-              "group/chip inline-flex items-center gap-1 rounded-sm border-2 px-1 py-0.5 bg-muted/40",
-              tone === "good"
-                ? "border-emerald-500/70"
-                : "border-red-500/70",
+              "group/chip inline-flex items-center gap-1 border-4 border-border px-1 py-0.5",
+              tone === "good" ? "bg-accent" : "bg-primary text-primary-foreground",
             )}
             title={pokemonName(m, lang)}
           >
