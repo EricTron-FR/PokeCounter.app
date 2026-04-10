@@ -210,6 +210,8 @@ type Dict = {
   notCovered: string;
   sharedWeak: string;
   suggestions: string;
+  noTeamSuggestions: string;
+  noTeamSuggestionsBody: string;
 };
 
 const DICT: { en: Dict } & { [K in Exclude<Lang, "en">]: Partial<Dict> } = {
@@ -345,6 +347,9 @@ const DICT: { en: Dict } & { [K in Exclude<Lang, "en">]: Partial<Dict> } = {
     notCovered: "Not covered",
     sharedWeak: "Shared weaknesses",
     suggestions: "Suggestions",
+    noTeamSuggestions: "No team? Here are the best counters",
+    noTeamSuggestionsBody:
+      "Top picks from the full Champions roster against this opponent. Build your own team to get personalized picks.",
   },
   fr: {
     tagline: "Pokémon Champions · Couverture de types",
@@ -478,6 +483,9 @@ const DICT: { en: Dict } & { [K in Exclude<Lang, "en">]: Partial<Dict> } = {
     notCovered: "Non couverts",
     sharedWeak: "Faiblesses partagées",
     suggestions: "Suggestions",
+    noTeamSuggestions: "Pas de team ? Voici les meilleurs counters",
+    noTeamSuggestionsBody:
+      "Top picks du roster Champions complet contre cet adversaire. Construis ta team pour des picks personnalisés.",
   },
   es: {
     tagline: "Pokémon Campeones · Cobertura de tipos",

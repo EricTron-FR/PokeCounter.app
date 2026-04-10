@@ -1,4 +1,4 @@
-import { POKEMON, spriteUrl } from "@/lib/pokemon";
+import { POKEMON } from "@/lib/pokemon";
 import { ALL_TYPES, PokemonType } from "@/lib/types";
 import { getTier } from "@/lib/tiers";
 import { pokemonName, useLang, SUPPORTED_LANGS, LANG_META, typeLabel } from "@/lib/i18n";
@@ -119,29 +119,20 @@ export function SeoFooter() {
           </div>
         </div>
 
-        {/* Row 3: popular counters — long-tail SEO links */}
+        {/* Row 3: popular counters — dense long-tail SEO links, no sprites */}
         <div>
           <div className="font-pixel text-[9px] uppercase tracking-wider text-primary mb-3">
             Popular counters
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-x-4 gap-y-1.5">
+          <div className="flex flex-wrap gap-x-3 gap-y-1 text-[10px] font-mono leading-relaxed text-muted-foreground">
             {popular.map((p) => (
               <a
                 key={p.id}
                 href={`/?opp=${p.id}`}
-                className="text-[11px] font-mono text-muted-foreground hover:text-primary flex items-center gap-1.5 truncate"
+                className="hover:text-primary whitespace-nowrap"
                 title={`Best counters for ${pokemonName(p, lang)}`}
               >
-                <img
-                  src={spriteUrl(p)}
-                  alt=""
-                  aria-hidden
-                  className="pixelated h-6 w-6 shrink-0"
-                  loading="lazy"
-                />
-                <span className="truncate">
-                  Counter for {pokemonName(p, lang)}
-                </span>
+                {pokemonName(p, lang)}
               </a>
             ))}
           </div>

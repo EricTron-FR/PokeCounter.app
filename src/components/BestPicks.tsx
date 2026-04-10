@@ -1,11 +1,12 @@
 import { useMemo } from "react";
 import { Pokemon } from "@/lib/types";
-import { spriteUrl } from "@/lib/pokemon";
+import { POKEMON, spriteUrl } from "@/lib/pokemon";
 import {
   bestStabMultiplier,
   optimalSubset,
   pickScore,
 } from "@/lib/coverage";
+import { getTier } from "@/lib/tiers";
 import { pokemonName, useLang } from "@/lib/i18n";
 import { TypeBadge } from "./TypeBadge";
 import { Badge } from "@/components/ui/badge";
@@ -66,15 +67,10 @@ export function BestPicks({ opponents, myTeam, format }: Props) {
     );
   }
 
+  // No personal team — fall back to suggesting top counters from the whole
+  // Champions roster so the user still gets actionable picks.
   if (myTeam.length === 0) {
-    return (
-      <div className="rounded-xl border-2 border-dashed border-border bg-muted/40 p-8 text-center">
-        <Swords className="mx-auto h-8 w-8 text-muted-foreground mb-3" />
-        <p className="font-pixel text-[10px] uppercase text-muted-foreground leading-relaxed whitespace-pre-line">
-          {t("buildTeamFirst")}
-        </p>
-      </div>
-    );
+    return <RosterSuggestions opponents={opponents} />;
   }
 
   const maxScore = Math.max(1, ...ranked.map((r) => r.score));
@@ -277,6 +273,93 @@ function PickRow({
           )}
         </div>
       )}
+    </div>
+  );
+}
+
+/** Shown when the user has no personal team — surfaces the top N counters
+ *  from the whole Champions roster against the current opposing mons. */
+function RosterSuggestions({ opponents }: { opponents: Pokemon[] }) {
+  const { t, lang } = useLang();
+  const top = useMemo(() => {
+    const scored = POKEMON.map((p) => ({
+      pokemon: p,
+      score: pickScore(p, opponents),
+      tier: getTier(p.id),
+    }));
+    return scored
+      .filter((s) => s.score > 0)
+      .sort((a, b) => {
+        if (b.score !== a.score) return b.score - a.score;
+        // Prefer higher-tier mons on ties
+        const tierRank = (t?: string) =>
+          ({ S: 5, A: 4, B: 3, C: 2, D: 1 }[t ?? ""] ?? 0);
+        return tierRank(b.tier) - tierRank(a.tier);
+      })
+      .slice(0, 8);
+  }, [opponents]);
+
+  const maxScore = Math.max(1, ...top.map((r) => r.score));
+
+  return (
+    <div className="space-y-3">
+      <div className="rounded-xl border border-accent/50 bg-accent/10 p-3 flex items-start gap-3">
+        <Sparkles className="h-5 w-5 shrink-0 text-accent-foreground mt-0.5" />
+        <div className="text-[10px] font-mono text-accent-foreground leading-relaxed">
+          <strong className="font-pixel text-[9px] uppercase tracking-wider">
+            {t("noTeamSuggestions")}
+          </strong>
+          <br />
+          {t("noTeamSuggestionsBody")}
+        </div>
+      </div>
+
+      <div className="space-y-2">
+        {top.map((r, i) => {
+          const pct = (r.score / maxScore) * 100;
+          return (
+            <div
+              key={r.pokemon.id}
+              className="flex items-center gap-3 rounded-lg border border-border bg-card p-2 shadow-soft"
+            >
+              <div className="font-pixel text-[9px] text-muted-foreground tabular-nums w-4">
+                {i + 1}
+              </div>
+              <img
+                src={spriteUrl(r.pokemon)}
+                alt={r.pokemon.names.en ?? ""}
+                className="pixelated h-12 w-12 shrink-0"
+              />
+              <div className="flex-1 min-w-0">
+                <div className="flex items-baseline gap-2">
+                  <span className="font-pixel text-[10px] uppercase truncate">
+                    {pokemonName(r.pokemon, lang)}
+                  </span>
+                  {r.tier && (
+                    <span className="text-[8px] font-pixel uppercase text-muted-foreground">
+                      {r.tier}
+                    </span>
+                  )}
+                </div>
+                <div className="flex gap-1 mt-1">
+                  {r.pokemon.types.map((ty) => (
+                    <TypeBadge key={ty} type={ty} size="xs" />
+                  ))}
+                </div>
+                <div className="mt-1.5 h-1.5 w-full rounded-full bg-muted overflow-hidden">
+                  <div
+                    className="h-full rounded-full bg-primary transition-[width]"
+                    style={{ width: `${pct}%` }}
+                  />
+                </div>
+              </div>
+              <div className="font-pixel text-sm text-primary tabular-nums">
+                {Number.isInteger(r.score) ? r.score : r.score.toFixed(1)}
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }
