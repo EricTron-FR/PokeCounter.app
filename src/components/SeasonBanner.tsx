@@ -29,14 +29,14 @@ export function SeasonBanner() {
         : "border-muted-foreground/40 bg-muted/20 text-muted-foreground";
 
   return (
-    <div className="rounded-sm border-2 border-primary/40 bg-gradient-to-br from-primary/10 via-card/80 to-accent/10 p-4 shadow-[0_4px_0_0_hsl(var(--primary)/0.3)]">
-      <div className="flex items-start justify-between gap-3 flex-wrap">
+    <div className="rounded-sm border-2 border-primary/50 bg-card/90 p-4 shadow-[0_4px_0_0_hsl(var(--primary)/0.3)]">
+      <div className="flex items-start justify-between gap-4 flex-wrap">
         {/* Left: title + name */}
-        <div className="flex items-start gap-3 min-w-0">
+        <div className="flex items-start gap-3 min-w-0 flex-1">
           <div className="rounded-sm border-2 border-primary/60 bg-primary/20 p-2 shrink-0">
             <Trophy className="h-5 w-5 text-primary" />
           </div>
-          <div className="min-w-0">
+          <div className="min-w-0 flex-1">
             <div className="flex items-center gap-2 flex-wrap">
               <span className="font-pixel text-[9px] uppercase tracking-wider text-muted-foreground">
                 {t("currentSeason")}
@@ -50,25 +50,23 @@ export function SeasonBanner() {
                 {stateLabel}
               </span>
             </div>
-            <h2 className="font-pixel text-sm sm:text-base mt-1 text-shadow-pixel bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+            <h2 className="font-pixel text-base sm:text-lg leading-relaxed mt-2 text-foreground text-shadow-pixel">
               {season.name}
             </h2>
           </div>
         </div>
 
         {/* Right: countdown + format */}
-        <div className="flex items-center gap-3">
-          <div className="flex flex-col items-end">
-            <div className="flex items-center gap-1.5 font-pixel text-[9px] uppercase tracking-wider text-foreground">
-              <Calendar className="h-3 w-3" />
-              {season.format.toUpperCase()}
-            </div>
-            <div className="flex items-center gap-1.5 mt-1 text-[9px] font-pixel uppercase tracking-wider text-muted-foreground">
-              <Clock className="h-3 w-3" />
-              {status.state === "active" && t("daysLeft", { n: status.daysLeft ?? 0 })}
-              {status.state === "upcoming" && t("startsIn", { n: status.daysIn ?? 0 })}
-              {status.state === "ended" && t("seasonEnded")}
-            </div>
+        <div className="flex flex-col items-end gap-1.5 shrink-0">
+          <div className="inline-flex items-center gap-1.5 px-2 py-1 rounded-sm border-2 border-primary/60 bg-primary/15 font-pixel text-[10px] uppercase tracking-wider text-primary">
+            <Calendar className="h-3 w-3" />
+            {season.format.toUpperCase()}
+          </div>
+          <div className="inline-flex items-center gap-1.5 px-2 py-1 rounded-sm border-2 border-border bg-muted/40 font-pixel text-[10px] uppercase tracking-wider text-foreground">
+            <Clock className="h-3 w-3" />
+            {status.state === "active" && t("daysLeft", { n: status.daysLeft ?? 0 })}
+            {status.state === "upcoming" && t("startsIn", { n: status.daysIn ?? 0 })}
+            {status.state === "ended" && t("seasonEnded")}
           </div>
         </div>
       </div>
