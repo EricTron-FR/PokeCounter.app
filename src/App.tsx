@@ -27,6 +27,9 @@ const TypeChartPage = lazy(() =>
 const LearnPage = lazy(() =>
   import("@/components/LearnPage").then((m) => ({ default: m.LearnPage })),
 );
+const BattleSimPage = lazy(() =>
+  import("@/components/BattleSimPage").then((m) => ({ default: m.BattleSimPage })),
+);
 const AdvancedTeamBuilder = lazy(() =>
   import("@/components/AdvancedTeamBuilder").then((m) => ({
     default: m.AdvancedTeamBuilder,
@@ -43,7 +46,7 @@ import {
   SavedTeam,
 } from "@/lib/savedTeams";
 import { Button } from "@/components/ui/button";
-import { Share2, Check, Github, Bug, RotateCcw } from "lucide-react";
+import { Share2, Check, Github, Bug, RotateCcw, Swords } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 
 const MAX_TEAM = 6;
@@ -119,16 +122,17 @@ export default function App() {
       setMyTeamIds(ids);
     }
   }, [advancedMode, advancedSlots]);
-  function viewFromHash(): "home" | "about" | "pokedex" | "compare" | "types" | "learn" {
+  function viewFromHash(): "home" | "about" | "pokedex" | "compare" | "types" | "learn" | "battle" {
     const h = window.location.hash;
     if (h === "#/about") return "about";
     if (h === "#/pokedex") return "pokedex";
     if (h === "#/compare") return "compare";
     if (h === "#/types") return "types";
     if (h === "#/learn") return "learn";
+    if (h === "#/battle") return "battle";
     return "home";
   }
-  const [view, setView] = useState<"home" | "about" | "pokedex" | "compare" | "types" | "learn">(
+  const [view, setView] = useState<"home" | "about" | "pokedex" | "compare" | "types" | "learn" | "battle">(
     () => viewFromHash(),
   );
 
@@ -154,6 +158,9 @@ export default function App() {
   }, []);
   const goLearn = useCallback(() => {
     window.location.hash = "#/learn";
+  }, []);
+  const goBattle = useCallback(() => {
+    window.location.hash = "#/battle";
   }, []);
   const goHome = useCallback(() => {
     if (window.location.hash) {
@@ -326,6 +333,7 @@ export default function App() {
             <NavButton active={view === "pokedex"} onClick={goPokedex} icon={<BookOpen className="h-3 w-3" />} label={t("navPokedex")} />
             <NavButton active={view === "types"} onClick={goTypes} icon={<Grid3x3 className="h-3 w-3" />} label={t("navTypes")} />
             <NavButton active={view === "compare"} onClick={goCompare} icon={<Scale className="h-3 w-3" />} label={t("navCompare")} />
+            <NavButton active={view === "battle"} onClick={goBattle} icon={<Swords className="h-3 w-3" />} label="Battle" />
             <NavButton active={view === "learn"} onClick={goLearn} icon={<GraduationCap className="h-3 w-3" />} label={t("navLearn")} />
             <NavButton active={view === "about"} onClick={goAbout} icon={<Info className="h-3 w-3" />} label={t("navAbout")} />
           </nav>
@@ -355,6 +363,11 @@ export default function App() {
       {view === "learn" && (
         <Suspense fallback={<LazyFallback />}>
           <LearnPage />
+        </Suspense>
+      )}
+      {view === "battle" && (
+        <Suspense fallback={<LazyFallback />}>
+          <BattleSimPage />
         </Suspense>
       )}
       {view === "home" && (
