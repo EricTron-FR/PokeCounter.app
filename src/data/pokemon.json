@@ -8186,44 +8186,6 @@
     "generation": 3
   },
   {
-    "id": 10039,
-    "types": [
-      "Dark",
-      "Ghost"
-    ],
-    "mega": true,
-    "base_id": 359,
-    "names": {
-      "en": "Mega Absol",
-      "fr": "Méga-Absol",
-      "es": "Mega-Absol",
-      "de": "Mega-Absol",
-      "it": "Mega Absol",
-      "ja": "メガアブソル",
-      "ko": "메가앱솔",
-      "zh-Hans": "超级阿勃梭鲁",
-      "zh-Hant": "超級阿勃梭魯"
-    },
-    "stats": {
-      "hp": 65,
-      "atk": 140,
-      "def": 65,
-      "spa": 130,
-      "spd": 65,
-      "spe": 100
-    },
-    "abilities": [
-      {
-        "names": {
-          "en": "spectral-doom"
-        },
-        "hidden": false,
-        "description": ""
-      }
-    ],
-    "generation": 3
-  },
-  {
     "id": 389,
     "types": [
       "Grass",
@@ -8696,43 +8658,6 @@
     "generation": 4
   },
   {
-    "id": 10042,
-    "types": [
-      "Dragon"
-    ],
-    "mega": true,
-    "base_id": 445,
-    "names": {
-      "en": "Mega Garchomp",
-      "fr": "Méga-Carchacrok",
-      "es": "Mega-Garchomp",
-      "de": "Mega-Knakrack",
-      "it": "Mega Garchomp",
-      "ja": "メガガブリアス",
-      "ko": "메가한카리아스",
-      "zh-Hans": "超级烈咬陆鲨",
-      "zh-Hant": "超級烈咬陸鯊"
-    },
-    "stats": {
-      "hp": 108,
-      "atk": 150,
-      "def": 105,
-      "spa": 140,
-      "spd": 95,
-      "spe": 102
-    },
-    "abilities": [
-      {
-        "names": {
-          "en": "earth-sovereign"
-        },
-        "hidden": false,
-        "description": ""
-      }
-    ],
-    "generation": 4
-  },
-  {
     "id": 448,
     "types": [
       "Fighting",
@@ -8850,44 +8775,6 @@
         },
         "hidden": false,
         "description": "Increases the same-type attack bonus from 1.5× to 2×."
-      }
-    ],
-    "generation": 4
-  },
-  {
-    "id": 10044,
-    "types": [
-      "Fighting",
-      "Steel"
-    ],
-    "mega": true,
-    "base_id": 448,
-    "names": {
-      "en": "Mega Lucario",
-      "fr": "Méga-Lucario",
-      "es": "Mega-Lucario",
-      "de": "Mega-Lucario",
-      "it": "Mega Lucario",
-      "ja": "メガルカリオ",
-      "ko": "메가루카리오",
-      "zh-Hans": "超级路卡利欧",
-      "zh-Hant": "超級路卡利歐"
-    },
-    "stats": {
-      "hp": 70,
-      "atk": 155,
-      "def": 78,
-      "spa": 130,
-      "spd": 80,
-      "spe": 112
-    },
-    "abilities": [
-      {
-        "names": {
-          "en": "aura-maximizer"
-        },
-        "hidden": false,
-        "description": ""
       }
     ],
     "generation": 4
@@ -9573,52 +9460,6 @@
     "hasMega": true
   },
   {
-    "id": 10047,
-    "types": [
-      "Ice",
-      "Ghost"
-    ],
-    "mega": true,
-    "base_id": 478,
-    "names": {
-      "en": "Mega Froslass",
-      "fr": "Méga-Momartik",
-      "es": "Mega-Froslass",
-      "de": "Mega-Frosdedje",
-      "it": "Mega Froslass",
-      "ja": "メガユキメノコ",
-      "ko": "메가눈여아",
-      "zh-Hans": "超级雪妖女",
-      "zh-Hant": "超級雪妖女"
-    },
-    "stats": {
-      "hp": 70,
-      "atk": 80,
-      "def": 70,
-      "spa": 140,
-      "spd": 100,
-      "spe": 120
-    },
-    "abilities": [
-      {
-        "names": {
-          "ko": "눈퍼뜨리기",
-          "zh-Hant": "降雪",
-          "fr": "Alerte Neige",
-          "de": "Hagelalarm",
-          "es": "Nevada",
-          "it": "Scendineve",
-          "en": "Snow Warning",
-          "ja": "ゆきふらし",
-          "zh-Hans": "降雪"
-        },
-        "hidden": false,
-        "description": "Summons hail that lasts indefinitely upon entering battle."
-      }
-    ],
-    "generation": 4
-  },
-  {
     "id": 479,
     "types": [
       "Electric",
@@ -9643,196 +9484,6 @@
       "spa": 95,
       "spd": 77,
       "spe": 91
-    },
-    "abilities": [
-      {
-        "names": {
-          "ko": "부유",
-          "zh-Hant": "飄浮",
-          "fr": "Lévitation",
-          "de": "Schwebe",
-          "es": "Levitación",
-          "it": "Levitazione",
-          "en": "Levitate",
-          "ja": "ふゆう",
-          "zh-Hans": "飘浮"
-        },
-        "hidden": false,
-        "description": "Evades ground moves."
-      }
-    ],
-    "generation": 4,
-    "hasMega": false
-  },
-  {
-    "id": 10008,
-    "types": [
-      "Electric",
-      "Fire"
-    ],
-    "mega": false,
-    "names": {
-      "en": "Heat Rotom"
-    },
-    "stats": {
-      "hp": 50,
-      "atk": 65,
-      "def": 107,
-      "spa": 105,
-      "spd": 107,
-      "spe": 86
-    },
-    "abilities": [
-      {
-        "names": {
-          "ko": "부유",
-          "zh-Hant": "飄浮",
-          "fr": "Lévitation",
-          "de": "Schwebe",
-          "es": "Levitación",
-          "it": "Levitazione",
-          "en": "Levitate",
-          "ja": "ふゆう",
-          "zh-Hans": "飘浮"
-        },
-        "hidden": false,
-        "description": "Evades ground moves."
-      }
-    ],
-    "generation": 4,
-    "hasMega": false
-  },
-  {
-    "id": 10009,
-    "types": [
-      "Electric",
-      "Water"
-    ],
-    "mega": false,
-    "names": {
-      "en": "Wash Rotom"
-    },
-    "stats": {
-      "hp": 50,
-      "atk": 65,
-      "def": 107,
-      "spa": 105,
-      "spd": 107,
-      "spe": 86
-    },
-    "abilities": [
-      {
-        "names": {
-          "ko": "부유",
-          "zh-Hant": "飄浮",
-          "fr": "Lévitation",
-          "de": "Schwebe",
-          "es": "Levitación",
-          "it": "Levitazione",
-          "en": "Levitate",
-          "ja": "ふゆう",
-          "zh-Hans": "飘浮"
-        },
-        "hidden": false,
-        "description": "Evades ground moves."
-      }
-    ],
-    "generation": 4,
-    "hasMega": false
-  },
-  {
-    "id": 10010,
-    "types": [
-      "Electric",
-      "Ice"
-    ],
-    "mega": false,
-    "names": {
-      "en": "Frost Rotom"
-    },
-    "stats": {
-      "hp": 50,
-      "atk": 65,
-      "def": 107,
-      "spa": 105,
-      "spd": 107,
-      "spe": 86
-    },
-    "abilities": [
-      {
-        "names": {
-          "ko": "부유",
-          "zh-Hant": "飄浮",
-          "fr": "Lévitation",
-          "de": "Schwebe",
-          "es": "Levitación",
-          "it": "Levitazione",
-          "en": "Levitate",
-          "ja": "ふゆう",
-          "zh-Hans": "飘浮"
-        },
-        "hidden": false,
-        "description": "Evades ground moves."
-      }
-    ],
-    "generation": 4,
-    "hasMega": false
-  },
-  {
-    "id": 10011,
-    "types": [
-      "Electric",
-      "Flying"
-    ],
-    "mega": false,
-    "names": {
-      "en": "Fan Rotom"
-    },
-    "stats": {
-      "hp": 50,
-      "atk": 65,
-      "def": 107,
-      "spa": 105,
-      "spd": 107,
-      "spe": 86
-    },
-    "abilities": [
-      {
-        "names": {
-          "ko": "부유",
-          "zh-Hant": "飄浮",
-          "fr": "Lévitation",
-          "de": "Schwebe",
-          "es": "Levitación",
-          "it": "Levitazione",
-          "en": "Levitate",
-          "ja": "ふゆう",
-          "zh-Hans": "飘浮"
-        },
-        "hidden": false,
-        "description": "Evades ground moves."
-      }
-    ],
-    "generation": 4,
-    "hasMega": false
-  },
-  {
-    "id": 10012,
-    "types": [
-      "Electric",
-      "Grass"
-    ],
-    "mega": false,
-    "names": {
-      "en": "Mow Rotom"
-    },
-    "stats": {
-      "hp": 50,
-      "atk": 65,
-      "def": 107,
-      "spa": 105,
-      "spd": 107,
-      "spe": 86
     },
     "abilities": [
       {
@@ -9974,52 +9625,6 @@
     ],
     "generation": 5,
     "hasMega": true
-  },
-  {
-    "id": 10048,
-    "types": [
-      "Fire",
-      "Fighting"
-    ],
-    "mega": true,
-    "base_id": 500,
-    "names": {
-      "en": "Mega Emboar",
-      "fr": "Méga-Roitiflam",
-      "es": "Mega-Emboar",
-      "de": "Mega-Flambirex",
-      "it": "Mega Emboar",
-      "ja": "メガエンブオー",
-      "ko": "메가염무왕",
-      "zh-Hans": "超级炎武王",
-      "zh-Hant": "超級炎武王"
-    },
-    "stats": {
-      "hp": 110,
-      "atk": 148,
-      "def": 75,
-      "spa": 110,
-      "spd": 110,
-      "spe": 75
-    },
-    "abilities": [
-      {
-        "names": {
-          "ko": "틀깨기",
-          "zh-Hant": "破格",
-          "fr": "Brise Moule",
-          "de": "Überbrückung",
-          "es": "Rompemoldes",
-          "it": "Rompiforma",
-          "en": "Mold Breaker",
-          "ja": "かたやぶり",
-          "zh-Hans": "破格"
-        },
-        "hidden": false,
-        "description": "Bypasses targets' abilities if they could hinder or prevent a move."
-      }
-    ],
-    "generation": 5
   },
   {
     "id": 503,
@@ -10194,44 +9799,6 @@
     ],
     "generation": 5,
     "hasMega": true
-  },
-  {
-    "id": 10049,
-    "types": [
-      "Ground",
-      "Steel"
-    ],
-    "mega": true,
-    "base_id": 530,
-    "names": {
-      "en": "Mega Excadrill",
-      "fr": "Méga-Minotaupe",
-      "es": "Mega-Excadrill",
-      "de": "Mega-Stalobor",
-      "it": "Mega Excadrill",
-      "ja": "メガドリュウズ",
-      "ko": "메가몰드류",
-      "zh-Hans": "超级龙头地鼠",
-      "zh-Hant": "超級龍頭地鼠"
-    },
-    "stats": {
-      "hp": 110,
-      "atk": 165,
-      "def": 100,
-      "spa": 65,
-      "spd": 65,
-      "spe": 103
-    },
-    "abilities": [
-      {
-        "names": {
-          "en": "piercing-drill"
-        },
-        "hidden": false,
-        "description": ""
-      }
-    ],
-    "generation": 5
   },
   {
     "id": 531,
@@ -11059,52 +10626,6 @@
     "hasMega": true
   },
   {
-    "id": 10051,
-    "types": [
-      "Ground",
-      "Ghost"
-    ],
-    "mega": true,
-    "base_id": 623,
-    "names": {
-      "en": "Mega Golurk",
-      "fr": "Méga-Golemastoc",
-      "es": "Mega-Golurk",
-      "de": "Mega-Golgantes",
-      "it": "Mega Golurk",
-      "ja": "メガゴルーグ",
-      "ko": "메가골루그",
-      "zh-Hans": "超级泥偶巨人",
-      "zh-Hant": "超級泥偶巨人"
-    },
-    "stats": {
-      "hp": 89,
-      "atk": 159,
-      "def": 105,
-      "spa": 70,
-      "spd": 105,
-      "spe": 55
-    },
-    "abilities": [
-      {
-        "names": {
-          "ko": "보이지않는주먹",
-          "zh-Hant": "無形拳",
-          "fr": "Poing Invisible",
-          "de": "Verborgene Faust",
-          "es": "Puño Invisible",
-          "it": "Pugni Invisibili",
-          "en": "Unseen Fist",
-          "ja": "ふかしのこぶし",
-          "zh-Hans": "无形拳"
-        },
-        "hidden": false,
-        "description": "Contact moves can strike through Protect/Detect."
-      }
-    ],
-    "generation": 5
-  },
-  {
     "id": 635,
     "types": [
       "Dark",
@@ -11378,52 +10899,6 @@
     ],
     "generation": 6,
     "hasMega": true
-  },
-  {
-    "id": 10053,
-    "types": [
-      "Fire",
-      "Psychic"
-    ],
-    "mega": true,
-    "base_id": 655,
-    "names": {
-      "en": "Mega Delphox",
-      "fr": "Méga-Goupelin",
-      "es": "Mega-Delphox",
-      "de": "Mega-Fennexis",
-      "it": "Mega Delphox",
-      "ja": "メガマフォクシー",
-      "ko": "메가마폭시",
-      "zh-Hans": "超级妖火红狐",
-      "zh-Hant": "超級妖火紅狐"
-    },
-    "stats": {
-      "hp": 75,
-      "atk": 69,
-      "def": 72,
-      "spa": 159,
-      "spd": 125,
-      "spe": 134
-    },
-    "abilities": [
-      {
-        "names": {
-          "ko": "부유",
-          "zh-Hant": "飄浮",
-          "fr": "Lévitation",
-          "de": "Schwebe",
-          "es": "Levitación",
-          "it": "Levitazione",
-          "en": "Levitate",
-          "ja": "ふゆう",
-          "zh-Hans": "飘浮"
-        },
-        "hidden": false,
-        "description": "Evades ground moves."
-      }
-    ],
-    "generation": 6
   },
   {
     "id": 658,
@@ -12892,52 +12367,6 @@
     "hasMega": true
   },
   {
-    "id": 10057,
-    "types": [
-      "Fighting",
-      "Ice"
-    ],
-    "mega": true,
-    "base_id": 740,
-    "names": {
-      "en": "Mega Crabominable",
-      "fr": "Méga-Crabominable",
-      "es": "Mega-Crabominable",
-      "de": "Mega-Krawell",
-      "it": "Mega Crabominable",
-      "ja": "メガケケンカニ",
-      "ko": "메가모단단게",
-      "zh-Hans": "超级好胜毛蟹",
-      "zh-Hant": "超級好勝毛蟹"
-    },
-    "stats": {
-      "hp": 97,
-      "atk": 157,
-      "def": 122,
-      "spa": 62,
-      "spd": 107,
-      "spe": 33
-    },
-    "abilities": [
-      {
-        "names": {
-          "ko": "철주먹",
-          "zh-Hant": "鐵拳",
-          "fr": "Poing de Fer",
-          "de": "Eisenfaust",
-          "es": "Puño Férreo",
-          "it": "Ferropugno",
-          "en": "Iron Fist",
-          "ja": "てつのこぶし",
-          "zh-Hans": "铁拳"
-        },
-        "hidden": false,
-        "description": "Strengthens punch-based moves to 1.2× their power."
-      }
-    ],
-    "generation": 7
-  },
-  {
     "id": 745,
     "types": [
       "Rock"
@@ -13496,52 +12925,6 @@
     ],
     "generation": 7,
     "hasMega": true
-  },
-  {
-    "id": 10058,
-    "types": [
-      "Normal",
-      "Dragon"
-    ],
-    "mega": true,
-    "base_id": 780,
-    "names": {
-      "en": "Mega Drampa",
-      "fr": "Méga-Draïeul",
-      "es": "Mega-Drampa",
-      "de": "Mega-Sen-Long",
-      "it": "Mega Drampa",
-      "ja": "メガジジーロン",
-      "ko": "메가할비롱",
-      "zh-Hans": "超级老翁龙",
-      "zh-Hant": "超級老翁龍"
-    },
-    "stats": {
-      "hp": 78,
-      "atk": 85,
-      "def": 110,
-      "spa": 160,
-      "spd": 116,
-      "spe": 36
-    },
-    "abilities": [
-      {
-        "names": {
-          "ko": "발끈",
-          "zh-Hant": "怒火沖天",
-          "fr": "Folle Furie",
-          "de": "Wutausbruch",
-          "es": "Cólera",
-          "it": "Furore",
-          "en": "Berserk",
-          "ja": "ぎゃくじょう",
-          "zh-Hans": "怒火冲天"
-        },
-        "hidden": false,
-        "description": "Raises this Pokémon's Special Attack by one stage every time its HP drops below half."
-      }
-    ],
-    "generation": 7
   },
   {
     "id": 784,
@@ -14903,44 +14286,6 @@
     "hasMega": true
   },
   {
-    "id": 10059,
-    "types": [
-      "Grass",
-      "Fire"
-    ],
-    "mega": true,
-    "base_id": 952,
-    "names": {
-      "en": "Mega Scovillain",
-      "fr": "Méga-Scovilain",
-      "es": "Mega-Scovillain",
-      "de": "Mega-Halupenjo",
-      "it": "Mega Scovillain",
-      "ja": "メガスコヴィラン",
-      "ko": "메가스코빌런",
-      "zh-Hans": "超级狠辣椒",
-      "zh-Hant": "超級狠辣椒"
-    },
-    "stats": {
-      "hp": 65,
-      "atk": 138,
-      "def": 85,
-      "spa": 138,
-      "spd": 85,
-      "spe": 75
-    },
-    "abilities": [
-      {
-        "names": {
-          "en": "spicy-spray"
-        },
-        "hidden": false,
-        "description": ""
-      }
-    ],
-    "generation": 9
-  },
-  {
     "id": 959,
     "types": [
       "Fairy",
@@ -15172,52 +14517,6 @@
     ],
     "generation": 9,
     "hasMega": true
-  },
-  {
-    "id": 10060,
-    "types": [
-      "Rock",
-      "Poison"
-    ],
-    "mega": true,
-    "base_id": 970,
-    "names": {
-      "en": "Mega Glimmora",
-      "fr": "Méga-Floréclat",
-      "es": "Mega-Glimmora",
-      "de": "Mega-Lumiflora",
-      "it": "Mega Glimmora",
-      "ja": "メガキラフロル",
-      "ko": "메가킬라플로르",
-      "zh-Hans": "超级晶光花",
-      "zh-Hant": "超級晶光花"
-    },
-    "stats": {
-      "hp": 83,
-      "atk": 90,
-      "def": 105,
-      "spa": 150,
-      "spd": 96,
-      "spe": 101
-    },
-    "abilities": [
-      {
-        "names": {
-          "ko": "적응력",
-          "zh-Hant": "適應力",
-          "fr": "Adaptabilité",
-          "de": "Anpassung",
-          "es": "Adaptable",
-          "it": "Adattabilità",
-          "en": "Adaptability",
-          "ja": "てきおうりょく",
-          "zh-Hans": "适应力"
-        },
-        "hidden": false,
-        "description": "Increases the same-type attack bonus from 1.5× to 2×."
-      }
-    ],
-    "generation": 9
   },
   {
     "id": 981,
