@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { getCurrentSeason, seasonStatus } from "@/lib/seasons";
 import { useLang } from "@/lib/i18n";
-import { Calendar, Clock, Trophy } from "lucide-react";
+import { Trophy, Clock, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function SeasonBanner() {
@@ -28,84 +28,80 @@ export function SeasonBanner() {
         ? "border-accent/50 bg-accent/20 text-accent-foreground"
         : "border-border bg-muted text-muted-foreground";
 
+  const progress =
+    status.state === "active" && status.daysIn != null && status.daysLeft != null
+      ? Math.min(100, (status.daysIn / (status.daysIn + status.daysLeft)) * 100)
+      : null;
+
   return (
-    <div className="rounded-xl border border-border bg-card p-5 shadow-soft">
-      <div className="flex items-start justify-between gap-4 flex-wrap">
-        {/* Left: title + name */}
-        <div className="flex items-start gap-3 min-w-0 flex-1">
-          <div className="rounded-lg border border-primary/30 bg-primary/10 p-2 shrink-0">
-            <Trophy className="h-5 w-5 text-primary" />
-          </div>
-          <div className="min-w-0 flex-1">
-            <div className="flex items-center gap-2 flex-wrap">
-              <span className="font-pixel text-[9px] uppercase tracking-wider text-muted-foreground">
-                {t("currentSeason")}
-              </span>
-              <span
-                className={cn(
-                  "font-pixel text-[8px] uppercase tracking-wider px-2 py-0.5 rounded-full border",
-                  stateColor,
-                )}
-              >
-                {stateLabel}
-              </span>
-            </div>
-            <h2 className="font-pixel text-xs sm:text-lg leading-relaxed mt-2 text-foreground text-shadow-pixel break-words">
-              {season.name}
-            </h2>
-          </div>
+    <details className="rounded-lg border border-border bg-card/60 shadow-soft group">
+      <summary className="px-3 py-2 flex items-center gap-3 flex-wrap text-[9px] cursor-pointer select-none list-none [&::-webkit-details-marker]:hidden">
+        <div className="flex items-center gap-1.5">
+          <Trophy className="h-3 w-3 text-primary shrink-0" />
+          <span className="font-pixel uppercase tracking-wider text-muted-foreground">
+            {t("currentSeason")}
+          </span>
+          <span className="font-pixel uppercase tracking-wider text-foreground">
+            {season.name}
+          </span>
         </div>
 
-        {/* Right: countdown + format */}
-        <div className="flex flex-col items-end gap-1.5 shrink-0">
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-primary/30 bg-primary/10 font-pixel text-[10px] uppercase tracking-wider text-primary">
-            <Calendar className="h-3 w-3" />
-            {season.format.toUpperCase()}
-          </div>
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-border bg-muted font-pixel text-[10px] uppercase tracking-wider text-foreground">
-            <Clock className="h-3 w-3" />
+        <span
+          className={cn(
+            "font-pixel uppercase tracking-wider px-1.5 py-0.5 rounded-full border",
+            stateColor,
+          )}
+        >
+          {stateLabel}
+        </span>
+
+        <span className="font-pixel uppercase tracking-wider text-muted-foreground">
+          {season.format.toUpperCase()}
+        </span>
+
+        <div className="flex items-center gap-1 text-muted-foreground ml-auto">
+          <Clock className="h-3 w-3" />
+          <span className="font-pixel uppercase tracking-wider">
             {status.state === "active" && t("daysLeft", { n: status.daysLeft ?? 0 })}
             {status.state === "upcoming" && t("startsIn", { n: status.daysIn ?? 0 })}
             {status.state === "ended" && t("seasonEnded")}
-          </div>
+          </span>
+          <ChevronDown className="h-3 w-3 transition-transform group-open:rotate-180" />
         </div>
-      </div>
 
-      {/* Progress bar (only when active) */}
-      {status.state === "active" && status.daysIn != null && status.daysLeft != null && (
-        <div className="mt-3">
-          <div className="h-2 w-full rounded-full bg-muted overflow-hidden">
+        {/* Animated progress bar */}
+        {progress !== null && (
+          <div className="w-full h-1.5 rounded-full bg-muted overflow-hidden mt-1">
             <div
-              className="h-full rounded-full bg-primary transition-[width]"
-              style={{
-                width: `${Math.min(100, (status.daysIn / (status.daysIn + status.daysLeft)) * 100)}%`,
-              }}
-            />
+              className="h-full rounded-full bg-gradient-to-r from-primary via-primary/80 to-accent transition-[width] duration-700 ease-out relative overflow-hidden"
+              style={{ width: `${progress}%` }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent animate-[shimmer_2s_infinite]" />
+            </div>
           </div>
-          <div className="flex justify-between text-[8px] font-mono text-muted-foreground mt-1">
+        )}
+      </summary>
+
+      {/* Expanded rules */}
+      <div className="px-3 pb-3 pt-1 border-t border-border/50">
+        {progress !== null && (
+          <div className="flex justify-between text-[8px] text-muted-foreground mb-2">
             <span>{season.startDate}</span>
             <span>{season.endDate}</span>
           </div>
-        </div>
-      )}
-
-      {/* Rules collapse */}
-      <details className="mt-3 group">
-        <summary className="cursor-pointer text-[9px] font-pixel uppercase tracking-wider text-muted-foreground hover:text-foreground transition-colors select-none">
-          {t("rules")} ({season.rules.length})
-        </summary>
-        <ul className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-1">
+        )}
+        <ul className="grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-1">
           {season.rules.map((r) => (
             <li
               key={r}
-              className="text-[10px] font-mono text-muted-foreground flex items-start gap-1.5"
+              className="text-[10px] text-muted-foreground flex items-start gap-1.5"
             >
-              <span className="text-primary mt-0.5">▸</span>
+              <span className="text-primary mt-0.5">+</span>
               <span>{r}</span>
             </li>
           ))}
         </ul>
-      </details>
-    </div>
+      </div>
+    </details>
   );
 }

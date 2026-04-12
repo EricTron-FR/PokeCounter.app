@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Pokemon, BuildSlot, PokemonStats, PokemonType } from "@/lib/types";
+import { StatRadar } from "./StatRadar";
 import { spriteUrl, searchPokemon } from "@/lib/pokemon";
 import { pokemonName, useLang } from "@/lib/i18n";
 import { defensiveMatchups, bestStabMultiplier } from "@/lib/coverage";
@@ -387,6 +388,12 @@ function ComparisonResults({
           <CardTitle>{t("baseStats")}</CardTitle>
         </CardHeader>
         <CardContent className="space-y-2">
+          {/* Radar chart overlay */}
+          {a.stats && b.stats && (
+            <div className="flex justify-center py-2">
+              <StatRadar stats={a.stats} stats2={b.stats} size={260} />
+            </div>
+          )}
           {STATS.map(({ key, label }) => {
             const av = a.stats?.[key] ?? 0;
             const bv = b.stats?.[key] ?? 0;

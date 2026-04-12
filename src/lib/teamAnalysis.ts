@@ -4,6 +4,17 @@ import { ALL_TYPES, Pokemon, PokemonType } from "./types";
 import { effectiveness } from "./coverage";
 import { MOVES } from "./moves";
 
+type Severity = "info" | "warn" | "critical";
+
+export type Suggestion =
+  | { severity: Severity; kind: "incomplete"; size: number; missing: number }
+  | { severity: Severity; kind: "coverageHoles"; count: number; types: PokemonType[] }
+  | { severity: Severity; kind: "weaknessCritical"; count: number; size: number; type: PokemonType }
+  | { severity: Severity; kind: "weaknessShared"; count: number; type: PokemonType }
+  | { severity: Severity; kind: "slow"; avg: number }
+  | { severity: Severity; kind: "fast"; avg: number }
+  | { severity: Severity; kind: "imbalanced"; phys: number; spe: number };
+
 export interface TypeCount {
   type: PokemonType;
   count: number;
@@ -25,8 +36,9 @@ export interface AnalysisResult {
   specialAttackers: number;
   /** Average bulk (HP + (def+spd)/2). */
   averageBulk: number;
-  /** Actionable suggestions derived from the metrics. */
-  suggestions: { severity: "info" | "warn" | "critical"; text: string }[];
+  /** Actionable suggestions derived from the metrics. Rendered by the
+   *  TeamAnalyzer component using i18n keys for full multilang support. */
+  suggestions: Suggestion[];
   /** Overall 0-100 score combining coverage, safety and balance. */
   overallScore: number;
 }
@@ -53,7 +65,7 @@ export function analyzeTeam(
   movepools?: Record<number, string[]>,
 ): AnalysisResult {
   const teamSize = team.length;
-  const suggestions: AnalysisResult["suggestions"] = [];
+  const suggestions: Suggestion[] = [];
 
   // 1. Offensive coverage: for each defender type, can anyone hit it ≥2×?
   const offensiveCoverage: PokemonType[] = [];
@@ -105,18 +117,22 @@ export function analyzeTeam(
   const averageSpeed = teamSize > 0 ? Math.round(totalSpeed / teamSize) : 0;
   const averageBulk = teamSize > 0 ? Math.round(totalBulk / teamSize) : 0;
 
-  // 4. Generate suggestions
+  // 4. Generate suggestions (structured — rendered with i18n in the component)
   if (teamSize < 6) {
     suggestions.push({
       severity: "info",
-      text: `Team is ${teamSize}/6 — add ${6 - teamSize} more mon${6 - teamSize > 1 ? "s" : ""} to complete.`,
+      kind: "incomplete",
+      size: teamSize,
+      missing: 6 - teamSize,
     });
   }
 
   if (coverageHoles.length > 0) {
     suggestions.push({
       severity: coverageHoles.length >= 5 ? "critical" : coverageHoles.length >= 3 ? "warn" : "info",
-      text: `No super-effective coverage vs ${coverageHoles.length} type${coverageHoles.length > 1 ? "s" : ""}: ${coverageHoles.join(", ")}.`,
+      kind: "coverageHoles",
+      count: coverageHoles.length,
+      types: coverageHoles,
     });
   }
 
@@ -124,32 +140,33 @@ export function analyzeTeam(
     if (w.count >= 4) {
       suggestions.push({
         severity: "critical",
-        text: `${w.count}/${teamSize} mons are weak to ${w.type} — a single ${w.type} attack can wipe most of your team.`,
+        kind: "weaknessCritical",
+        count: w.count,
+        size: teamSize,
+        type: w.type,
       });
     } else if (w.count >= 3) {
       suggestions.push({
         severity: "warn",
-        text: `${w.count} mons share a ${w.type} weakness.`,
+        kind: "weaknessShared",
+        count: w.count,
+        type: w.type,
       });
     }
   }
 
   if (teamSize >= 4) {
     if (averageSpeed < 70) {
-      suggestions.push({
-        severity: "warn",
-        text: `Team is slow (avg Speed ${averageSpeed}). Consider Tailwind, Trick Room, or Choice Scarf.`,
-      });
+      suggestions.push({ severity: "warn", kind: "slow", avg: averageSpeed });
     } else if (averageSpeed > 110) {
-      suggestions.push({
-        severity: "info",
-        text: `Team is very fast (avg Speed ${averageSpeed}). Vulnerable to Trick Room / priority moves.`,
-      });
+      suggestions.push({ severity: "info", kind: "fast", avg: averageSpeed });
     }
     if (Math.abs(physicalAttackers - specialAttackers) >= 5) {
       suggestions.push({
         severity: "warn",
-        text: `Imbalanced — ${physicalAttackers} physical vs ${specialAttackers} special attacker${specialAttackers > 1 ? "s" : ""}. A single Intimidate/burn/wall will shut down most of your damage.`,
+        kind: "imbalanced",
+        phys: physicalAttackers,
+        spe: specialAttackers,
       });
     }
   }

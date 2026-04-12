@@ -16,11 +16,11 @@ export function getTier(id: number): Tier | undefined {
 }
 
 export const TIER_COLORS: Record<Tier, string> = {
-  S: "bg-rose-500/20 border-rose-500/70 text-rose-300",
-  A: "bg-orange-500/20 border-orange-500/70 text-orange-300",
-  B: "bg-yellow-500/20 border-yellow-500/70 text-yellow-300",
-  C: "bg-emerald-500/20 border-emerald-500/70 text-emerald-300",
-  D: "bg-sky-500/20 border-sky-500/70 text-sky-300",
+  S: "bg-rose-500/20 border-rose-500/70 text-rose-700",
+  A: "bg-orange-500/20 border-orange-500/70 text-orange-700",
+  B: "bg-yellow-500/20 border-yellow-500/70 text-yellow-700",
+  C: "bg-emerald-500/20 border-emerald-500/70 text-emerald-700",
+  D: "bg-sky-500/20 border-sky-500/70 text-sky-700",
 };
 
 export const TIER_ORDER: Tier[] = ["S", "A", "B", "C", "D"];

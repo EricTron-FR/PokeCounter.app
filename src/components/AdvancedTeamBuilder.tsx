@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { BuildSlot, Pokemon, PokemonStats, PokemonType } from "@/lib/types";
-import { POKEMON, spriteUrl } from "@/lib/pokemon";
+import { POKEMON, spriteUrl, artworkUrl } from "@/lib/pokemon";
 import { MOVES } from "@/lib/moves";
 import { loadMovepools } from "@/lib/pokemonMoves";
 import { NATURES } from "@/lib/natures";
@@ -188,9 +188,9 @@ export function AdvancedTeamBuilder({
                     )}
                   </div>
                   <img
-                    src={spriteUrl(mon)}
+                    src={artworkUrl(mon)}
                     alt={mon.names.en ?? ""}
-                    className="pixelated h-14 w-14 sm:h-20 sm:w-20 drop-shadow-[0_3px_6px_rgba(60,40,20,0.22)]"
+                    className="h-14 w-14 sm:h-20 sm:w-20 drop-shadow-[0_3px_6px_rgba(60,40,20,0.22)]"
                     loading="lazy"
                     onError={(e) => {
                       (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
@@ -312,9 +312,9 @@ function SlotEditor({
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2 min-w-0">
           <img
-            src={spriteUrl(pokemon)}
+            src={artworkUrl(pokemon)}
             alt={pokemon.names.en ?? ""}
-            className="pixelated h-10 w-10 shrink-0"
+            className="h-10 w-10 shrink-0"
           />
           <div className="min-w-0">
             <div className="font-pixel text-[10px] uppercase text-shadow-pixel truncate">

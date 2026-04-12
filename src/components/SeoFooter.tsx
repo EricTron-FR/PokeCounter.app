@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { POKEMON, monSlug } from "@/lib/pokemon";
+import { POKEMON, monSlug, spriteUrl } from "@/lib/pokemon";
 import { ALL_TYPES, PokemonType } from "@/lib/types";
 import { getTier } from "@/lib/tiers";
 import { pokemonName, useLang, SUPPORTED_LANGS, LANG_META, typeLabel } from "@/lib/i18n";
@@ -129,19 +129,25 @@ export function SeoFooter({ onGoLegal }: Props) {
           </div>
         </div>
 
-        {/* Row 3: popular counters — dense long-tail SEO links, no sprites */}
+        {/* Row 3: popular counters with sprites */}
         <div>
           <div className="font-pixel text-[9px] uppercase tracking-wider text-primary mb-3">
             {t("footerPopularCounters")}
           </div>
-          <div className="flex flex-wrap gap-x-3 gap-y-1 text-[10px] font-mono leading-relaxed text-muted-foreground">
+          <div className="flex flex-wrap gap-x-3 gap-y-1.5 text-[10px] font-mono leading-relaxed text-muted-foreground">
             {popular.map((p) => (
               <Link
                 key={p.id}
                 to={`/pokemon/${monSlug(p)}`}
-                className="hover:text-primary whitespace-nowrap"
+                className="inline-flex items-center gap-1 hover:text-primary whitespace-nowrap transition-colors"
                 title={`Best counters for ${pokemonName(p, lang)}`}
               >
+                <img
+                  src={spriteUrl(p)}
+                  alt=""
+                  className="pixelated h-4 w-4 object-contain"
+                  loading="lazy"
+                />
                 {pokemonName(p, lang)}
               </Link>
             ))}

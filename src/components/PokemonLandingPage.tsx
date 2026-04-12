@@ -1,6 +1,6 @@
 import { useEffect, useMemo } from "react";
 import { useLocation, Link } from "react-router-dom";
-import { POKEMON, findBySlug, monSlug, spriteUrl } from "@/lib/pokemon";
+import { POKEMON, findBySlug, monSlug, spriteUrl, artworkUrl } from "@/lib/pokemon";
 import { pickScore, defensiveMatchups } from "@/lib/coverage";
 import { getTier, TIER_COLORS } from "@/lib/tiers";
 import { pokemonName, typeLabel, useLang } from "@/lib/i18n";
@@ -83,9 +83,9 @@ export function PokemonLandingPage() {
       <header className="mb-8">
         <div className="flex items-start gap-4 sm:gap-6">
           <img
-            src={spriteUrl(mon)}
+            src={artworkUrl(mon)}
             alt={`${mon.names.en} sprite`}
-            className="pixelated h-24 w-24 sm:h-32 sm:w-32 shrink-0"
+            className="h-24 w-24 sm:h-32 sm:w-32 shrink-0"
           />
           <div className="min-w-0 flex-1">
             <div className="text-[10px] font-mono text-muted-foreground">
@@ -287,11 +287,16 @@ export function PokemonLandingPage() {
                     </span>
                   )}
                 </div>
-                {a.description && (
-                  <p className="text-[11px] font-mono text-muted-foreground mt-1 leading-relaxed">
-                    {a.description}
-                  </p>
-                )}
+                {(() => {
+                  const desc = a.description;
+                  if (!desc) return null;
+                  const text = typeof desc === "string" ? desc : (desc[lang] ?? desc.en);
+                  return text ? (
+                    <p className="text-[11px] font-mono text-muted-foreground mt-1 leading-relaxed">
+                      {text}
+                    </p>
+                  ) : null;
+                })()}
               </div>
             ))}
           </div>

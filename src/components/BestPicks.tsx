@@ -1,10 +1,11 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Pokemon } from "@/lib/types";
 import { POKEMON, spriteUrl } from "@/lib/pokemon";
 import {
   bestStabMultiplier,
   optimalSubset,
   pickScore,
+  getMegaForms,
 } from "@/lib/coverage";
 import { getTier } from "@/lib/tiers";
 import { pokemonName, useLang } from "@/lib/i18n";
@@ -36,10 +37,11 @@ interface Props {
 export function BestPicks({ opponents, myTeam, format }: Props) {
   const { t, lang } = useLang();
   const bringN = BRING_COUNT[format];
+  const [megaMode, setMegaMode] = useState(true);
 
   const best = useMemo(
-    () => optimalSubset(myTeam, opponents, bringN),
-    [myTeam, opponents, bringN],
+    () => optimalSubset(myTeam, opponents, bringN, megaMode),
+    [myTeam, opponents, bringN, megaMode],
   );
 
   const ranked = useMemo(() => {
@@ -47,7 +49,7 @@ export function BestPicks({ opponents, myTeam, format }: Props) {
     return [...myTeam]
       .map((p) => ({
         pokemon: p,
-        score: pickScore(p, opponents),
+        score: pickScore(p, opponents, megaMode),
         chosen: chosenIds.has(p.id),
       }))
       .sort((a, b) => {
@@ -77,8 +79,30 @@ export function BestPicks({ opponents, myTeam, format }: Props) {
   const notEnough = myTeam.length < bringN;
   const allCovered = best.uncovered.length === 0;
 
+  // Check if any Pokemon in either team has mega forms
+  const anyMegaAvailable = [...myTeam, ...opponents].some(
+    (p) => !p.mega && getMegaForms(p).length > 0,
+  );
+
   return (
     <div className="space-y-3">
+      {/* Mega toggle — only show if relevant */}
+      {anyMegaAvailable && (
+        <button
+          type="button"
+          onClick={() => setMegaMode(!megaMode)}
+          className={cn(
+            "w-full flex items-center justify-center gap-2 h-8 rounded-lg border font-pixel text-[9px] uppercase tracking-wider transition-all",
+            megaMode
+              ? "border-primary/30 bg-primary/10 text-primary"
+              : "border-border bg-card text-muted-foreground hover:bg-muted",
+          )}
+        >
+          <span className="font-pixel text-primary text-[10px]">M</span>
+          {megaMode ? "Mega ON" : "Mega OFF"}
+        </button>
+      )}
+
       {/* Summary */}
       <div
         className={cn(
@@ -175,14 +199,29 @@ function PickRow({
   const { t, lang } = useLang();
   const pct = maxScore > 0 ? (score / maxScore) * 100 : 0;
 
-  // Offensive matchups (I hit them SE)
-  const strongVs = opponents.filter(
-    (def) => bestStabMultiplier(pokemon, def) >= 2,
-  );
-  // Defensive matchups (they hit ME SE)
-  const weakVs = opponents.filter(
-    (def) => bestStabMultiplier(def, pokemon) >= 2,
-  );
+  // Offensive matchups (I hit them SE) — flag when a mega form is involved
+  const strongVs: { mon: Pokemon; megaOnly?: boolean; hasMega?: boolean }[] = [];
+  const weakVs: { mon: Pokemon; megaOnly?: boolean; hasMega?: boolean }[] = [];
+
+  for (const def of opponents) {
+    const megas = getMegaForms(def);
+    const hasMega = megas.length > 0;
+    const offBase = bestStabMultiplier(pokemon, def, false);
+    const offMega = bestStabMultiplier(pokemon, def, true);
+    if (offBase >= 2) {
+      strongVs.push({ mon: def, hasMega });
+    } else if (offMega >= 2) {
+      strongVs.push({ mon: def, megaOnly: true, hasMega });
+    }
+
+    const incBase = bestStabMultiplier(def, pokemon, false);
+    const incMega = bestStabMultiplier(def, pokemon, true);
+    if (incBase >= 2) {
+      weakVs.push({ mon: def, hasMega });
+    } else if (incMega >= 2) {
+      weakVs.push({ mon: def, megaOnly: true, hasMega });
+    }
+  }
 
   return (
     <div
@@ -259,7 +298,7 @@ function PickRow({
             <MatchupRow
               icon={<ShieldCheck className="h-3 w-3" />}
               label={t("strongVs")}
-              mons={strongVs}
+              entries={strongVs}
               tone="good"
             />
           )}
@@ -267,7 +306,7 @@ function PickRow({
             <MatchupRow
               icon={<ShieldAlert className="h-3 w-3" />}
               label={t("weakVs")}
-              mons={weakVs}
+              entries={weakVs}
               tone="bad"
             />
           )}
@@ -367,12 +406,12 @@ function RosterSuggestions({ opponents }: { opponents: Pokemon[] }) {
 function MatchupRow({
   icon,
   label,
-  mons,
+  entries,
   tone,
 }: {
   icon: React.ReactNode;
   label: string;
-  mons: Pokemon[];
+  entries: { mon: Pokemon; megaOnly?: boolean; hasMega?: boolean }[];
   tone: "good" | "bad";
 }) {
   const { lang } = useLang();
@@ -388,31 +427,57 @@ function MatchupRow({
         {label}
       </div>
       <div className="flex flex-wrap gap-1 flex-1 min-w-0">
-        {mons.map((m) => (
-          <div
-            key={m.id}
-            className={cn(
-              "group/chip inline-flex items-center gap-1 rounded-full border px-1.5 py-0.5",
-              tone === "good"
-                ? "border-emerald-500/40 bg-emerald-500/10"
-                : "border-primary/40 bg-primary/10",
-            )}
-            title={pokemonName(m, lang)}
-          >
-            <img
-              src={spriteUrl(m)}
-              alt={m.names.en ?? ""}
-              className="pixelated h-5 w-5 shrink-0"
-              loading="lazy"
-              onError={(e) => {
-                (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
-              }}
-            />
-            <span className="font-mono text-[9px] truncate max-w-[52px] sm:max-w-[90px]">
-              {pokemonName(m, lang)}
-            </span>
-          </div>
-        ))}
+        {entries.map((e) => {
+          const megas = getMegaForms(e.mon);
+          const megaSprite = megas.length > 0 ? megas[0] : null;
+          return (
+            <div
+              key={e.mon.id}
+              className={cn(
+                "group/chip inline-flex items-center gap-1 rounded-full border px-1.5 py-0.5",
+                e.megaOnly
+                  ? "border-purple-500/40 bg-purple-500/10"
+                  : tone === "good"
+                    ? "border-emerald-500/40 bg-emerald-500/10"
+                    : "border-primary/40 bg-primary/10",
+              )}
+              title={
+                e.megaOnly
+                  ? `${pokemonName(e.mon, lang)} (Mega)`
+                  : e.hasMega
+                    ? `${pokemonName(e.mon, lang)} + Mega`
+                    : pokemonName(e.mon, lang)
+              }
+            >
+              <img
+                src={spriteUrl(e.mon)}
+                alt={e.mon.names.en ?? ""}
+                className="pixelated h-5 w-5 shrink-0"
+                loading="lazy"
+                onError={(ev) => {
+                  (ev.currentTarget as HTMLImageElement).style.visibility = "hidden";
+                }}
+              />
+              <span className="text-[9px] truncate max-w-[52px] sm:max-w-[90px]">
+                {pokemonName(e.mon, lang)}
+              </span>
+              {e.hasMega && megaSprite && (
+                <img
+                  src={spriteUrl(megaSprite)}
+                  alt=""
+                  className="pixelated h-4 w-4 shrink-0 opacity-60"
+                  loading="lazy"
+                  title={pokemonName(megaSprite, lang)}
+                />
+              )}
+              {(e.megaOnly || e.hasMega) && (
+                <span className={cn("font-pixel text-[5px] uppercase", e.megaOnly ? "text-purple-600" : "text-primary/50")}>
+                  MEGA
+                </span>
+              )}
+            </div>
+          );
+        })}
       </div>
     </div>
   );

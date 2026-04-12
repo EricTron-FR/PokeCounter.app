@@ -4,7 +4,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://pokecounter.app/</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/"/>
@@ -20,7 +20,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokedex</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokedex"/>
@@ -36,7 +36,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/compare</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/compare"/>
@@ -52,7 +52,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/types-chart</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/types-chart"/>
@@ -68,7 +68,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/battle</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/battle"/>
@@ -83,8 +83,40 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pokecounter.app/battle"/>
   </url>
   <url>
+    <loc>https://pokecounter.app/rankings</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/rankings"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pokecounter.app/rankings"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://pokecounter.app/rankings"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://pokecounter.app/rankings"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pokecounter.app/rankings"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://pokecounter.app/rankings"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://pokecounter.app/rankings"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://pokecounter.app/rankings"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://pokecounter.app/rankings"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pokecounter.app/rankings"/>
+  </url>
+  <url>
+    <loc>https://pokecounter.app/tiers</loc>
+    <lastmod>2026-04-12</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/tiers"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://pokecounter.app/tiers"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://pokecounter.app/tiers"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://pokecounter.app/tiers"/>
+    <xhtml:link rel="alternate" hreflang="it" href="https://pokecounter.app/tiers"/>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://pokecounter.app/tiers"/>
+    <xhtml:link rel="alternate" hreflang="ko" href="https://pokecounter.app/tiers"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://pokecounter.app/tiers"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hant" href="https://pokecounter.app/tiers"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://pokecounter.app/tiers"/>
+  </url>
+  <url>
     <loc>https://pokecounter.app/learn</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/learn"/>
@@ -100,7 +132,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/about</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/about"/>
@@ -116,7 +148,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/legal</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/legal"/>
@@ -132,7 +164,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/venusaur</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/venusaur"/>
@@ -148,7 +180,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-venusaur</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-venusaur"/>
@@ -164,7 +196,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/charizard</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/charizard"/>
@@ -180,7 +212,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-charizard-x</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-charizard-x"/>
@@ -196,7 +228,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-charizard-y</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-charizard-y"/>
@@ -212,7 +244,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/blastoise</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/blastoise"/>
@@ -228,7 +260,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-blastoise</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-blastoise"/>
@@ -244,7 +276,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/beedrill</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/beedrill"/>
@@ -260,7 +292,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-beedrill</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-beedrill"/>
@@ -276,7 +308,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/pidgeot</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/pidgeot"/>
@@ -292,7 +324,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-pidgeot</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-pidgeot"/>
@@ -308,7 +340,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/arbok</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/arbok"/>
@@ -324,7 +356,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/pikachu</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/pikachu"/>
@@ -340,7 +372,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/raichu</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/raichu"/>
@@ -356,7 +388,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/machamp</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/machamp"/>
@@ -372,7 +404,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/ariados</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/ariados"/>
@@ -388,7 +420,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/forretress</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/forretress"/>
@@ -404,7 +436,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/medicham</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/medicham"/>
@@ -420,7 +452,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-medicham</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-medicham"/>
@@ -436,7 +468,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/manectric</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/manectric"/>
@@ -452,7 +484,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-manectric</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-manectric"/>
@@ -468,7 +500,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/sharpedo</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/sharpedo"/>
@@ -484,7 +516,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-sharpedo</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-sharpedo"/>
@@ -500,7 +532,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/camerupt</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/camerupt"/>
@@ -516,7 +548,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-camerupt</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-camerupt"/>
@@ -532,7 +564,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/banette</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/banette"/>
@@ -548,7 +580,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-banette</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-banette"/>
@@ -564,7 +596,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/chimecho</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/chimecho"/>
@@ -580,7 +612,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-chimecho</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-chimecho"/>
@@ -596,7 +628,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/glalie</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/glalie"/>
@@ -612,7 +644,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-glalie</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-glalie"/>
@@ -628,7 +660,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/luxray</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/luxray"/>
@@ -644,7 +676,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/roserade</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/roserade"/>
@@ -660,7 +692,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/rampardos</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/rampardos"/>
@@ -676,7 +708,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/bastiodon</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/bastiodon"/>
@@ -692,7 +724,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/toxicroak</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/toxicroak"/>
@@ -708,7 +740,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/watchog</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/watchog"/>
@@ -724,7 +756,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/liepard</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/liepard"/>
@@ -740,7 +772,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/simisage</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/simisage"/>
@@ -756,7 +788,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/simisear</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/simisear"/>
@@ -772,7 +804,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/simipour</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/simipour"/>
@@ -788,7 +820,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/cofagrigus</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/cofagrigus"/>
@@ -804,7 +836,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/reuniclus</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/reuniclus"/>
@@ -820,7 +852,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/beartic</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/beartic"/>
@@ -836,7 +868,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/florges</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/florges"/>
@@ -852,7 +884,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/pangoro</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/pangoro"/>
@@ -868,7 +900,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/aromatisse</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/aromatisse"/>
@@ -884,7 +916,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/slurpuff</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/slurpuff"/>
@@ -900,7 +932,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/heliolisk</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/heliolisk"/>
@@ -916,7 +948,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/dedenne</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/dedenne"/>
@@ -932,7 +964,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/avalugg</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/avalugg"/>
@@ -948,7 +980,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/salazzle</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/salazzle"/>
@@ -964,7 +996,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/passimian</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/passimian"/>
@@ -980,7 +1012,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/flapple</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/flapple"/>
@@ -996,7 +1028,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/wyrdeer</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/wyrdeer"/>
@@ -1012,7 +1044,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/bellibolt</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/bellibolt"/>
@@ -1028,7 +1060,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/espathra</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/espathra"/>
@@ -1044,7 +1076,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/alolan-raichu</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/alolan-raichu"/>
@@ -1060,7 +1092,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/clefable</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/clefable"/>
@@ -1076,7 +1108,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-clefable</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-clefable"/>
@@ -1092,7 +1124,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/ninetales</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/ninetales"/>
@@ -1108,7 +1140,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/alolan-ninetales</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/alolan-ninetales"/>
@@ -1124,7 +1156,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/arcanine</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/arcanine"/>
@@ -1140,7 +1172,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/hisuian-arcanine</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/hisuian-arcanine"/>
@@ -1156,7 +1188,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/alakazam</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/alakazam"/>
@@ -1172,7 +1204,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-alakazam</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-alakazam"/>
@@ -1188,7 +1220,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/victreebel</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/victreebel"/>
@@ -1204,7 +1236,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-victreebel</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-victreebel"/>
@@ -1220,7 +1252,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/slowbro</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/slowbro"/>
@@ -1236,7 +1268,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-slowbro</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-slowbro"/>
@@ -1252,7 +1284,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/galarian-slowbro</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/galarian-slowbro"/>
@@ -1268,7 +1300,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/gengar</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/gengar"/>
@@ -1284,7 +1316,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-gengar</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-gengar"/>
@@ -1300,7 +1332,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/kangaskhan</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/kangaskhan"/>
@@ -1316,7 +1348,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-kangaskhan</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-kangaskhan"/>
@@ -1332,7 +1364,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/starmie</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/starmie"/>
@@ -1348,7 +1380,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-starmie</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-starmie"/>
@@ -1364,7 +1396,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/pinsir</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/pinsir"/>
@@ -1380,7 +1412,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-pinsir</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-pinsir"/>
@@ -1396,7 +1428,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/tauros</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/tauros"/>
@@ -1412,7 +1444,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/paldean-tauros</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/paldean-tauros"/>
@@ -1428,7 +1460,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/paldean-tauros-blaze</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/paldean-tauros-blaze"/>
@@ -1444,7 +1476,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/paldean-tauros-aqua</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/paldean-tauros-aqua"/>
@@ -1460,7 +1492,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/gyarados</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/gyarados"/>
@@ -1476,7 +1508,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-gyarados</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-gyarados"/>
@@ -1492,7 +1524,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/ditto</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/ditto"/>
@@ -1508,7 +1540,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/vaporeon</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/vaporeon"/>
@@ -1524,7 +1556,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/jolteon</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/jolteon"/>
@@ -1540,7 +1572,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/flareon</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/flareon"/>
@@ -1556,7 +1588,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/aerodactyl</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/aerodactyl"/>
@@ -1572,7 +1604,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-aerodactyl</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-aerodactyl"/>
@@ -1588,7 +1620,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/snorlax</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/snorlax"/>
@@ -1604,7 +1636,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/dragonite</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/dragonite"/>
@@ -1620,7 +1652,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-dragonite</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-dragonite"/>
@@ -1636,7 +1668,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/meganium</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/meganium"/>
@@ -1652,7 +1684,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-meganium</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-meganium"/>
@@ -1668,7 +1700,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/typhlosion</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/typhlosion"/>
@@ -1684,7 +1716,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/hisuian-typhlosion</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/hisuian-typhlosion"/>
@@ -1700,7 +1732,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/feraligatr</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/feraligatr"/>
@@ -1716,7 +1748,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-feraligatr</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-feraligatr"/>
@@ -1732,7 +1764,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/ampharos</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/ampharos"/>
@@ -1748,7 +1780,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-ampharos</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-ampharos"/>
@@ -1764,7 +1796,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/azumarill</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/azumarill"/>
@@ -1780,7 +1812,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/politoed</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/politoed"/>
@@ -1796,7 +1828,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/espeon</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/espeon"/>
@@ -1812,7 +1844,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/umbreon</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/umbreon"/>
@@ -1828,7 +1860,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/slowking</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/slowking"/>
@@ -1844,7 +1876,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/galarian-slowking</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/galarian-slowking"/>
@@ -1860,7 +1892,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/steelix</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/steelix"/>
@@ -1876,7 +1908,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-steelix</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-steelix"/>
@@ -1892,7 +1924,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/scizor</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/scizor"/>
@@ -1908,7 +1940,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-scizor</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-scizor"/>
@@ -1924,7 +1956,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/heracross</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/heracross"/>
@@ -1940,7 +1972,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-heracross</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-heracross"/>
@@ -1956,7 +1988,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/skarmory</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/skarmory"/>
@@ -1972,7 +2004,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-skarmory</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-skarmory"/>
@@ -1988,7 +2020,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/houndoom</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/houndoom"/>
@@ -2004,7 +2036,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-houndoom</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-houndoom"/>
@@ -2020,7 +2052,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/tyranitar</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/tyranitar"/>
@@ -2036,7 +2068,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-tyranitar</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-tyranitar"/>
@@ -2052,7 +2084,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/pelipper</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/pelipper"/>
@@ -2068,7 +2100,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/gardevoir</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/gardevoir"/>
@@ -2084,7 +2116,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-gardevoir</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-gardevoir"/>
@@ -2100,7 +2132,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/sableye</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/sableye"/>
@@ -2116,7 +2148,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-sableye</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-sableye"/>
@@ -2132,7 +2164,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/aggron</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/aggron"/>
@@ -2148,7 +2180,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-aggron</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-aggron"/>
@@ -2164,7 +2196,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/torkoal</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/torkoal"/>
@@ -2180,7 +2212,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/altaria</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/altaria"/>
@@ -2196,7 +2228,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-altaria</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-altaria"/>
@@ -2212,7 +2244,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/milotic</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/milotic"/>
@@ -2228,7 +2260,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/castform</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/castform"/>
@@ -2244,7 +2276,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/absol</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/absol"/>
@@ -2260,7 +2292,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-absol</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-absol"/>
@@ -2276,7 +2308,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/torterra</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/torterra"/>
@@ -2292,7 +2324,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/infernape</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/infernape"/>
@@ -2308,7 +2340,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/empoleon</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/empoleon"/>
@@ -2324,7 +2356,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/lopunny</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/lopunny"/>
@@ -2340,7 +2372,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-lopunny</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-lopunny"/>
@@ -2356,7 +2388,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/spiritomb</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/spiritomb"/>
@@ -2372,7 +2404,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/garchomp</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/garchomp"/>
@@ -2388,7 +2420,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-garchomp</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-garchomp"/>
@@ -2404,7 +2436,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/lucario</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/lucario"/>
@@ -2420,7 +2452,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-lucario</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-lucario"/>
@@ -2436,7 +2468,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/hippowdon</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/hippowdon"/>
@@ -2452,7 +2484,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/abomasnow</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/abomasnow"/>
@@ -2468,7 +2500,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-abomasnow</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-abomasnow"/>
@@ -2484,7 +2516,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/weavile</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/weavile"/>
@@ -2500,7 +2532,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/rhyperior</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/rhyperior"/>
@@ -2516,7 +2548,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/leafeon</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/leafeon"/>
@@ -2532,7 +2564,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/glaceon</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/glaceon"/>
@@ -2548,7 +2580,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/gliscor</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/gliscor"/>
@@ -2564,7 +2596,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/gallade</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/gallade"/>
@@ -2580,7 +2612,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-gallade</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-gallade"/>
@@ -2596,7 +2628,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/froslass</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/froslass"/>
@@ -2612,7 +2644,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/rotom</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/rotom"/>
@@ -2628,7 +2660,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/serperior</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/serperior"/>
@@ -2644,7 +2676,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/emboar</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/emboar"/>
@@ -2660,7 +2692,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/samurott</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/samurott"/>
@@ -2676,7 +2708,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/hisuian-samurott</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/hisuian-samurott"/>
@@ -2692,7 +2724,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/excadrill</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/excadrill"/>
@@ -2708,7 +2740,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/audino</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/audino"/>
@@ -2724,7 +2756,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-audino</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-audino"/>
@@ -2740,7 +2772,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/conkeldurr</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/conkeldurr"/>
@@ -2756,7 +2788,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/whimsicott</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/whimsicott"/>
@@ -2772,7 +2804,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/krookodile</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/krookodile"/>
@@ -2788,7 +2820,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/garbodor</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/garbodor"/>
@@ -2804,7 +2836,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/zoroark</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/zoroark"/>
@@ -2820,7 +2852,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/hisuian-zoroark</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/hisuian-zoroark"/>
@@ -2836,7 +2868,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/vanilluxe</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/vanilluxe"/>
@@ -2852,7 +2884,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/emolga</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/emolga"/>
@@ -2868,7 +2900,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/stunfisk</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/stunfisk"/>
@@ -2884,7 +2916,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/galarian-stunfisk</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/galarian-stunfisk"/>
@@ -2900,7 +2932,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/golurk</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/golurk"/>
@@ -2916,7 +2948,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/hydreigon</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/hydreigon"/>
@@ -2932,7 +2964,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/volcarona</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/volcarona"/>
@@ -2948,7 +2980,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/chesnaught</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/chesnaught"/>
@@ -2964,7 +2996,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-chesnaught</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-chesnaught"/>
@@ -2980,7 +3012,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/delphox</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/delphox"/>
@@ -2996,7 +3028,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/greninja</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/greninja"/>
@@ -3012,7 +3044,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-greninja</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-greninja"/>
@@ -3028,7 +3060,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/diggersby</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/diggersby"/>
@@ -3044,7 +3076,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/talonflame</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/talonflame"/>
@@ -3060,7 +3092,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/vivillon</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/vivillon"/>
@@ -3076,7 +3108,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/furfrou</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/furfrou"/>
@@ -3092,7 +3124,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/meowstic</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/meowstic"/>
@@ -3108,7 +3140,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-meowstic</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-meowstic"/>
@@ -3124,7 +3156,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/aegislash</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/aegislash"/>
@@ -3140,7 +3172,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/clawitzer</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/clawitzer"/>
@@ -3156,7 +3188,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/tyrantrum</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/tyrantrum"/>
@@ -3172,7 +3204,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/aurorus</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/aurorus"/>
@@ -3188,7 +3220,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/sylveon</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/sylveon"/>
@@ -3204,7 +3236,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/hawlucha</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/hawlucha"/>
@@ -3220,7 +3252,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-hawlucha</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-hawlucha"/>
@@ -3236,7 +3268,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/klefki</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/klefki"/>
@@ -3252,7 +3284,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/gourgeist</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/gourgeist"/>
@@ -3268,7 +3300,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/noivern</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/noivern"/>
@@ -3284,7 +3316,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/decidueye</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/decidueye"/>
@@ -3300,7 +3332,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/hisuian-decidueye</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/hisuian-decidueye"/>
@@ -3316,7 +3348,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/incineroar</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/incineroar"/>
@@ -3332,7 +3364,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/primarina</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/primarina"/>
@@ -3348,7 +3380,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/toucannon</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/toucannon"/>
@@ -3364,7 +3396,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/crabominable</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/crabominable"/>
@@ -3380,7 +3412,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/lycanroc</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/lycanroc"/>
@@ -3396,7 +3428,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/toxapex</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/toxapex"/>
@@ -3412,7 +3444,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mudsdale</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mudsdale"/>
@@ -3428,7 +3460,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/araquanid</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/araquanid"/>
@@ -3444,7 +3476,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/tsareena</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/tsareena"/>
@@ -3460,7 +3492,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/oranguru</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/oranguru"/>
@@ -3476,7 +3508,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mimikyu</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mimikyu"/>
@@ -3492,7 +3524,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/drampa</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/drampa"/>
@@ -3508,7 +3540,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/kommo-o</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/kommo-o"/>
@@ -3524,7 +3556,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/corviknight</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/corviknight"/>
@@ -3540,7 +3572,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/sandaconda</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/sandaconda"/>
@@ -3556,7 +3588,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/polteageist</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/polteageist"/>
@@ -3572,7 +3604,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/hatterene</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/hatterene"/>
@@ -3588,7 +3620,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mr-rime</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mr-rime"/>
@@ -3604,7 +3636,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/runerigus</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/runerigus"/>
@@ -3620,7 +3652,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/alcremie</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/alcremie"/>
@@ -3636,7 +3668,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/morpeko</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/morpeko"/>
@@ -3652,7 +3684,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/dragapult</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/dragapult"/>
@@ -3668,7 +3700,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/kleavor</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/kleavor"/>
@@ -3684,7 +3716,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/basculegion</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/basculegion"/>
@@ -3700,7 +3732,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/sneasler</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/sneasler"/>
@@ -3716,7 +3748,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/meowscarada</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/meowscarada"/>
@@ -3732,7 +3764,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/quaquaval</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/quaquaval"/>
@@ -3748,7 +3780,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/maushold</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/maushold"/>
@@ -3764,7 +3796,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/garganacl</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/garganacl"/>
@@ -3780,7 +3812,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/armarouge</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/armarouge"/>
@@ -3796,7 +3828,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/ceruledge</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/ceruledge"/>
@@ -3812,7 +3844,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/scovillain</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/scovillain"/>
@@ -3828,7 +3860,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/tinkaton</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/tinkaton"/>
@@ -3844,7 +3876,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/palafin</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/palafin"/>
@@ -3860,7 +3892,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/orthworm</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/orthworm"/>
@@ -3876,7 +3908,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/glimmora</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/glimmora"/>
@@ -3892,7 +3924,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/farigiraf</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/farigiraf"/>
@@ -3908,7 +3940,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/kingambit</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/kingambit"/>
@@ -3924,7 +3956,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/sinistcha</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/sinistcha"/>
@@ -3940,7 +3972,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/archaludon</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/archaludon"/>
@@ -3956,7 +3988,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/hydrapple</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/hydrapple"/>
@@ -3972,7 +4004,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mamoswine</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mamoswine"/>
@@ -3988,7 +4020,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/chandelure</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/chandelure"/>
@@ -4004,7 +4036,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-chandelure</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-chandelure"/>
@@ -4020,7 +4052,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/floette</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/floette"/>
@@ -4036,7 +4068,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/mega-floette</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/mega-floette"/>
@@ -4052,7 +4084,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/goodra</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/goodra"/>
@@ -4068,7 +4100,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/hisuian-goodra</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/hisuian-goodra"/>
@@ -4084,7 +4116,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/trevenant</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/trevenant"/>
@@ -4100,7 +4132,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/appletun</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/appletun"/>
@@ -4116,7 +4148,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/pokemon/skeledirge</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/pokemon/skeledirge"/>
@@ -4132,7 +4164,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/type/normal</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/type/normal"/>
@@ -4148,7 +4180,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/type/fire</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/type/fire"/>
@@ -4164,7 +4196,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/type/water</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/type/water"/>
@@ -4180,7 +4212,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/type/electric</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/type/electric"/>
@@ -4196,7 +4228,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/type/grass</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/type/grass"/>
@@ -4212,7 +4244,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/type/ice</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/type/ice"/>
@@ -4228,7 +4260,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/type/fighting</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/type/fighting"/>
@@ -4244,7 +4276,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/type/poison</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/type/poison"/>
@@ -4260,7 +4292,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/type/ground</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/type/ground"/>
@@ -4276,7 +4308,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/type/flying</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/type/flying"/>
@@ -4292,7 +4324,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/type/psychic</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/type/psychic"/>
@@ -4308,7 +4340,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/type/bug</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/type/bug"/>
@@ -4324,7 +4356,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/type/rock</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/type/rock"/>
@@ -4340,7 +4372,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/type/ghost</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/type/ghost"/>
@@ -4356,7 +4388,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/type/dragon</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/type/dragon"/>
@@ -4372,7 +4404,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/type/dark</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/type/dark"/>
@@ -4388,7 +4420,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/type/steel</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/type/steel"/>
@@ -4404,7 +4436,7 @@
   </url>
   <url>
     <loc>https://pokecounter.app/type/fairy</loc>
-    <lastmod>2026-04-10</lastmod>
+    <lastmod>2026-04-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="en" href="https://pokecounter.app/type/fairy"/>

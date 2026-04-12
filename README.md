@@ -1,324 +1,243 @@
 <div align="center">
 
-# 🎮 PokeCounter
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png" width="48" alt="Charizard" />
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/445.png" width="48" alt="Garchomp" />
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/149.png" width="48" alt="Dragonite" />
 
-### *Free type-coverage counter for **Pokémon Champions** (2026)*
+# PokeCounter
 
-**Pick the opponent. Get the perfect counter. Win the match.**
+### *Free counter-picker for **Pokemon Champions** (2026)*
+
+**Paste the opposing team. Get the best picks. Win the match.**
 
 [![Live](https://img.shields.io/badge/live-pokecounter.app-ff3d8b?style=for-the-badge)](https://pokecounter.app)
 [![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)](./LICENSE)
-[![Made with React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://react.dev)
-[![Vite](https://img.shields.io/badge/Vite-5-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev)
+[![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://react.dev)
+[![Go](https://img.shields.io/badge/Go-1.25-00ADD8?style=for-the-badge&logo=go&logoColor=white)](https://go.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 
-[**🌐 pokecounter.app**](https://pokecounter.app) · [**📖 Pokédex**](https://pokecounter.app/#/pokedex) · [**ℹ️ About**](https://pokecounter.app/#/about) · [**⭐ GitHub**](https://github.com/EricTron-FR/PokeCounter.app)
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/448.png" width="48" alt="Lucario" />
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/887.png" width="48" alt="Dragapult" />
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png" width="48" alt="Pikachu" />
+
+[**pokecounter.app**](https://pokecounter.app) ·
+[**Pokedex**](https://pokecounter.app/pokedex) ·
+[**Rankings**](https://pokecounter.app/rankings) ·
+[**Tier List**](https://pokecounter.app/tiers) ·
+[**Speed Tiers**](https://pokecounter.app/speed) ·
+[**Battle Sim**](https://pokecounter.app/battle)
 
 </div>
 
 ---
 
-## ✨ What is it?
+## What is it?
 
-**PokeCounter** is a single-page web app that takes the friction out of counter-picking
-in **Pokémon Champions**. Drop the opposing team into the left column, your own team
-into the middle, and instantly see which subset of your team to bring to win the
-matchup.
+**PokeCounter** is a web app that takes the friction out of counter-picking in **Pokemon Champions**. Drop the opposing team, drop your team, and instantly see the optimal subset to bring for the matchup.
 
-Type the name in **any of 9 languages**, get the optimal pick in **one click**, and
-share the matchup with a teammate via a copy-pasteable URL. No sign-up, no ads,
-no paywalls, no tracking.
+Type a name in **any of 9 languages**, get the pick in one click, share via URL. No sign-up, no ads, no paywalls.
 
 ```
-┌──────────────┐  ┌──────────────┐  ┌─────────────────────┐
-│ Team adverse │  │   Ma team    │  │   Meilleurs picks   │
-│              │  │              │  │  (3 for 1v1 ·       │
-│ ⚔ 6 slots    │  │ 🛡 6 slots   │  │   4 for 2v2)        │
-│              │  │              │  │                     │
-│              │  │              │  │  ⭐ Pick 1 — 8 pts  │
-│              │  │              │  │  ⭐ Pick 2 — 6 pts  │
-└──────────────┘  └──────────────┘  └─────────────────────┘
+Opponent Team          My Team               Best Picks
++-----------------+    +-----------------+    +-------------------+
+| 6 slots         |    | 6 slots         |    | Bring 3 (1v1)     |
+|                 |    |                 |    | or 4 (2v2)        |
+|                 | -> |                 | -> |                   |
+|                 |    |                 |    | Pick 1 -- 8 pts   |
+|                 |    |                 |    | Pick 2 -- 6 pts   |
++-----------------+    +-----------------+    +-------------------+
 ```
 
-## 🚀 Features
+---
 
-### 🧠 The smart counter picker
+## Features
 
-- **Optimal subset finder** — brute-force across all `C(6, N)` subsets to find the
-  combination of `N` Pokémon that covers the most opposing mons super-effectively.
-  `N` is **3** for **1v1 (Singles)** and **4** for **2v2 (Doubles)**.
-- **Per-pick matchup explanation** — every pick shows a green chip-list of opponents
-  it hits ≥2× and a red chip-list of opponents that threaten it.
-- **18-type offensive coverage grid** — see exactly which types your team can hit
-  super-effectively, in one glance.
-- **URL sharing** — your opponent team is encoded in `?opp=...` so you can hand a
-  matchup to a teammate by sending one link.
+### <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/150.png" width="24" /> Counter Picker
 
-### 📚 Full Champions Pokédex
+- **Optimal subset finder** -- brute-force `C(6, N)` subsets, scoring both offensive coverage AND defensive safety (a pick that covers 1 extra opponent but gets threatened by 3 won't be chosen over a safer alternative).
+- **Per-pick matchup chips** -- green for opponents hit 2x+, red for opponents that threaten you.
+- **18-type coverage grid** -- see gaps at a glance.
+- **URL sharing** -- opponent team encoded in `?opp=...`, one link to share a matchup.
 
-- **267 entries** covering the **205 base + 62 Mega** Pokémon Champions Season 1 roster
-- **Per-Pokémon detail modal**: stats with colored bars, abilities (with hidden flag),
-  height/weight, full defensive matchup table (weak / resist / immune), and the
-  **complete movepool** lazy-loaded from PokéAPI on demand.
-- **Multi-language search**: type `Glurak`, `리자몽`, `リザードン`, `喷火龙` or
-  `Charizard` — they all find the same Pokémon.
-- **Filter by type, base form / Mega form**, and free-text search.
+### <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/94.png" width="24" /> Live Meta Rankings
 
-### 🛠 Advanced Team Builder
+Real usage data from every team built on the site, powered by a Go + MongoDB backend:
 
-A second mode for the team column lets you fully configure each Pokémon ChampionsLab-style:
+- **Top 20 teams of the week** -- with play count, sorted by popularity.
+- **Top 10 Pokemon** -- most picked across all submitted teams.
+- **Top 10 types** -- type distribution in the real meta.
+- **Trending / Rising Stars** -- week-over-week deltas showing which Pokemon are gaining or losing popularity.
+- **"Use this team" button** -- load any ranked team directly into the counter picker.
 
-| Field | What it does |
+### <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/248.png" width="24" /> Tier List
+
+- **Curated mode** -- S/A/B/C/D tiers from the initial roster analysis.
+- **Live mode** -- tiers computed in real-time from user submission data, updated continuously.
+- Toggleable with one click. Champions Lab doesn't have live tiers.
+
+### <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/135.png" width="24" /> Speed Tiers
+
+Interactive speed tier chart for all 250 Pokemon:
+
+- **SP slider** (0-32) -- see final Speed stat at Level 50 recalculated live for every Pokemon.
+- **Nature toggle** (+Spe / neutral / -Spe) -- instantly see the effect.
+- **Benchmark lines** -- Base 100, Base 80, Tailwind x2, Choice Scarf x1.5 reference values.
+- **Speed tier labels** -- Blazing / Very Fast / Fast / Average / Below Avg / Slow / TR Tier.
+- Searchable and filterable.
+
+### <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/130.png" width="24" /> Battle Simulator
+
+Test your team against 500 to 10,000 generated opponents across 10 archetypes:
+
+- **Win rate by archetype** -- colored bars for Sun, Rain, Trick Room, Tailwind, Hyper Offense, Bulky, Mono-type, Meta, Balance, Random.
+- **Per-Pokemon performance** -- pick rate, win rate when picked vs benched, impact score, MVP / Liability badges.
+- **Strategy tips** -- auto-generated advice: shared weaknesses, hard counter archetypes, best lead pair, severe threat Pokemon, speed control recommendations.
+- **Biggest threats** -- the opponent Pokemon that correlate most with your losses, with sprites and win rates.
+- **Best / worst 3 matchups** + collapsible full list.
+
+### <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/282.png" width="24" /> Full Pokedex
+
+- **250 entries** covering 200 base + 50 Mega Pokemon (Season 1 roster).
+- Per-Pokemon detail: stats with bars, abilities (hidden flag), height/weight, full defensive matchup table, complete movepool (lazy-loaded).
+- **Multi-language search** -- type `Glurak`, `리자몽`, `リザードン`, `喷火龙` or `Charizard`.
+- Filter by type, base/Mega, tier (S/A/B/C/D).
+
+### <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/448.png" width="24" /> Advanced Team Builder
+
+Full per-Pokemon configuration:
+
+| Field | Description |
 | --- | --- |
-| **Ability** | Dropdown localized in your language, with hidden ability marker |
-| **4 moves** | Searchable selectors filtered to the Pokémon's actual movepool, with type badges and base power |
-| **Nature** | All 25 natures with `+stat / -stat` indicators |
+| **Ability** | Dropdown filtered to the Pokemon's legal abilities |
+| **4 Moves** | Searchable selectors from actual movepool, with type and BP |
+| **Nature** | All 25 natures with +/- stat indicators |
 | **Tera Type** | All 18 types |
 | **Item** | Free-text input |
-| **Stat Points** | Champions SP system: **66 SP total · 32 max per stat**, with progress bars and ± buttons |
+| **Stat Points** | Champions SP: 66 total, 32 max per stat, with bars and +/- buttons |
 
-The Best Picks column re-syncs automatically as you tweak your team in either mode.
+Supports Showdown paste import/export.
 
-### 💾 Saved Teams
+### <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/658.png" width="24" /> More Tools
 
-- **Unlimited named team slots**, persisted in `localStorage`
-- One-click load / delete
-- Active team is highlighted with a primary outline
-- Mini-sprites preview of all 6 mons per saved team
+- **Type Chart** -- interactive 18x18 effectiveness grid.
+- **Damage Calculator** -- Gen 9 formula with Champions SP system.
+- **Team Analyzer** -- overall score, shared weaknesses, coverage holes, actionable suggestions (translated in 9 languages).
+- **Compare** -- two Pokemon builds side by side.
+- **Share Card** -- generate a 1200x630 (OG) or 1080x1080 (Instagram) PNG of your team, downloadable or shareable via Web Share API.
+- **Learn VGC** -- 9 interactive accordion sections covering format basics, speed control, weather, terrain, items, abilities, status, 30 key moves, and Tera Type. All in 9 languages.
+- **Saved Teams** -- unlimited named slots in localStorage.
 
-### 🌍 9 Official Pokémon Languages
+### 9 Languages
 
-Every UI string, every Pokémon name, every type label is localized in:
+Every UI string, Pokemon name, type label, team suggestion, and Learn page content is translated:
 
-| | | | |
-| --- | --- | --- | --- |
-| 🇬🇧 English | 🇫🇷 Français | 🇪🇸 Español | 🇩🇪 Deutsch |
-| 🇮🇹 Italiano | 🇯🇵 日本語 | 🇰🇷 한국어 | 🇨🇳 简体中文 |
-| 🇹🇼 繁體中文 | | | |
-
-The browser language is auto-detected on first visit. Pixel-art SVG flags in the
-language dropdown for that authentic Game Boy feel.
-
-### 🎨 Pixel-Art Design
-
-- **Press Start 2P** typography with `text-shadow` for that CRT-shaded look
-- Dark "night battle" background gradient with **scanlines**
-- **Pixel-perfect SVGs** rendered with `shape-rendering: crispEdges`
-- **Type-colored badges** matching the official Pokémon palette
-- **Hover glows** and **pressable button shadows** that pop on click
-- Fully **responsive** from 320 px phones to ultrawide monitors
-
-## 🛠 Stack
-
-| Layer | Choice | Why |
+| | | |
 | --- | --- | --- |
-| Build | **Vite 5** | Sub-second HMR, ESM-first |
-| UI | **React 18 + TypeScript 5** | Strict mode, lazy loading via `React.lazy` |
-| Styling | **Tailwind CSS 3** | Custom theme with type colors + pixel utilities |
-| Components | **shadcn/ui primitives** | `Button` / `Card` / `Input` / `Badge` copied into the repo |
-| Icons | **lucide-react** | Tree-shakeable |
-| Data | **Static JSON** | Bundled with code-splitting via dynamic imports |
-| Analytics | **Umami (self-hosted)** | Privacy-respecting page views, no cookies |
-| Hosting | **Nginx** + **Let's Encrypt** | Static SPA, gzip + cache headers |
+| English | Francais | Espanol |
+| Deutsch | Italiano | 日本語 |
+| 한국어 | 简体中文 | 繁體中文 |
 
-**No backend. No database. No login.** Just static files and `localStorage`.
+Auto-detected from browser language on first visit.
 
-## ⚡ Performance
+---
 
-```
-Initial JS bundle    │ 133 KB gzip
-Lazy: Pokédex        │   4 KB gzip  (loaded on /#/pokedex)
-Lazy: AboutPage      │   2 KB gzip  (loaded on /#/about)
-Lazy: TeamBuilder    │  33 KB gzip  (loaded when toggling Advanced mode)
-Lazy: pokemon-moves  │  30 KB gzip  (loaded with TeamBuilder)
-```
+## Stack
 
-Heavy components are dynamically imported so the first paint stays snappy.
+| Layer | Choice |
+| --- | --- |
+| Frontend | Vite 5 + React 18 + TypeScript 5 + Tailwind CSS 3 |
+| Components | shadcn/ui primitives + lucide-react icons |
+| Backend | Go (chi router) + MongoDB |
+| Analytics | Umami (self-hosted, no cookies) |
+| Hosting | Nginx + Let's Encrypt (static SPA + reverse proxy to Go API) |
 
-## 🚀 Quick start
+The Go service handles anonymous team submissions, rankings aggregation, trending computation, and species stats. It binds to `127.0.0.1:8080` (localhost only), with nginx proxying `/api/*` requests.
+
+Frontend is a static SPA. Backend is optional -- the counter picker, Pokedex, damage calc, and battle sim all work offline.
+
+---
+
+## Quick start
 
 ```bash
 git clone https://github.com/EricTron-FR/PokeCounter.app.git
 cd PokeCounter.app
 npm install
-npm run dev          # → http://localhost:5173
+npm run dev          # localhost:5173
 ```
 
-That's it. No env vars, no API keys, no database to spin up.
+No env vars, no API keys, no database needed for development. The backend is only required for the live rankings features.
 
 ### Production build
 
 ```bash
-npm run build        # → dist/
-npm run preview      # serve dist/ locally
+npm run build        # dist/
 ```
 
-### Deploying to a static host
+Drop `dist/` on any static host (Vercel, Netlify, Cloudflare Pages, nginx).
 
-The output of `npm run build` is a plain `dist/` folder. Drop it on Vercel, Netlify,
-GitHub Pages, Cloudflare Pages, or any boring nginx server. The included
-`nginx.conf` snippet (see [DEPLOY.md](#deploying-to-your-own-nginx)) handles SPA
-routing, gzip and cache headers.
+---
 
-## 📂 Project structure
+## The scoring formula
+
+For every Pokemon in your team vs every opponent:
 
 ```
-pokecounter/
-├── index.html                       # SEO meta + JSON-LD + Umami snippet
-├── LICENSE                          # MIT
-├── package.json
-├── tailwind.config.js               # custom theme + type palette
-├── vite.config.ts
-│
-├── public/
-│   ├── pokeball.svg                 # favicon (pixel-art SVG)
-│   ├── robots.txt
-│   └── sitemap.xml
-│
-├── scripts/                         # one-shot data fetchers (run with node)
-│   ├── fetch-names.mjs              # localized Pokémon names from PokéAPI
-│   ├── fetch-details.mjs            # base stats + abilities from PokéAPI
-│   └── regen-from-pokeapi.mjs       # rebuild moves + ability descriptions
-│
-└── src/
-    ├── main.tsx
-    ├── App.tsx                      # router (hash-based) + state
-    ├── index.css                    # pixel theme + scanlines
-    │
-    ├── data/
-    │   ├── pokemon.json             # 267 entries (no movepools — kept light)
-    │   ├── moves.json               # 654 unique moves (lazy-loaded)
-    │   └── pokemon-moves.json       # id → string[] (lazy-loaded)
-    │
-    ├── lib/
-    │   ├── types.ts                 # core TS types
-    │   ├── coverage.ts              # subset optimisation + matchups
-    │   ├── pokemon.ts               # data loader + multilingual search
-    │   ├── pokemonMoves.ts          # lazy movepool loader
-    │   ├── moves.ts                 # move database accessor
-    │   ├── natures.ts               # 25 natures + common items
-    │   ├── i18n.ts                  # 9-language UI dictionary + helpers
-    │   ├── savedTeams.ts            # named team save/load
-    │   └── buildStore.ts            # advanced build storage
-    │
-    └── components/
-        ├── ui/                      # shadcn primitives (button/card/input/badge)
-        ├── PokemonSearch.tsx        # multi-language autocomplete
-        ├── TeamSlot.tsx             # individual team slot card
-        ├── BestPicks.tsx            # subset finder + per-pick matchup
-        ├── FormatToggle.tsx         # 1v1 / 2v2 segmented control
-        ├── TypeBadge.tsx            # colored pill, localized label
-        ├── TypeCoverageGrid.tsx     # 18-type offensive coverage grid
-        ├── SavedTeamsPanel.tsx      # named save / load / delete UI
-        ├── LanguageDropdown.tsx     # 9-flag language picker
-        ├── Flag.tsx                 # 9 hand-drawn pixel-art SVG flags
-        ├── PokedexPage.tsx          # full Pokédex with filters
-        ├── PokemonDetailModal.tsx   # detail modal with stats / abilities / moves
-        ├── AdvancedTeamBuilder.tsx  # per-Pokémon configurator
-        └── AboutPage.tsx            # /#/about
+offense:
+  SE hit (x2)         +1
+  Double SE hit (x4)  +1 extra
+  Clean hit (SE and not threatened)  +0.5
+
+defense:
+  Immune to opponent   +1
+  Threatened (x2)      -1
+  Quad threatened (x4) -2
 ```
 
-## 🧮 The scoring formula
+The optimal subset is the combination of N Pokemon (3 for 1v1, 4 for 2v2) that maximizes `totalScore` -- a blend of offensive coverage and defensive safety. With `C(6, 4) = 15` subsets max, it's instant.
 
-For every Pokémon `mon` in your team, against every Pokémon `def` in the opponent's
-team:
+---
 
-```js
-mult = max( effectiveness(my_type, def.types) for my_type in mon.types )
+## Contributing
 
-if (mult >= 2) score += 1   // super-effective hit
-if (mult >= 4) score += 1   // bonus for double-super-effective (x4)
-```
+PRs welcome. Guidelines:
 
-We assume each Pokémon attacks with its **own STAB types** — same simplification as
-most fast counter-finders. From there we **brute-force every subset of size N**
-(3 for 1v1, 4 for 2v2) and pick the one that covers the most opposing Pokémon at
-≥2×, tiebroken by total score. With `C(6, 4) = 15` subsets max it's effectively
-instant.
+- **Keep the bundle slim.** Lazy-load anything not needed on first paint. Target < 150 KB gzipped for the main chunk.
+- **Privacy first.** No third-party tracking beyond self-hosted Umami.
+- **All UI strings in all 9 languages.** Machine-translate and mark with `// FIXME translation` if unsure.
+- **Stay pixel-art.** Press Start 2P for headings, dark cards with borders, subtle shadows.
 
-The weakness/resistance computation uses the standard **Gen 6+ 18-type chart**
-(included Fairy, with the post-Gen-6 changes to Steel and Ghost).
+---
 
-## 🔄 Updating the data
+## Credits
 
-The full dataset is regenerable from PokéAPI alone — no third-party scraping.
-
-```bash
-node scripts/regen-from-pokeapi.mjs
-```
-
-This rewrites:
-
-- `src/data/pokemon.json` — base entries (no movepools, kept light)
-- `src/data/pokemon-moves.json` — id → move name array (lazy-loaded)
-- `src/data/moves.json` — full move DB with type / category / power / accuracy / PP / description
-
-Localized Pokémon names can be refreshed independently with:
-
-```bash
-node scripts/fetch-names.mjs
-```
-
-All scripts are **idempotent** — re-running them is safe and cheap.
-
-## 🌍 Adding a new language
-
-1. Add the language code to the `Lang` union in `src/lib/i18n.ts`
-2. Add the metadata entry in `LANG_META`
-3. Add the full translation block in `DICT[lang]`
-4. Add the type translations in `TYPE_I18N`
-5. Update `detectBrowserLang()` if you want auto-detection
-6. Add a pixel-art SVG flag in `src/components/Flag.tsx`
-7. Re-run `node scripts/fetch-names.mjs` to populate Pokémon names if PokéAPI
-   supports the language
-
-## 🤝 Contributing
-
-PRs welcome! A few rules of thumb:
-
-- 🪶 **Keep the bundle slim.** Lazy-load anything that isn't needed on the first paint.
-  The current main bundle target is **< 150 KB gzipped**.
-- 🛡 **Privacy first.** No third-party tracking, no analytics other than the existing
-  self-hosted Umami instance.
-- 🌐 **All UI strings must exist in all 9 languages.** If you don't speak a language,
-  use a machine translation and tag the key with `// FIXME translation` so a native
-  speaker can fix it later.
-- 🧪 **Write a test for critical logic.** Coverage scoring, subset optimisation, build
-  storage — these are pure functions, they should have Vitest unit tests.
-- 🎨 **Stay pixel-art.** New components should use the established theme: pixel font
-  for headings, dark cards with `border-2`, subtle shadows, no rounded-2xl.
-
-## 🙏 Credits
-
-| Source | What it provides | License |
+| Source | Provides | License |
 | --- | --- | --- |
-| [**PokéAPI**](https://pokeapi.co/) | Sprites, localized names, base stats, abilities, movepools, move metadata | MIT |
-| [**Press Start 2P**](https://fonts.google.com/specimen/Press+Start+2P) | Pixel font (Google Fonts) | OFL |
-| [**JetBrains Mono**](https://www.jetbrains.com/lp/mono/) | Monospace font (Google Fonts) | OFL |
-| [**Tailwind CSS**](https://tailwindcss.com) | Styling | MIT |
-| [**shadcn/ui**](https://ui.shadcn.com) | Component primitives | MIT |
-| [**lucide-react**](https://lucide.dev) | Icons | ISC |
+| [PokéAPI](https://pokeapi.co/) | Sprites, names, stats, abilities, movepools | MIT |
+| [Press Start 2P](https://fonts.google.com/specimen/Press+Start+2P) | Pixel font | OFL |
+| [JetBrains Mono](https://www.jetbrains.com/lp/mono/) | Monospace font | OFL |
+| [Tailwind CSS](https://tailwindcss.com) | Styling | MIT |
+| [shadcn/ui](https://ui.shadcn.com) | Component primitives | MIT |
+| [lucide-react](https://lucide.dev) | Icons | ISC |
 
-Thanks to the entire **competitive Pokémon community** for keeping this hobby alive,
-and to **Nintendo / Game Freak / The Pokémon Company** for making the games we all
-love.
+Thanks to the competitive Pokemon community and to Nintendo / Game Freak / The Pokemon Company for the games.
 
-## 📜 License
+---
 
-[**MIT**](./LICENSE) — fork it, improve it, sell it (please don't), break it,
-fix it, learn from it.
+## License
 
-Pokémon, Pokémon character names, and related properties are trademarks of
-**Nintendo / Game Freak / The Pokémon Company**. PokeCounter is a fan-made tool
-and is **not affiliated with, endorsed, sponsored, or specifically approved by**
-any of those entities.
+[**MIT**](./LICENSE) -- fork it, improve it, learn from it.
+
+Pokemon and related properties are trademarks of Nintendo / Game Freak / The Pokemon Company. PokeCounter is a fan-made tool, not affiliated with or endorsed by any of those entities.
 
 ---
 
 <div align="center">
 
-Made with 🩷 and **a lot of pixels**
+<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/143.png" width="40" />
 
-<sub>If PokeCounter helps you win a match, drop a ⭐ on the repo</sub>
+Made with pixels
+
+<sub>If PokeCounter helps you win a match, star the repo</sub>
 
 </div>

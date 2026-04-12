@@ -2,11 +2,12 @@ import { useEffect, useMemo, useState } from "react";
 import { Pokemon } from "@/lib/types";
 import { POKEMON, spriteUrl } from "@/lib/pokemon";
 import { pokemonName, useLang } from "@/lib/i18n";
+import { formatSuggestion } from "@/lib/formatSuggestion";
 import {
   runSimulation,
-  SimulationResult,
-  MatchupResult,
-  Archetype,
+  type SimulationResult,
+  type MatchupResult,
+  type Archetype,
 } from "@/lib/battleSim";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -25,8 +26,12 @@ import {
   Shield,
   Palette,
   Flame,
+  BarChart3,
+  Users,
 } from "lucide-react";
 import { PokemonSearch } from "./PokemonSearch";
+
+const POKEMON_BY_ID = new Map(POKEMON.map((p) => [p.id, p]));
 
 const STORAGE_KEY = "pokecounter.myteam.v1";
 
@@ -65,7 +70,7 @@ const POOL_OPTIONS: {
   { key: "mono", label: "Mono-type", Icon: Palette },
 ];
 
-const COUNT_OPTIONS = [10, 30, 50, 100];
+const COUNT_OPTIONS = [500, 1000, 2500, 5000, 10000];
 
 export function BattleSimPage() {
   const { t, lang } = useLang();
@@ -85,7 +90,7 @@ export function BattleSimPage() {
   const monById = useMemo(() => new Map(POKEMON.map((p) => [p.id, p])), []);
   const [myTeamIds, setMyTeamIds] = useState<number[]>(() => loadMyTeamIds());
   const [pool, setPool] = useState<Archetype | "mixed">("mixed");
-  const [count, setCount] = useState(30);
+  const [count, setCount] = useState(500);
   const [bringN, setBringN] = useState<3 | 4>(4);
   const [result, setResult] = useState<SimulationResult | null>(null);
   const [running, setRunning] = useState(false);
@@ -329,65 +334,219 @@ export function BattleSimPage() {
           </div>
           <div className="h-[3px] bg-foreground mb-4" />
 
-          {/* Big win rate */}
-          <div className="mb-6 text-center">
-            <div className="text-[9px] font-pixel uppercase tracking-wider text-muted-foreground">
-              {t("simWinRate")}
+          {/* Big win rate + insight — top row */}
+          <div className="mb-6 flex flex-col sm:flex-row gap-4 items-center">
+            <div className="text-center shrink-0">
+              <div className="text-[9px] font-pixel uppercase tracking-wider text-muted-foreground">
+                {t("simWinRate")}
+              </div>
+              <div
+                className={cn(
+                  "font-pixel text-5xl sm:text-6xl mt-1 tabular-nums",
+                  result.overallWinRate >= 65
+                    ? "text-emerald-600"
+                    : result.overallWinRate >= 45
+                      ? "text-yellow-600"
+                      : "text-red-600",
+                )}
+              >
+                {result.overallWinRate}
+                <span className="text-xl text-muted-foreground">%</span>
+              </div>
             </div>
-            <div
-              className={cn(
-                "font-pixel text-6xl sm:text-7xl mt-2 tabular-nums",
-                result.overallWinRate >= 65
-                  ? "text-emerald-600"
-                  : result.overallWinRate >= 45
-                    ? "text-yellow-600"
-                    : "text-red-600",
-              )}
-            >
-              {result.overallWinRate}
-              <span className="text-2xl text-muted-foreground">%</span>
-            </div>
+            {result.analysisHint && (
+              <div className="flex-1 rounded-lg border border-accent/50 bg-accent/10 p-3 flex items-start gap-2">
+                <Sparkles className="h-4 w-4 shrink-0 mt-0.5 text-accent-foreground" />
+                <span className="text-[10px] leading-relaxed text-accent-foreground">
+                  <strong className="font-pixel text-[9px] uppercase">{t("simInsight")}:</strong>{" "}
+                  {formatSuggestion(result.analysisHint, t, lang)}
+                </span>
+              </div>
+            )}
           </div>
 
-          {result.analysisHint && (
-            <div className="mb-6 rounded-lg border border-accent/50 bg-accent/10 p-3 flex items-start gap-2">
-              <Sparkles className="h-4 w-4 shrink-0 mt-0.5 text-accent-foreground" />
-              <span className="text-[10px] font-mono leading-relaxed text-accent-foreground">
-                <strong className="font-pixel text-[9px] uppercase">{t("simInsight")}:</strong>{" "}
-                {result.analysisHint}
-              </span>
+          {/* Grid layout: blocks side by side */}
+          <div className="grid gap-4 md:grid-cols-2">
+            {/* Best matchups */}
+            <div className="rounded-xl border border-border bg-card/50 p-3">
+              <div className="flex items-center gap-2 mb-2">
+                <Trophy className="h-4 w-4 text-emerald-600" />
+                <span className="font-pixel text-[10px] uppercase tracking-wider text-emerald-600">
+                  {t("simBestMatchups")}
+                </span>
+              </div>
+              <div className="space-y-1.5">
+                {result.bestMatchups.map((m, i) => (
+                  <MatchupRow key={i} m={m} lang={lang} />
+                ))}
+              </div>
+            </div>
+
+            {/* Worst matchups */}
+            <div className="rounded-xl border border-border bg-card/50 p-3">
+              <div className="flex items-center gap-2 mb-2">
+                <AlertTriangle className="h-4 w-4 text-red-600" />
+                <span className="font-pixel text-[10px] uppercase tracking-wider text-red-600">
+                  {t("simWorstMatchups")}
+                </span>
+              </div>
+              <div className="space-y-1.5">
+                {result.worstMatchups.map((m, i) => (
+                  <MatchupRow key={i} m={m} lang={lang} />
+                ))}
+              </div>
+            </div>
+
+            {/* Archetype breakdown */}
+            <div className="rounded-xl border border-border bg-card/50 p-3">
+              <div className="flex items-center gap-2 mb-3">
+                <BarChart3 className="h-4 w-4 text-primary" />
+                <span className="font-pixel text-[10px] uppercase tracking-wider text-primary">
+                  {t("simArchetypeBreakdown")}
+                </span>
+              </div>
+              <div className="space-y-1">
+                {result.archetypeBreakdown.map((ab) => {
+                  const pct = Math.max(4, ab.avgWinRate);
+                  const color =
+                    ab.avgWinRate >= 65
+                      ? "bg-emerald-500/20"
+                      : ab.avgWinRate >= 45
+                        ? "bg-yellow-500/20"
+                        : ab.count === 0
+                          ? "bg-muted"
+                          : "bg-red-500/20";
+                  const textColor =
+                    ab.count === 0
+                      ? "text-muted-foreground/40"
+                      : ab.avgWinRate >= 65
+                        ? "text-emerald-600"
+                        : ab.avgWinRate >= 45
+                          ? "text-yellow-600"
+                          : "text-red-600";
+                  return (
+                    <div
+                      key={ab.archetype}
+                      className="relative flex items-center gap-2 rounded-md border border-border/60 bg-card px-2 py-1.5 overflow-hidden"
+                    >
+                      <div
+                        className={cn("absolute inset-y-0 left-0", color)}
+                        style={{ width: `${pct}%` }}
+                      />
+                      <span className="relative font-pixel text-[9px] uppercase tracking-wider w-24 shrink-0 truncate">
+                        {poolLabels[ab.archetype] ?? ab.archetype}
+                      </span>
+                      <span className="relative flex-1 text-[9px] text-muted-foreground tabular-nums">
+                        {ab.count}
+                      </span>
+                      <span className={cn("relative font-pixel text-[10px] tabular-nums shrink-0", textColor)}>
+                        {ab.count > 0 ? `${ab.avgWinRate}%` : "-"}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Strategy & Threats */}
+            {(result.strategyTips.length > 0 || result.threats.length > 0) && (
+              <div className="rounded-xl border border-border bg-card/50 p-3">
+                <div className="flex items-center gap-2 mb-3">
+                  <Sparkles className="h-4 w-4 text-primary" />
+                  <span className="font-pixel text-[10px] uppercase tracking-wider text-primary">
+                    {t("simStrategyTips")}
+                  </span>
+                </div>
+                <div className="space-y-1.5">
+                  {result.strategyTips.map((tip, i) => {
+                    const text = formatTip(tip, lang);
+                    if (!text) return null;
+                    return (
+                      <div
+                        key={i}
+                        className="rounded-md border border-border/60 bg-muted/30 px-2 py-1.5 text-[10px] text-muted-foreground leading-relaxed"
+                      >
+                        {text}
+                      </div>
+                    );
+                  })}
+                  {result.threats.length > 0 && result.threats[0].avgWrWhenFaced <= 40 && (
+                    <div className="rounded-md border border-red-500/30 bg-red-500/5 px-2 py-1.5">
+                      <span className="font-pixel text-[8px] uppercase tracking-wider text-red-600 block mb-1">
+                        {t("simThreats")}
+                      </span>
+                      <div className="flex flex-wrap gap-2">
+                        {result.threats.filter(t => t.avgWrWhenFaced <= 40).slice(0, 3).map((threat) => {
+                          const mon = POKEMON_BY_ID.get(threat.id);
+                          if (!mon) return null;
+                          return (
+                            <div key={threat.id} className="flex items-center gap-1 text-[10px] text-red-600">
+                              <img src={spriteUrl(mon)} alt="" className="pixelated h-5 w-5 object-contain" loading="lazy" />
+                              <span>{pokemonName(mon, lang)}</span>
+                              <span className="font-pixel tabular-nums text-[9px]">{threat.avgWrWhenFaced}%</span>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Per-Pokémon performance — full width below the grid */}
+          {result.pokemonStats.length > 0 && (
+            <div className="mt-4">
+              <div className="flex items-center gap-2 mb-3">
+                <Users className="h-4 w-4 text-primary" />
+                <span className="font-pixel text-[10px] uppercase tracking-wider text-primary">
+                  {t("simPerPokemon")}
+                </span>
+              </div>
+              <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+                {result.pokemonStats.map((ps) => {
+                  const mon = POKEMON_BY_ID.get(ps.id);
+                  if (!mon) return null;
+                  return (
+                    <div
+                      key={ps.id}
+                      className="flex items-center gap-2 rounded-lg border border-border bg-card px-2 py-2 shadow-soft"
+                    >
+                      <img
+                        src={spriteUrl(mon)}
+                        alt=""
+                        className="pixelated h-9 w-9 object-contain shrink-0"
+                        loading="lazy"
+                      />
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-1.5">
+                          <span className="font-pixel text-[9px] uppercase tracking-wider truncate">
+                            {pokemonName(mon, lang)}
+                          </span>
+                          {ps.impact > 10 && (
+                            <span className="font-pixel text-[7px] uppercase text-emerald-600 bg-emerald-500/10 px-1 rounded border border-emerald-500/30">
+                              MVP
+                            </span>
+                          )}
+                          {ps.impact < -10 && (
+                            <span className="font-pixel text-[7px] uppercase text-red-600 bg-red-500/10 px-1 rounded border border-red-500/30">
+                              {t("simLiability")}
+                            </span>
+                          )}
+                        </div>
+                        <div className="flex items-center gap-3 mt-0.5 text-[9px] text-muted-foreground">
+                          <span>{t("simPickRate")}: <strong className={ps.pickRate >= 70 ? "text-primary" : ""}>{ps.pickRate}%</strong></span>
+                          <span>{t("simWrPicked")}: <strong className={ps.winRateWhenPicked >= 60 ? "text-emerald-600" : ps.winRateWhenPicked < 40 ? "text-red-600" : "text-yellow-600"}>{ps.winRateWhenPicked}%</strong></span>
+                          <span className="hidden sm:inline">{t("simImpact")}: <strong className={ps.impact > 0 ? "text-emerald-600" : ps.impact < 0 ? "text-red-600" : ""}>{ps.impact > 0 ? "+" : ""}{ps.impact}</strong></span>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           )}
-
-          {/* Best matchups */}
-          <div className="mb-6">
-            <div className="flex items-center gap-2 mb-2">
-              <Trophy className="h-4 w-4 text-emerald-600" />
-              <span className="font-pixel text-[10px] uppercase tracking-wider text-emerald-600">
-                {t("simBestMatchups")}
-              </span>
-            </div>
-            <div className="space-y-1.5">
-              {result.bestMatchups.map((m, i) => (
-                <MatchupRow key={i} m={m} lang={lang} />
-              ))}
-            </div>
-          </div>
-
-          {/* Worst matchups */}
-          <div className="mb-6">
-            <div className="flex items-center gap-2 mb-2">
-              <AlertTriangle className="h-4 w-4 text-red-600" />
-              <span className="font-pixel text-[10px] uppercase tracking-wider text-red-600">
-                {t("simWorstMatchups")}
-              </span>
-            </div>
-            <div className="space-y-1.5">
-              {result.worstMatchups.map((m, i) => (
-                <MatchupRow key={i} m={m} lang={lang} />
-              ))}
-            </div>
-          </div>
 
           {/* Full list (collapsible) */}
           <details className="mt-4">
@@ -407,6 +566,34 @@ export function BattleSimPage() {
       )}
     </main>
   );
+}
+
+function formatTip(
+  tip: import("@/lib/battleSim").StrategyTip,
+  lang: string,
+): string | null {
+  const name = (id: string) => {
+    const mon = POKEMON_BY_ID.get(Number(id));
+    return mon ? pokemonName(mon, lang as any) : `#${id}`;
+  };
+  switch (tip.kind) {
+    case "sharedWeakness":
+      return `Shared weakness to ${tip.types.join(", ")} types`;
+    case "hardCounter":
+      return `Hard counter: ${tip.archetype} (${tip.wr}% win rate)`;
+    case "strongestVs":
+      return `Strongest vs ${tip.archetype} (${tip.wr}%)`;
+    case "weakestVs":
+      return `Weakest vs ${tip.archetype} (${tip.wr}%)`;
+    case "severeThreat":
+      return `${name(tip.name)} is a severe threat (${tip.wr}% WR when faced)`;
+    case "bestLead":
+      return `Best lead: ${name(tip.name1)} + ${name(tip.name2)} (${tip.wr}% WR)`;
+    case "needSpeedControl":
+      return "Your team may need speed control (Tailwind or Trick Room)";
+    case "leadFakeOut":
+      return "Lead with Fake Out + attacker for turn 1 pressure";
+  }
 }
 
 function MatchupRow({
@@ -444,14 +631,14 @@ function MatchupRow({
       <div className="font-pixel text-[8px] uppercase tracking-wider text-muted-foreground w-16 shrink-0 truncate">
         {m.archetype}
       </div>
-      <div className="flex items-center gap-0.5 flex-1 flex-wrap">
+      <div className="flex items-center gap-0.5 flex-1 min-w-0 overflow-hidden">
         {(compact ? m.opponent.slice(0, 6) : m.opponent).map((p) => (
           <img
             key={p.id}
             src={spriteUrl(p)}
             alt={pokemonName(p, lang)}
             title={pokemonName(p, lang)}
-            className="pixelated h-8 w-8"
+            className="pixelated h-8 w-8 sm:h-10 sm:w-10 shrink-0"
             loading="lazy"
           />
         ))}

@@ -18,3 +18,6 @@ vite.config.d.ts
 # OS
 Thumbs.db
 
+# Backend (deployed via scp + systemd, never via git)
+api/
+

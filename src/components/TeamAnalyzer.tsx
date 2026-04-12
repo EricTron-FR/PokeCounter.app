@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Pokemon } from "@/lib/types";
 import { analyzeTeam, AnalysisResult } from "@/lib/teamAnalysis";
+import { formatSuggestion } from "@/lib/formatSuggestion";
 import { loadMovepools } from "@/lib/pokemonMoves";
 import { useLang, pokemonName } from "@/lib/i18n";
 import { POKEMON } from "@/lib/pokemon";
@@ -215,7 +216,7 @@ export function TeamAnalyzer({ team }: Props) {
                       <CircleCheck className="h-3 w-3 shrink-0 mt-0.5 text-muted-foreground" />
                     )}
                     <span className="text-[10px] font-mono text-muted-foreground leading-relaxed">
-                      {s.text}
+                      {formatSuggestion(s, t, lang)}
                     </span>
                   </div>
                 ))}

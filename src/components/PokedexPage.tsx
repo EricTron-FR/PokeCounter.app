@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { POKEMON, spriteUrl } from "@/lib/pokemon";
+import { POKEMON, artworkUrl } from "@/lib/pokemon";
 import { Pokemon, ALL_TYPES, PokemonType } from "@/lib/types";
 import { pokemonName, useLang } from "@/lib/i18n";
 import { getTier, TIER_COLORS, TIER_ORDER, Tier } from "@/lib/tiers";
@@ -7,7 +7,7 @@ import { TypeBadge } from "./TypeBadge";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { Search, X } from "lucide-react";
+import { Search, X, Sparkles } from "lucide-react";
 import { PokemonDetailModal } from "./PokemonDetailModal";
 
 type MegaFilter = "all" | "mega" | "base";
@@ -19,6 +19,7 @@ export function PokedexPage() {
   const [megaFilter, setMegaFilter] = useState<MegaFilter>("all");
   const [tierFilter, setTierFilter] = useState<Tier | null>(null);
   const [selected, setSelected] = useState<Pokemon | null>(null);
+  const [shiny, setShiny] = useState(false);
 
   const filtered = useMemo(() => {
     const q = query
@@ -90,6 +91,19 @@ export function PokedexPage() {
           >
             {t("filterMega")}
           </FilterPill>
+          <button
+            type="button"
+            onClick={() => setShiny(!shiny)}
+            className={cn(
+              "inline-flex items-center gap-1 px-2 py-1 rounded-lg border font-pixel text-[9px] uppercase tracking-wider transition-all",
+              shiny
+                ? "border-yellow-500/50 bg-yellow-500/20 text-yellow-700"
+                : "border-border bg-card text-muted-foreground hover:bg-muted",
+            )}
+          >
+            <Sparkles className="h-3 w-3" />
+            Shiny
+          </button>
         </div>
 
         <div className="flex flex-wrap gap-1">
@@ -162,9 +176,9 @@ export function PokedexPage() {
               })()}
             </div>
             <img
-              src={spriteUrl(p)}
+              src={artworkUrl(p, shiny)}
               alt={p.names.en ?? ""}
-              className="pixelated h-16 w-16 sm:h-20 sm:w-20 mx-auto drop-shadow-[0_3px_6px_rgba(60,40,20,0.2)]"
+              className="h-16 w-16 sm:h-20 sm:w-20 mx-auto drop-shadow-[0_3px_6px_rgba(60,40,20,0.2)]"
               loading="lazy"
               onError={(e) => {
                 (e.currentTarget as HTMLImageElement).style.visibility = "hidden";

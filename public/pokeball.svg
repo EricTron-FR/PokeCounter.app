@@ -1,8 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges">
-  <rect width="32" height="32" fill="#FFEDCE"/>
-  <circle cx="16" cy="16" r="13" fill="#FFFFFF" stroke="#000" stroke-width="2"/>
-  <path d="M3,16 a13,13 0 0,1 26,0 z" fill="#FF3737"/>
-  <rect x="3" y="15" width="26" height="2" fill="#000"/>
-  <circle cx="16" cy="16" r="4" fill="#000"/>
-  <circle cx="16" cy="16" r="2" fill="#FFFFFF"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none">
+  <!-- Outer black ring (background disc) -->
+  <circle cx="128" cy="128" r="120" fill="#1B1410"/>
+
+  <!-- Red top half -->
+  <path d="M 18 128 A 110 110 0 0 1 238 128 Z" fill="#E4463C"/>
+
+  <!-- White bottom half -->
+  <path d="M 18 128 A 110 110 0 0 0 238 128 Z" fill="#FAFAFA"/>
+
+  <!-- Middle horizontal band -->
+  <rect x="18" y="116" width="220" height="24" fill="#1B1410"/>
+
+  <!-- Center button — outer black -->
+  <circle cx="128" cy="128" r="36" fill="#1B1410"/>
+  <!-- Center button — white rim -->
+  <circle cx="128" cy="128" r="26" fill="#FAFAFA"/>
+  <!-- Center button — inner dot -->
+  <circle cx="128" cy="128" r="10" fill="#1B1410"/>
 </svg>

@@ -8,6 +8,7 @@ import { BestPicks, BattleFormat, BRING_COUNT } from "@/components/BestPicks";
 import { FormatToggle } from "@/components/FormatToggle";
 import { TypeCoverageGrid } from "@/components/TypeCoverageGrid";
 import { LanguageDropdown } from "@/components/LanguageDropdown";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { SavedTeamsPanel } from "@/components/SavedTeamsPanel";
 import { SeasonBanner } from "@/components/SeasonBanner";
 import { SeoFooter } from "@/components/SeoFooter";
@@ -50,7 +51,19 @@ const AdvancedTeamBuilder = lazy(() =>
 const TeamAnalyzer = lazy(() =>
   import("@/components/TeamAnalyzer").then((m) => ({ default: m.TeamAnalyzer })),
 );
-import { Info, Home as HomeIcon, BookOpen, Settings, Zap, Scale, Grid3x3, GraduationCap } from "lucide-react";
+const RankingsPage = lazy(() =>
+  import("@/components/RankingsPage").then((m) => ({ default: m.RankingsPage })),
+);
+const TierListPage = lazy(() =>
+  import("@/components/TierListPage").then((m) => ({ default: m.TierListPage })),
+);
+const SpeedTiersPage = lazy(() =>
+  import("@/components/SpeedTiersPage").then((m) => ({ default: m.SpeedTiersPage })),
+);
+const ShareCardModal = lazy(() =>
+  import("@/components/ShareCardModal").then((m) => ({ default: m.ShareCardModal })),
+);
+import { Info, Home as HomeIcon, BookOpen, Settings, Zap, Scale, Grid3x3, GraduationCap, Trophy, ListOrdered, Gauge } from "lucide-react";
 import {
   loadSavedTeams,
   writeSavedTeams,
@@ -58,9 +71,10 @@ import {
   SavedTeam,
 } from "@/lib/savedTeams";
 import { Button } from "@/components/ui/button";
-import { Share2, Check, RotateCcw, Swords } from "lucide-react";
+import { Share2, Check, RotateCcw, Swords, Image as ImageIcon } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 import { useDocumentTitle } from "@/lib/useDocumentTitle";
+import { useTeamTracking } from "@/lib/useTeamTracking";
 
 const MAX_TEAM = 6;
 const STORAGE_KEY = "pokecounter.myteam.v1";
@@ -102,6 +116,7 @@ export default function App() {
     return raw === "2v2" ? "2v2" : "1v1";
   });
   const [copied, setCopied] = useState(false);
+  const [shareCardOpen, setShareCardOpen] = useState(false);
   const [savedTeams, setSavedTeams] = useState<SavedTeam[]>(() =>
     loadSavedTeams(),
   );
@@ -171,6 +186,9 @@ export default function App() {
     | "types"
     | "learn"
     | "battle"
+    | "rankings"
+    | "tiers"
+    | "speed"
     | "legal"
     | "pokemon"
     | "type";
@@ -186,6 +204,9 @@ export default function App() {
     if (p.startsWith("/types-chart")) return "types";
     if (p.startsWith("/learn")) return "learn";
     if (p.startsWith("/battle")) return "battle";
+    if (p.startsWith("/rankings")) return "rankings";
+    if (p.startsWith("/tiers")) return "tiers";
+    if (p.startsWith("/speed")) return "speed";
     if (p.startsWith("/legal")) return "legal";
     if (p.startsWith("/about")) return "about";
     if (p.startsWith("/pokemon/")) return "pokemon";
@@ -201,6 +222,9 @@ export default function App() {
   const goTypes = useCallback(() => navigate("/types-chart"), [navigate]);
   const goLearn = useCallback(() => navigate("/learn"), [navigate]);
   const goBattle = useCallback(() => navigate("/battle"), [navigate]);
+  const goRankings = useCallback(() => navigate("/rankings"), [navigate]);
+  const goTiers = useCallback(() => navigate("/tiers"), [navigate]);
+  const goSpeed = useCallback(() => navigate("/speed"), [navigate]);
   const goLegal = useCallback(() => navigate("/legal"), [navigate]);
   const goHome = useCallback(() => navigate("/"), [navigate]);
 
@@ -219,6 +243,9 @@ export default function App() {
 
   const opponents = useMemo(() => toPokemon(opponentIds), [opponentIds]);
   const myTeam = useMemo(() => toPokemon(myTeamIds), [myTeamIds]);
+
+  useTeamTracking(myTeamIds, { withEngagement: true });
+  useTeamTracking(opponentIds);
 
   useEffect(() => {
     const url = new URL(window.location.href);
@@ -324,21 +351,25 @@ export default function App() {
         <div className="container py-3 sm:py-4 flex flex-col gap-3">
           {/* Top row: logo + title (left) + share/language (right) */}
           <div className="flex items-center justify-between gap-2 sm:gap-4">
-            <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+            <button
+              type="button"
+              onClick={goHome}
+              className="flex items-center gap-2 sm:gap-3 min-w-0 hover:opacity-80 transition-opacity"
+            >
               <img
                 src="/pokeball.svg"
                 alt=""
                 className="pixelated h-8 w-8 sm:h-10 sm:w-10 shrink-0 rounded-md shadow-soft"
               />
-              <div className="min-w-0">
+              <div className="min-w-0 text-left">
                 <h1 className="font-pixel text-sm sm:text-xl text-primary text-shadow-pixel truncate">
                   POKECOUNTER
                 </h1>
-                <p className="text-[8px] sm:text-[10px] text-muted-foreground font-pixel uppercase tracking-wider mt-0.5 sm:mt-1 truncate hidden sm:block">
-                  {t("tagline")}
+                <p className="text-[7px] sm:text-[9px] text-muted-foreground font-pixel uppercase tracking-widest mt-0.5 truncate hidden sm:block">
+                  for Pokemon Champions
                 </p>
               </div>
-            </div>
+            </button>
             <div className="flex items-center gap-1.5 shrink-0">
               {view === "home" && (
                 <Button
@@ -359,6 +390,7 @@ export default function App() {
                   )}
                 </Button>
               )}
+              <ThemeToggle />
               <LanguageDropdown />
             </div>
           </div>
@@ -370,6 +402,9 @@ export default function App() {
             <NavButton active={view === "types"} onClick={goTypes} icon={<Grid3x3 className="h-3 w-3" />} label={t("navTypes")} />
             <NavButton active={view === "compare"} onClick={goCompare} icon={<Scale className="h-3 w-3" />} label={t("navCompare")} />
             <NavButton active={view === "battle"} onClick={goBattle} icon={<Swords className="h-3 w-3" />} label={t("navSimulator")} />
+            <NavButton active={view === "rankings"} onClick={goRankings} icon={<Trophy className="h-3 w-3" />} label={t("navRankings")} />
+            <NavButton active={view === "tiers"} onClick={goTiers} icon={<ListOrdered className="h-3 w-3" />} label={t("navTierList")} />
+            <NavButton active={view === "speed"} onClick={goSpeed} icon={<Gauge className="h-3 w-3" />} label={t("navSpeed")} />
             <NavButton active={view === "learn"} onClick={goLearn} icon={<GraduationCap className="h-3 w-3" />} label={t("navLearn")} />
             <NavButton active={view === "about"} onClick={goAbout} icon={<Info className="h-3 w-3" />} label={t("navAbout")} />
           </nav>
@@ -406,6 +441,26 @@ export default function App() {
           <BattleSimPage />
         </Suspense>
       )}
+      {view === "rankings" && (
+        <Suspense fallback={<LazyFallback />}>
+          <RankingsPage
+            onUseTeam={(ids) => {
+              loadTemplate(ids);
+              navigate("/");
+            }}
+          />
+        </Suspense>
+      )}
+      {view === "tiers" && (
+        <Suspense fallback={<LazyFallback />}>
+          <TierListPage />
+        </Suspense>
+      )}
+      {view === "speed" && (
+        <Suspense fallback={<LazyFallback />}>
+          <SpeedTiersPage />
+        </Suspense>
+      )}
       {view === "legal" && (
         <Suspense fallback={<LazyFallback />}>
           <LegalPage />
@@ -429,7 +484,7 @@ export default function App() {
       <main className="container py-6 sm:py-10 grid gap-10 sm:gap-12 items-start lg:grid-cols-[1fr_1fr_1.1fr]">
         {/* 01 — Opponent team */}
         <section>
-          <div className="flex items-baseline gap-3 mb-1">
+          <div className="flex items-center gap-3 mb-1 min-h-[36px]">
             <span className="font-pixel text-2xl text-primary tabular-nums">01</span>
             <h2 className="font-pixel text-base uppercase tracking-wider text-foreground">
               {t("opponentTeam")}
@@ -475,36 +530,32 @@ export default function App() {
 
         {/* 02 — My team */}
         <section>
-          <div className="flex items-baseline gap-3 mb-1">
+          <div className="flex items-center gap-3 mb-1 min-h-[36px]">
             <span className="font-pixel text-2xl text-primary tabular-nums">02</span>
             <h2 className="font-pixel text-base uppercase tracking-wider text-foreground">
               {t("myTeam")}
             </h2>
-            <span className="ml-auto text-[10px] text-muted-foreground font-mono tabular-nums">
-              {myTeam.length}/{MAX_TEAM}
-            </span>
-          </div>
-          <div className="h-[3px] bg-foreground mb-4" />
-          <div className="space-y-4">
-            {/* Simple / Advanced mode toggle */}
-            <div className="grid grid-cols-2 gap-1 rounded-xl border border-border bg-muted/60 p-1">
+            <div className="ml-auto flex items-center gap-1 rounded-lg border border-border bg-muted/60 p-0.5">
               <button
                 type="button"
                 onClick={() => setAdvancedMode(false)}
-                className={`flex items-center justify-center gap-1.5 rounded-lg px-2 py-1.5 transition-all ${!advancedMode ? "bg-primary text-primary-foreground shadow-soft-primary" : "text-muted-foreground hover:text-foreground hover:bg-card"}`}
+                className={`flex items-center gap-1 rounded-md px-1.5 py-1 transition-all ${!advancedMode ? "bg-primary text-primary-foreground shadow-soft-primary" : "text-muted-foreground hover:text-foreground"}`}
               >
-                <Zap className="h-3 w-3" />
-                <span className="font-pixel text-[9px] uppercase tracking-wider">Simple</span>
+                <Zap className="h-2.5 w-2.5" />
+                <span className="font-pixel text-[7px] uppercase tracking-wider hidden sm:inline">Simple</span>
               </button>
               <button
                 type="button"
                 onClick={() => setAdvancedMode(true)}
-                className={`flex items-center justify-center gap-1.5 rounded-lg px-2 py-1.5 transition-all ${advancedMode ? "bg-primary text-primary-foreground shadow-soft-primary" : "text-muted-foreground hover:text-foreground hover:bg-card"}`}
+                className={`flex items-center gap-1 rounded-md px-1.5 py-1 transition-all ${advancedMode ? "bg-primary text-primary-foreground shadow-soft-primary" : "text-muted-foreground hover:text-foreground"}`}
               >
-                <Settings className="h-3 w-3" />
-                <span className="font-pixel text-[9px] uppercase tracking-wider">Advanced</span>
+                <Settings className="h-2.5 w-2.5" />
+                <span className="font-pixel text-[7px] uppercase tracking-wider hidden sm:inline">Advanced</span>
               </button>
             </div>
+          </div>
+          <div className="h-[3px] bg-foreground mb-4" />
+          <div className="space-y-4">
 
             {!advancedMode && (
               <>
@@ -547,6 +598,15 @@ export default function App() {
               <Button
                 size="sm"
                 variant="outline"
+                onClick={() => setShareCardOpen(true)}
+                disabled={myTeamIds.length !== MAX_TEAM}
+                title={t("shareCardButton")}
+              >
+                <ImageIcon className="h-3 w-3" /> {t("shareCardButton")}
+              </Button>
+              <Button
+                size="sm"
+                variant="outline"
                 onClick={resetMyTeam}
                 disabled={myTeamIds.length === 0}
               >
@@ -581,7 +641,7 @@ export default function App() {
 
         {/* 03 — Best picks */}
         <section>
-          <div className="flex items-baseline gap-3 mb-1">
+          <div className="flex items-center gap-3 mb-1 min-h-[36px]">
             <span className="font-pixel text-2xl text-primary tabular-nums">03</span>
             <h2 className="font-pixel text-base uppercase tracking-wider text-foreground">
               {t("bestPicks")}
@@ -605,6 +665,12 @@ export default function App() {
       )}
 
       <SeoFooter onGoLegal={goLegal} />
+
+      {shareCardOpen && myTeam.length === MAX_TEAM && (
+        <Suspense fallback={null}>
+          <ShareCardModal team={myTeam} onClose={() => setShareCardOpen(false)} />
+        </Suspense>
+      )}
     </div>
   );
 }
@@ -636,7 +702,7 @@ function NavButton({
       className={
         active
           ? "inline-flex items-center gap-1.5 h-9 px-2 sm:px-3 rounded-lg border border-primary/30 bg-primary text-primary-foreground font-pixel text-[10px] uppercase tracking-wider shadow-soft-primary"
-          : "inline-flex items-center gap-1.5 h-9 px-2 sm:px-3 rounded-lg border border-border bg-card hover:bg-muted text-foreground font-pixel text-[10px] uppercase tracking-wider transition-colors shadow-soft"
+          : "inline-flex items-center gap-1.5 h-9 px-2 sm:px-3 rounded-lg border border-border bg-card hover:bg-muted hover:scale-105 text-foreground font-pixel text-[10px] uppercase tracking-wider transition-all shadow-soft"
       }
     >
       {icon}

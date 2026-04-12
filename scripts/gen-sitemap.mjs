@@ -57,6 +57,8 @@ function main() {
   urls.push(urlEntry(`${BASE}/compare`, 0.8));
   urls.push(urlEntry(`${BASE}/types-chart`, 0.8));
   urls.push(urlEntry(`${BASE}/battle`, 0.8));
+  urls.push(urlEntry(`${BASE}/rankings`, 0.9, "daily"));
+  urls.push(urlEntry(`${BASE}/tiers`, 0.9, "daily"));
   urls.push(urlEntry(`${BASE}/learn`, 0.7));
   urls.push(urlEntry(`${BASE}/about`, 0.4, "monthly"));
   urls.push(urlEntry(`${BASE}/legal`, 0.3, "monthly"));

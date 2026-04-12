@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ALL_TYPES, Pokemon, PokemonType } from "@/lib/types";
-import { spriteUrl } from "@/lib/pokemon";
+import { artworkUrl } from "@/lib/pokemon";
+import { StatRadar } from "./StatRadar";
 import { defensiveMatchups } from "@/lib/coverage";
 import { pokemonName, useLang } from "@/lib/i18n";
 import { TypeBadge } from "./TypeBadge";
@@ -144,10 +145,9 @@ export function PokemonDetailModal({ pokemon, onClose }: Props) {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full sm:max-w-2xl max-h-[90vh] overflow-y-auto rounded-t-2xl sm:rounded-2xl border border-border shadow-soft-lg"
-        style={{ backgroundColor: "#FFFFFF" }}
+        className="relative w-full sm:max-w-2xl max-h-[90vh] overflow-y-auto rounded-t-2xl sm:rounded-2xl border border-border bg-card shadow-soft-lg"
       >
-        {/* Header with sprite */}
+        {/* Header with sprite — click to swap normal/shiny */}
         <div className="relative p-4 border-b border-border/60 bg-primary/5">
           <Button
             type="button"
@@ -160,15 +160,7 @@ export function PokemonDetailModal({ pokemon, onClose }: Props) {
             <X className="h-4 w-4" />
           </Button>
           <div className="flex items-center gap-4">
-            <img
-              src={spriteUrl(pokemon)}
-              alt={pokemon.names.en ?? ""}
-              className="pixelated h-24 w-24 sm:h-28 sm:w-28 shrink-0 drop-shadow-[0_4px_10px_rgba(60,40,20,0.25)]"
-              loading="lazy"
-              onError={(e) => {
-                (e.currentTarget as HTMLImageElement).style.visibility = "hidden";
-              }}
-            />
+            <ShinySwap pokemon={pokemon} />
             <div className="min-w-0">
               <div className="font-mono text-xs text-muted-foreground">
                 #{pokemon.id}
@@ -201,6 +193,9 @@ export function PokemonDetailModal({ pokemon, onClose }: Props) {
               <h3 className="font-pixel text-[10px] uppercase tracking-wider text-primary mb-2">
                 {t("baseStats")} · {totalStats}
               </h3>
+              <div className="flex justify-center py-2">
+                <StatRadar stats={pokemon.stats} size={220} />
+              </div>
               <div className="space-y-1.5">
                 {STATS.map((s) => {
                   const v = pokemon.stats![s.key];
@@ -232,23 +227,35 @@ export function PokemonDetailModal({ pokemon, onClose }: Props) {
               <h3 className="font-pixel text-[10px] uppercase tracking-wider text-primary mb-2">
                 {t("abilities")}
               </h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="space-y-2">
                 {pokemon.abilities.map((a, i) => (
                   <div
                     key={i}
                     className={cn(
-                      "rounded-sm border-2 px-2 py-1.5 bg-card/60",
+                      "rounded-lg border-2 px-3 py-2 bg-card/60",
                       a.hidden ? "border-accent/60" : "border-border",
                     )}
                   >
-                    <div className="font-mono text-xs">
-                      {a.names[lang] ?? a.names.en ?? "?"}
+                    <div className="flex items-baseline gap-2 flex-wrap">
+                      <span className="font-pixel text-xs uppercase tracking-wider text-foreground text-shadow-pixel">
+                        {a.names[lang] ?? a.names.en ?? "?"}
+                      </span>
+                      {a.hidden && (
+                        <span className="text-[7px] font-pixel uppercase text-accent-foreground bg-accent/30 border border-accent/60 rounded px-1 py-0.5">
+                          {t("hiddenAbility")}
+                        </span>
+                      )}
                     </div>
-                    {a.hidden && (
-                      <div className="text-[7px] font-pixel uppercase text-accent mt-0.5">
-                        {t("hiddenAbility")}
-                      </div>
-                    )}
+                    {(() => {
+                      const desc = a.description;
+                      if (!desc) return null;
+                      const text = typeof desc === "string" ? desc : (desc[lang] ?? desc.en);
+                      return text ? (
+                        <p className="text-[11px] text-muted-foreground leading-relaxed mt-1">
+                          {text}
+                        </p>
+                      ) : null;
+                    })()}
                   </div>
                 ))}
               </div>
@@ -384,6 +391,42 @@ export function PokemonDetailModal({ pokemon, onClose }: Props) {
           </section>
         </div>
       </div>
+    </div>
+  );
+}
+
+function ShinySwap({ pokemon }: { pokemon: Pokemon }) {
+  const [showShiny, setShowShiny] = useState(false);
+
+  const mainSrc = artworkUrl(pokemon, showShiny);
+  const thumbSrc = artworkUrl(pokemon, !showShiny);
+
+  return (
+    <div
+      className="relative shrink-0 cursor-pointer"
+      onClick={() => setShowShiny(!showShiny)}
+      title={showShiny ? "Show normal" : "Show shiny"}
+    >
+      <img
+        src={mainSrc}
+        alt=""
+        className="h-24 w-24 sm:h-28 sm:w-28 drop-shadow-[0_4px_10px_rgba(60,40,20,0.25)] transition-all"
+        loading="lazy"
+      />
+      <img
+        src={thumbSrc}
+        alt=""
+        className={cn(
+          "absolute -bottom-1 -right-1 h-10 w-10 sm:h-12 sm:w-12 rounded-lg border-2 bg-card/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.2)] transition-all hover:scale-110",
+          showShiny ? "border-border" : "border-yellow-400/60",
+        )}
+        loading="lazy"
+      />
+      {showShiny && (
+        <span className="absolute top-0 left-0 font-pixel text-[6px] text-yellow-600 bg-yellow-400/20 border border-yellow-400/40 rounded px-1">
+          SHINY
+        </span>
+      )}
     </div>
   );
 }

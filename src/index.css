@@ -31,6 +31,28 @@
     --ring: 0 100% 61%;
     --radius: 0.75rem;                /* rounded-xl */
   }
+
+  .dark {
+    --background: 220 15% 10%;         /* deep blue-black */
+    --foreground: 40 20% 90%;          /* warm off-white */
+    --card: 220 15% 14%;               /* dark card */
+    --card-foreground: 40 20% 90%;
+    --popover: 220 15% 14%;
+    --popover-foreground: 40 20% 90%;
+    --primary: 0 100% 64%;             /* brighter red for dark bg */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 22 60% 25%;
+    --secondary-foreground: 40 20% 90%;
+    --muted: 220 15% 18%;
+    --muted-foreground: 40 10% 55%;
+    --accent: 22 80% 35%;
+    --accent-foreground: 40 20% 90%;
+    --destructive: 0 100% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 10% 22%;
+    --input: 220 15% 16%;
+    --ring: 0 100% 64%;
+  }
 }
 
 @layer base {
@@ -43,7 +65,7 @@
     min-height: 100%;
   }
   body {
-    @apply bg-background text-foreground font-mono antialiased;
+    @apply bg-background text-foreground font-sans antialiased;
     background-color: hsl(var(--background));
   }
 
@@ -82,6 +104,12 @@
   .shadow-soft-primary {
     box-shadow:
       0 4px 14px rgba(255, 55, 55, 0.25);
+  }
+
+  /* Shimmer animation for progress bars */
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(200%); }
   }
 
   /* Subtle pixel text shadow — tiny offset for the retro headings */

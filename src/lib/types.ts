@@ -33,7 +33,11 @@ export interface Ability {
     string
   >>;
   hidden: boolean;
-  description?: string;
+  // Can be a plain string (legacy) or a localized Record (new).
+  description?: string | Partial<Record<
+    "en" | "fr" | "es" | "de" | "it" | "ja" | "ko" | "zh-Hans" | "zh-Hant",
+    string
+  >>;
 }
 
 export interface Pokemon {

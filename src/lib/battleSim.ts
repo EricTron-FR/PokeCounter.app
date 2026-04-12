@@ -316,13 +316,56 @@ export interface SimulationConfig {
   pool: Archetype | "mixed";
 }
 
+export interface PokemonSimStat {
+  id: number;
+  picked: number;
+  total: number;
+  pickRate: number;
+  winRateWhenPicked: number;
+  winRateWhenBenched: number;
+  impact: number; // delta picked vs benched (positive = MVP)
+}
+
+export interface ArchetypeWinRate {
+  archetype: Archetype;
+  count: number;
+  avgWinRate: number;
+}
+
+export interface ThreatPokemon {
+  id: number;
+  appearances: number;
+  avgWrWhenFaced: number;
+}
+
+export interface LeadPair {
+  ids: [number, number];
+  count: number;
+  avgWr: number;
+}
+
 export interface SimulationResult {
   matchups: MatchupResult[];
   overallWinRate: number;
   bestMatchups: MatchupResult[]; // top 3
   worstMatchups: MatchupResult[]; // bottom 3
-  analysisHint: string | null;
+  analysisHint: import("./teamAnalysis").Suggestion | null;
+  pokemonStats: PokemonSimStat[];
+  archetypeBreakdown: ArchetypeWinRate[];
+  threats: ThreatPokemon[];
+  bestLead: LeadPair | null;
+  strategyTips: StrategyTip[];
 }
+
+export type StrategyTip =
+  | { kind: "sharedWeakness"; types: string[] }
+  | { kind: "hardCounter"; archetype: string; wr: number }
+  | { kind: "strongestVs"; archetype: string; wr: number }
+  | { kind: "weakestVs"; archetype: string; wr: number }
+  | { kind: "severeThreat"; name: string; wr: number }
+  | { kind: "bestLead"; name1: string; name2: string; wr: number }
+  | { kind: "needSpeedControl" }
+  | { kind: "leadFakeOut" };
 
 const MIXED_ROTATION: Archetype[] = [
   "random",
@@ -383,10 +426,157 @@ export function runSimulation(
   const bestMatchups = sorted.slice(0, 3);
   const worstMatchups = sorted.slice(-3).reverse();
 
-  // Derive a simple hint from the team analysis
+  // --- Per-Pokémon stats ---
+  const pokeMap = new Map<number, { picked: number; winsPicked: number; winsBenched: number; benched: number }>();
+  for (const mon of myTeam) {
+    pokeMap.set(mon.id, { picked: 0, winsPicked: 0, winsBenched: 0, benched: 0 });
+  }
+  for (const m of matchups) {
+    const pickedIds = new Set(m.yourPicks.map((p) => p.id));
+    for (const mon of myTeam) {
+      const stat = pokeMap.get(mon.id)!;
+      if (pickedIds.has(mon.id)) {
+        stat.picked++;
+        stat.winsPicked += m.winRate;
+      } else {
+        stat.benched++;
+        stat.winsBenched += m.winRate;
+      }
+    }
+  }
+  const pokemonStats: PokemonSimStat[] = myTeam.map((mon) => {
+    const s = pokeMap.get(mon.id)!;
+    const total = s.picked + s.benched;
+    const pickRate = total > 0 ? Math.round((s.picked / total) * 100) : 0;
+    const wrPicked = s.picked > 0 ? Math.round(s.winsPicked / s.picked) : 0;
+    const wrBenched = s.benched > 0 ? Math.round(s.winsBenched / s.benched) : 0;
+    return {
+      id: mon.id,
+      picked: s.picked,
+      total,
+      pickRate,
+      winRateWhenPicked: wrPicked,
+      winRateWhenBenched: wrBenched,
+      impact: wrPicked - wrBenched,
+    };
+  }).sort((a, b) => b.impact - a.impact);
+
+  // --- Archetype breakdown (all archetypes, even if 0 matches) ---
+  const ALL_ARCHETYPES: Archetype[] = [
+    "random", "balance", "sun", "rain", "trick-room",
+    "tailwind", "hyper-offense", "bulky", "mono", "meta",
+  ];
+  const archMap = new Map<Archetype, { count: number; totalWr: number }>();
+  for (const a of ALL_ARCHETYPES) archMap.set(a, { count: 0, totalWr: 0 });
+  for (const m of matchups) {
+    const a = m.archetype;
+    const existing = archMap.get(a)!;
+    existing.count++;
+    existing.totalWr += m.winRate;
+  }
+  const archetypeBreakdown: ArchetypeWinRate[] = [...archMap.entries()]
+    .map(([archetype, { count, totalWr }]) => ({
+      archetype,
+      count,
+      avgWinRate: count > 0 ? Math.round(totalWr / count) : 0,
+    }))
+    .sort((a, b) => b.avgWinRate - a.avgWinRate);
+
+  // --- Threat Pokémon ---
+  const threatMap = new Map<number, { count: number; totalWr: number }>();
+  for (const m of matchups) {
+    for (const opp of m.opponent) {
+      const existing = threatMap.get(opp.id);
+      if (existing) {
+        existing.count++;
+        existing.totalWr += m.winRate;
+      } else {
+        threatMap.set(opp.id, { count: 1, totalWr: m.winRate });
+      }
+    }
+  }
+  const threats: ThreatPokemon[] = [...threatMap.entries()]
+    .map(([id, { count, totalWr }]) => ({
+      id,
+      appearances: count,
+      avgWrWhenFaced: Math.round(totalWr / count),
+    }))
+    .filter((t) => t.appearances >= 3) // need at least 3 appearances for relevance
+    .sort((a, b) => a.avgWrWhenFaced - b.avgWrWhenFaced)
+    .slice(0, 5);
+
+  // --- Best lead pair ---
+  const leadMap = new Map<string, { ids: [number, number]; count: number; totalWr: number }>();
+  for (const m of matchups) {
+    if (m.yourPicks.length >= 2) {
+      const pair = [m.yourPicks[0].id, m.yourPicks[1].id].sort((a, b) => a - b) as [number, number];
+      const key = pair.join(",");
+      const existing = leadMap.get(key);
+      if (existing) {
+        existing.count++;
+        existing.totalWr += m.winRate;
+      } else {
+        leadMap.set(key, { ids: pair, count: 1, totalWr: m.winRate });
+      }
+    }
+  }
+  const bestLead: LeadPair | null = (() => {
+    let best: LeadPair | null = null;
+    for (const { ids, count, totalWr } of leadMap.values()) {
+      if (count < 3) continue; // need relevance
+      const avgWr = Math.round(totalWr / count);
+      if (!best || avgWr > best.avgWr) {
+        best = { ids, count, avgWr };
+      }
+    }
+    return best;
+  })();
+
+  // --- Strategy tips ---
   const analysis = analyzeTeam(myTeam);
-  const topSuggestion = analysis.suggestions.find((s) => s.severity !== "info");
-  const analysisHint = topSuggestion ? topSuggestion.text : null;
+  const analysisHint =
+    analysis.suggestions.find((s) => s.severity !== "info") ?? null;
+
+  const strategyTips: StrategyTip[] = [];
+
+  // Shared weaknesses from team analysis
+  const sharedTypes = analysis.sharedWeaknesses
+    .filter((w) => w.count >= 3)
+    .map((w) => w.type);
+  if (sharedTypes.length > 0) {
+    strategyTips.push({ kind: "sharedWeakness", types: sharedTypes });
+  }
+
+  // Hard counter archetype (worst)
+  if (archetypeBreakdown.length > 0) {
+    const worst = archetypeBreakdown[archetypeBreakdown.length - 1];
+    if (worst.avgWinRate <= 35) {
+      strategyTips.push({ kind: "hardCounter", archetype: worst.archetype, wr: worst.avgWinRate });
+    }
+    strategyTips.push({ kind: "weakestVs", archetype: worst.archetype, wr: worst.avgWinRate });
+    strategyTips.push({ kind: "strongestVs", archetype: archetypeBreakdown[0].archetype, wr: archetypeBreakdown[0].avgWinRate });
+  }
+
+  // Severe threat Pokémon
+  if (threats.length > 0 && threats[0].avgWrWhenFaced <= 30) {
+    strategyTips.push({ kind: "severeThreat", name: String(threats[0].id), wr: threats[0].avgWrWhenFaced });
+  }
+
+  // Best lead
+  if (bestLead) {
+    strategyTips.push({ kind: "bestLead", name1: String(bestLead.ids[0]), name2: String(bestLead.ids[1]), wr: bestLead.avgWr });
+  }
+
+  // Speed control suggestion
+  const avgSpeed = analysis.averageSpeed;
+  if (avgSpeed < 70 && avgSpeed > 0) {
+    strategyTips.push({ kind: "needSpeedControl" });
+  }
+
+  // Fast lead suggestion
+  if (myTeam.some((p) => (p.stats?.spe ?? 0) > 90)) {
+    strategyTips.push({ kind: "leadFakeOut" });
+  }
 
   return {
     matchups,
@@ -394,5 +584,10 @@ export function runSimulation(
     bestMatchups,
     worstMatchups,
     analysisHint,
+    pokemonStats,
+    archetypeBreakdown,
+    threats,
+    bestLead,
+    strategyTips,
   };
 }

@@ -1,6 +1,10 @@
 import { useMemo, useState } from "react";
 import { ALL_TYPES, PokemonType, TYPE_CHART, TYPE_COLORS } from "@/lib/types";
-import { typeLabel, useLang } from "@/lib/i18n";
+import { effectiveness } from "@/lib/coverage";
+import { typeLabel, useLang, pokemonName } from "@/lib/i18n";
+import { spriteUrl } from "@/lib/pokemon";
+import { PokemonSearch } from "./PokemonSearch";
+import type { Pokemon } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 type Mode = "attacker" | "defender";
@@ -16,9 +20,13 @@ const MULT_STYLE = (m: number) => {
 };
 
 export function TypeChartPage() {
-  const { lang } = useLang();
+  const { lang, t } = useLang();
   const [mode, setMode] = useState<Mode>("attacker");
   const [selected, setSelected] = useState<PokemonType | null>(null);
+  const [pokemon, setPokemon] = useState<Pokemon | null>(null);
+
+  // Types of the selected Pokemon (for highlighting multiple rows/cols)
+  const pokemonTypes = pokemon?.types ?? [];
 
   // Compute the row for selected type. If attacker mode → effectiveness AGAINST each defender.
   // If defender mode → effectiveness FROM each attacker against selected.
@@ -52,6 +60,76 @@ export function TypeChartPage() {
           18 × 18 interactive matchup table
         </p>
       </header>
+
+      {/* Pokemon search */}
+      <div className="max-w-xs mx-auto mb-4">
+        <PokemonSearch
+          onSelect={(p) => {
+            setPokemon(p);
+            setSelected(null);
+          }}
+          excludeIds={pokemon ? [pokemon.id] : []}
+          placeholder={t("search")}
+        />
+      </div>
+
+      {/* Selected Pokemon display */}
+      {pokemon && (
+        <div className="mb-4 flex items-center justify-center gap-3 rounded-lg border border-primary/40 bg-card p-3 max-w-lg mx-auto">
+          <img
+            src={spriteUrl(pokemon)}
+            alt=""
+            className="pixelated h-12 w-12 object-contain"
+          />
+          <div>
+            <div className="font-pixel text-sm uppercase tracking-wider text-foreground">
+              {pokemonName(pokemon, lang)}
+            </div>
+            <div className="flex gap-1 mt-1">
+              {pokemon.types.map((tp) => (
+                <span
+                  key={tp}
+                  className={cn(
+                    "inline-flex items-center rounded-sm font-pixel uppercase tracking-wider border border-black/30 px-1.5 py-0.5 text-[8px]",
+                    TYPE_COLORS[tp],
+                  )}
+                >
+                  {typeLabel(tp, lang)}
+                </span>
+              ))}
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={() => setPokemon(null)}
+            className="ml-auto font-pixel text-muted-foreground hover:text-foreground text-xs"
+          >
+            x
+          </button>
+        </div>
+      )}
+
+      {/* Defensive matchup panel for selected Pokemon */}
+      {pokemon && (
+        <div className="mb-6 rounded-lg border-2 border-primary/30 bg-card/80 p-3 max-w-3xl mx-auto">
+          <div className="font-pixel text-[10px] uppercase tracking-wider text-muted-foreground mb-2">
+            {pokemonName(pokemon, lang)} — {mode === "attacker" ? "STAB coverage" : "defensive matchups"}
+          </div>
+          {mode === "defender" ? (
+            <PokemonDefenseRow types={pokemon.types} lang={lang} />
+          ) : (
+            <SelectedRow
+              row={Object.fromEntries(
+                ALL_TYPES.map((def) => [
+                  def,
+                  Math.max(...pokemon.types.map((att) => TYPE_CHART[att][def])),
+                ]),
+              ) as Record<PokemonType, number>}
+              lang={lang}
+            />
+          )}
+        </div>
+      )}
 
       {/* Mode toggle */}
       <div className="flex justify-center mb-4">
@@ -170,9 +248,12 @@ export function TypeChartPage() {
                   const m = TYPE_CHART[att][def];
                   const style = MULT_STYLE(m);
                   const highlighted =
-                    selected &&
-                    ((mode === "attacker" && att === selected) ||
-                      (mode === "defender" && def === selected));
+                    (selected &&
+                      ((mode === "attacker" && att === selected) ||
+                        (mode === "defender" && def === selected))) ||
+                    (pokemon &&
+                      ((mode === "attacker" && pokemonTypes.includes(att)) ||
+                        (mode === "defender" && pokemonTypes.includes(def))));
                   return (
                     <td
                       key={def}
@@ -215,6 +296,47 @@ export function TypeChartPage() {
         })}
       </div>
     </main>
+  );
+}
+
+function PokemonDefenseRow({
+  types,
+  lang,
+}: {
+  types: PokemonType[];
+  lang: import("@/lib/i18n").Lang;
+}) {
+  const buckets: Record<string, PokemonType[]> = { "4x": [], "2x": [], "1x": [], "0.5x": [], "0.25x": [], "0x": [] };
+  for (const att of ALL_TYPES) {
+    const m = effectiveness(att, types);
+    const key = m >= 4 ? "4x" : m >= 2 ? "2x" : m === 0 ? "0x" : m <= 0.25 ? "0.25x" : m <= 0.5 ? "0.5x" : "1x";
+    buckets[key].push(att);
+  }
+  return (
+    <div className="space-y-1.5">
+      {Object.entries(buckets).map(([k, list]) => {
+        if (list.length === 0) return null;
+        const color = k === "4x" || k === "2x" ? "text-red-600" : k === "0x" || k === "0.25x" || k === "0.5x" ? "text-emerald-600" : "";
+        return (
+          <div key={k} className="flex items-start gap-2">
+            <div className={cn("w-10 font-pixel text-[10px] text-shadow-pixel shrink-0", color)}>{k}</div>
+            <div className="flex flex-wrap gap-1 flex-1">
+              {list.map((tp) => (
+                <span
+                  key={tp}
+                  className={cn(
+                    "inline-flex items-center rounded-sm font-pixel uppercase tracking-wider border border-black/30 px-1.5 py-0.5 text-[8px]",
+                    TYPE_COLORS[tp],
+                  )}
+                >
+                  {typeLabel(tp, lang)}
+                </span>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
   );
 }
 
